@@ -45,7 +45,7 @@ public class LoadLevelScript : MonoBehaviour
 			m_ioManager.SaveFromPath(LoadedLevel.Path);
 			return;
 		}
-		string path = m_ioManager.Save();
+		string path = m_ioManager.SaveAndGetPath();
 		int index = path.LastIndexOf('/');
 		path = path.Substring(index + 1);
 		Levels = m_ioManager.GetLevelsInDirectory(Application.dataPath + "/Levels/");	

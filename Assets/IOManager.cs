@@ -28,7 +28,13 @@ public class IOManager : MonoBehaviour
 		return levels;
 	}
 
-	public string Save()
+	public void Save()
+	{
+		string filePath = UnityEditor.EditorUtility.SaveFilePanel("Save current level", "/Assets/Levels/", "newLevel.lel", "lel");
+		SaveFromPath(filePath);		
+	}
+
+	public string SaveAndGetPath()
 	{
 		string filePath = UnityEditor.EditorUtility.SaveFilePanel("Save current level", "/Assets/Levels/", "newLevel.lel", "lel");
 		SaveFromPath(filePath);
