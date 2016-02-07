@@ -27,6 +27,8 @@ public class MapEditor : MonoBehaviour {
 	private GridCell m_lastDrawnCell = null;
 	private GridCell m_markedCell = null;
 
+	private bool m_active = true;
+
 	void OnEnable()
 	{
 		Instance = this;
@@ -47,20 +49,10 @@ public class MapEditor : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-//		if(!Active)
-//		{
-//			Instance = null;		
-//			for(int i = 0; i < transform.childCount; ++i)
-//				transform.GetChild(i).gameObject.SetActive(false);
-//			return;
-//		}
-//		if(Instance == null)
-//		{
-//			Instance = this;
-//			for(int i = 0; i < transform.childCount; ++i)
-//				transform.GetChild(i).gameObject.SetActive(true);
-//		}
-//
+		CheckAttachmentInput();
+		if(!m_active)
+			return;
+		
 		if(m_drawMode == EditorDrawMode.DontDraw)
 		{
 			if(Input.GetMouseButtonDown(0))
@@ -144,6 +136,24 @@ public class MapEditor : MonoBehaviour {
 					}
 				}
 			}
+		}
+	}
+
+	private void CheckAttachmentInput()
+	{
+		if(!m_active)
+		{
+			if(Input.GetKeyDown(KeyCode.F5))
+			{			
+				m_active = true;
+				OnEnable();
+			}
+			return;
+		}
+		if(Input.GetKeyDown(KeyCode.F5))
+		{			
+			m_active = false;
+			OnDisable();
 		}
 	}
 
