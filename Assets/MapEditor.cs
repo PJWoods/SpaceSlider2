@@ -13,8 +13,8 @@ public class MapEditor : MonoBehaviour {
 		DrawMovable,
 		DrawNonMovable,
 		DrawBoost,
-		DrawLaneChangerUp,
-		DrawLaneChangerDown,
+		DrawLaneChangerLeft,
+		DrawLaneChangerRight,
 		DrawEmpty,
 		Total
 	}
@@ -118,11 +118,11 @@ public class MapEditor : MonoBehaviour {
 						case EditorDrawMode.DrawBoost:
 							block = BlockFactory.Instance.CreateBlock(BlockBase.BlockProperty.PowerUp);
 							break;
-						case EditorDrawMode.DrawLaneChangerUp:
-							block = BlockFactory.Instance.CreateBlock(BlockBase.BlockProperty.LaneChangerUp);
+						case EditorDrawMode.DrawLaneChangerLeft:
+							block = BlockFactory.Instance.CreateBlock(BlockBase.BlockProperty.LaneChangerLeft);
 							break;
-						case EditorDrawMode.DrawLaneChangerDown:
-							block = BlockFactory.Instance.CreateBlock(BlockBase.BlockProperty.LaneChangerDown);
+						case EditorDrawMode.DrawLaneChangerRight:
+							block = BlockFactory.Instance.CreateBlock(BlockBase.BlockProperty.LaneChangerRight);
 							break;
 						}
 						if(block != null)

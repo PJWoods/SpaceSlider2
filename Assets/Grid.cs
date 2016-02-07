@@ -6,6 +6,12 @@ using System.Collections.Generic;
 ////////[ExecuteInEditMode]
 public class Grid : MonoBehaviour {
 
+	public enum GridType
+	{
+		Horizontal,
+		Vertical
+	};
+
 	[System.Serializable]
 	public class CellCount
 	{
@@ -15,6 +21,7 @@ public class Grid : MonoBehaviour {
 
 	public bool ShowDebugLines = false;
 	public bool ShowDebugPositions = false;
+	public GridType Type;
 	public CellCount Cells;
 	public Vector2 CellDimensions;
 
@@ -31,10 +38,15 @@ public class Grid : MonoBehaviour {
 		Debug.Assert(Cells.X > 0 && Cells.Y > 0 && CellDimensions.x > 0 && CellDimensions.y > 0, "INVALID GRID! Gör om gör rätt!");
 
 		Vector3 centerPosition = Camera.main.transform.position;
-		//float centerX = (Cells.X * CellDimensions.x) * 0.5f;
+		float centerX = (Cells.X * CellDimensions.x) * 0.5f;
 		float centerY = (Cells.Y * CellDimensions.y) * 0.5f;
 		float startX = centerPosition.x;//centerPosition.x - centerX;
 		float startY = centerPosition.y - centerY;
+		if(Type == GridType.Vertical)
+		{
+			startX = centerPosition.x - centerX;
+			startY = centerPosition.y;			
+		}
 
 		m_cells = new List<List<GridCell>>(Cells.Y);
 		for (int y = 0; y < Cells.Y; ++y) 

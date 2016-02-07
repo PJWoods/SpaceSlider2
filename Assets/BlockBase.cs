@@ -13,8 +13,8 @@ public class BlockBase : MonoBehaviour
 		Movable,
 		NonMovable,
 		PowerUp,
-		LaneChangerUp,
-		LaneChangerDown,
+		LaneChangerLeft,
+		LaneChangerRight,
 		TotalAmountOfTypes
 	};
 

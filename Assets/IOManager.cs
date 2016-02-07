@@ -100,11 +100,16 @@ public class IOManager : MonoBehaviour
 		gridComponent.CellDimensions.y = float.Parse(reader.ReadLine());
 
 		Vector3 centerPosition = Camera.main.transform.position;
-		//float centerX = (gridComponent.Cells.X * gridComponent.CellDimensions.x) * 0.5f;
+		float centerX = (gridComponent.Cells.X * gridComponent.CellDimensions.x) * 0.5f;
 		float centerY = (gridComponent.Cells.Y * gridComponent.CellDimensions.y) * 0.5f;
 		float startX = Camera.main.transform.position.x; //centerPosition.x - centerX;
 		float startY = centerPosition.y - centerY;
-
+		if(gridComponent.Type == Grid.GridType.Vertical)
+		{
+			startX = centerPosition.x - centerX;
+			startY = centerPosition.y;			
+		}
+			
 		gridComponent.Reset();
 		cells.Clear();
 

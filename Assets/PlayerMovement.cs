@@ -31,17 +31,17 @@ public class PlayerMovement : MonoBehaviour {
 				if(m_changingLane)
 				{
 					Vector3 laneChangeDir = (m_laneChangeTarget - transform.position);
-					if(laneChangeDir.sqrMagnitude > 0.01f && Mathf.Abs(Mathf.Abs(m_laneChangeTarget.y) - Mathf.Abs(transform.position.y)) > 0.01f)
+					if(laneChangeDir.sqrMagnitude > 0.01f && Mathf.Abs(Mathf.Abs(m_laneChangeTarget.x) - Mathf.Abs(transform.position.x)) > 0.01f)
 					{
-						float direction = (laneChangeDir.normalized.y > 0 ? 1f : -1f);
-						m_currentVelocity.y = direction * m_currentVelocity.x * LaneChangeSpeed * Time.deltaTime;
+						float direction = (laneChangeDir.normalized.x > 0 ? 1f : -1f);
+						m_currentVelocity.x = direction * m_currentVelocity.y * LaneChangeSpeed * Time.deltaTime;
 					}
 					else
 					{
 						Vector3 pos = transform.position;
-						pos.y = m_laneChangeTarget.y;
+						pos.x = m_laneChangeTarget.x;
 						transform.position = pos;
-						m_currentVelocity.y = 0;
+						m_currentVelocity.x = 0;
 						m_changingLane = false;
 					}			
 				}
@@ -53,20 +53,20 @@ public class PlayerMovement : MonoBehaviour {
 	void CalculatedCameraDragAndMovement()
 	{
 		Vector3 camPos = Camera.main.transform.position;
-		camPos.y = transform.position.y;
+		camPos.x = transform.position.x;
 		camPos.z = transform.position.z;
 
-		float distance = Mathf.Abs(camPos.x - transform.position.x);
+		float distance = Mathf.Abs(camPos.y - transform.position.y);
 		if(distance < MaximumDistance)
 		{
-			Vector3 vel_diff = Camera.main.GetComponent<CameraMovement>().GetCurrentVelocity() - m_currentVelocity;
+			Vector3 vel_diff = Camera.main.GetComponent<CameraMovement>().CurrentVelocity - m_currentVelocity;
 			m_currentVelocity += vel_diff * Time.deltaTime;
 			return;
 		}
 
 		float drag = distance / MaximumDistance;
 		Vector3 direction = (camPos - transform.position).normalized;
-		m_currentVelocity += (direction * Acceleration * Time.deltaTime) * drag;
+		m_currentVelocity += (direction * Acceleration * Time.deltaTime) * drag * DragFactor;
 	}
 
 	public void ChangeLane(int count)
@@ -74,11 +74,11 @@ public class PlayerMovement : MonoBehaviour {
 		GameObject gridObject = GameObject.Find("Grid");
 		Grid grid = gridObject.GetComponent<Grid>();
 		Vector3 pos = transform.position;
-		pos.x += grid.CellDimensions.x * 0.5f;
+		pos.y += grid.CellDimensions.y * 0.5f;
 
 		GridCell currentCell = grid.GetCellFromWorldPosition(pos);
 		Vector3 cellPos = currentCell.GetPosition();
-		m_laneChangeTarget = cellPos + new Vector3(grid.CellDimensions.x * Mathf.Abs(count), grid.CellDimensions.y * count);
+		m_laneChangeTarget = cellPos + new Vector3(grid.CellDimensions.x * count, grid.CellDimensions.y * Mathf.Abs(count), cellPos.z);
 		m_changingLane = true;
 	}
 
@@ -88,7 +88,7 @@ public class PlayerMovement : MonoBehaviour {
 	}
 	void OnCollisionExit2D(Collision2D collision)
 	{
-		m_currentVelocity.x = 0f;
+		m_currentVelocity.y = 0f;
 		m_isColliding = false;
 	}
 	void OnTriggerEnter2D(Collider2D collision)

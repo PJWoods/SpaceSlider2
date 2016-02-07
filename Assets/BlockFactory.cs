@@ -35,11 +35,11 @@ public class BlockFactory
 		case BlockBase.BlockProperty.PowerUp:
 			prefabName = "PowerUp";
 			break;
-		case BlockBase.BlockProperty.LaneChangerUp:
-			prefabName = "LaneChangerUp";
+		case BlockBase.BlockProperty.LaneChangerLeft:
+			prefabName = "LaneChangerLeft";
 			break;
-		case BlockBase.BlockProperty.LaneChangerDown:
-			prefabName = "LaneChangerDown";
+		case BlockBase.BlockProperty.LaneChangerRight:
+			prefabName = "LaneChangerRight";
 			break;
 		default:
 			break;
