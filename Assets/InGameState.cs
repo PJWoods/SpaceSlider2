@@ -5,7 +5,7 @@ public class InGameState : GameState
 {
     public override void Begin()
     {
-        Game.Instance.LoadLevel("Level 1");
+        Game.Instance.LoadLevel("assets");
     }
 
     public override void Update()

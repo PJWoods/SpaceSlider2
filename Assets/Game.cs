@@ -11,7 +11,7 @@ public class Game
 
     public void GameStartUp()
     {
-        UICore = (GameObject.Instantiate(Resources.Load("Prefabs/GUI/UIRoot")) as GameObject).GetComponent<UICore>();
+        UICore = (GameObject.Instantiate(Resources.Load("Prefabs/UI/UIRoot")) as GameObject).GetComponent<UICore>();
         GameState = new GameStateHandler();
         GameState.Initialize();
 
