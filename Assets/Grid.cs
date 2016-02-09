@@ -31,10 +31,6 @@ public class Grid : MonoBehaviour {
 
 	void Awake()
 	{
-
-	}
-	void OnEnable()
-	{
 		Debug.Assert(Cells.X > 0 && Cells.Y > 0 && CellDimensions.x > 0 && CellDimensions.y > 0, "INVALID GRID! Gör om gör rätt!");
 
 		Vector3 centerPosition = Camera.main.transform.position;
@@ -60,8 +56,9 @@ public class Grid : MonoBehaviour {
 				newColumn.Add(cell);
 			}
 			m_cells.Add(newColumn);
-		}			
+		}	
 	}
+
 	void Start () 
 	{
 

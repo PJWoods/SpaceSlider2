@@ -10,21 +10,37 @@ public class IOManager : MonoBehaviour
 	private Rect windowRect = new Rect((Screen.width * 0.5f) - 200f, (Screen.height * 0.5f) - 50f, 400f, 100f);
 	private bool m_promptUnsavedLevel = false;
 
-	public List<LoadLevelScript.Level> GetLevelsInDirectory(string directoryPath)
+	public List<GameObject> GetLevelsInDirectory(string directoryPath)
 	{
 		DirectoryInfo info = new DirectoryInfo(directoryPath);
 		FileInfo[] fileInfo = info.GetFiles();
 
-		List<LoadLevelScript.Level> levels = new List<LoadLevelScript.Level>();
+		List<GameObject> levels = new List<GameObject>();
 		foreach (FileInfo file in fileInfo) 
 		{
 			if(file.Name.EndsWith(".lel"))
 			{
-				LoadLevelScript.Level l = new LoadLevelScript.Level(file.Name, file.FullName);
-				levels.Add(l);	
+				GameObject levelParent = (GameObject.Instantiate(Resources.Load("Prefabs/Levels/EmptyLevel")) as GameObject);
+				LevelBase levelBase = levelParent.GetComponent<LevelBase>();
+				levelBase.Name = file.Name; levelBase.Path = file.FullName;
+				levels.Add(levelParent);	
 			}
 		}			
 		return levels;
+	}
+
+	public GameObject Create()
+	{
+		string filePath = UnityEditor.EditorUtility.SaveFilePanel("Create new level", "/Assets/Levels/", "newLevel.lel", "lel");
+		return CreateFromPath(filePath);			
+	}
+	public GameObject CreateFromPath(string filePath)
+	{
+		string fileName = filePath.Substring(filePath.LastIndexOf('/') + 1);
+		GameObject level = GameObject.Instantiate(Resources.Load("Prefabs/Levels/EmptyLevel")) as GameObject;
+		LevelBase levelBase = level.GetComponent<LevelBase>();
+		levelBase.Name = fileName; levelBase.Path = filePath;
+		return level;
 	}
 
 	public void Save()
@@ -46,36 +62,39 @@ public class IOManager : MonoBehaviour
 		{
 			return;
 		}
-
-		GameObject grid = GameObject.Find("Grid");
-		Grid gridComponent = grid.GetComponent<Grid>();
-		List<List<GridCell>> cells = gridComponent.GetCells();
-
-		StreamWriter writer = File.CreateText(filePath);
-		writer.WriteLine(gridComponent.Cells.X.ToString());
-		writer.WriteLine(gridComponent.Cells.Y.ToString());
-		writer.WriteLine(gridComponent.CellDimensions.x.ToString());
-		writer.WriteLine(gridComponent.CellDimensions.x.ToString());
-
-		for (int y = 0; y < cells.Count; ++y) 
+		GameObject level = MapEditor.Instance.GetComponent<LoadLevelScript>().LoadedLevel;
+		if(level)
 		{
-			for (int x = 0; x < cells[y].Count; ++x) 
+			Grid gridComponent = level.GetComponent<Grid>();
+			List<List<GridCell>> cells = gridComponent.GetCells();
+
+			StreamWriter writer = File.CreateText(filePath);
+			writer.WriteLine(gridComponent.Cells.X.ToString());
+			writer.WriteLine(gridComponent.Cells.Y.ToString());
+			writer.WriteLine(gridComponent.CellDimensions.x.ToString());
+			writer.WriteLine(gridComponent.CellDimensions.x.ToString());
+
+			for (int y = 0; y < cells.Count; ++y) 
 			{
-				if(cells[y][x].GetBlock() != null)
-					writer.WriteLine(cells[y][x].GetBlock().name);
-				else
-					writer.WriteLine("null");
+				for (int x = 0; x < cells[y].Count; ++x) 
+				{
+					if(cells[y][x].GetBlock() != null)
+						writer.WriteLine(cells[y][x].GetBlock().name);
+					else
+						writer.WriteLine("null");
+				}
 			}
+			writer.Close();
+			gridComponent.SetIsSaved(true);
+			return;
 		}
-		writer.Close();
-		gridComponent.SetIsSaved(true);		
+		Debug.LogError("No Level to save!");
 	}
 
 	public void Load()
 	{
 		StartCoroutine(LoadAsync());
 	}
-
 	public void Load(string path)
 	{
 		StartCoroutine(LoadAsyncPath(path));
@@ -88,8 +107,13 @@ public class IOManager : MonoBehaviour
 			return;
 		}
 
-		GameObject grid = GameObject.Find("Grid");
-		Grid gridComponent = grid.GetComponent<Grid>();
+		GameObject level = MapEditor.Instance.GetComponent<LoadLevelScript>().LoadedLevel;
+		if(!level)
+		{
+			level = CreateFromPath(path);
+		}
+
+		Grid gridComponent = level.GetComponent<Grid>();
 		List<List<GridCell>> cells = gridComponent.GetCells();
 
 		StreamReader reader = File.OpenText(path);
@@ -142,22 +166,25 @@ public class IOManager : MonoBehaviour
 	}
 	IEnumerator LoadAsync()
 	{
-		GameObject grid = GameObject.Find("Grid");
-		Grid gridComponent = grid.GetComponent<Grid>();
-		List<List<GridCell>> cells = gridComponent.GetCells();
-
-		if(cells.Count > 0)
+		GameObject level = MapEditor.Instance.GetComponent<LoadLevelScript>().LoadedLevel;
+		if(level)
 		{
-			if(gridComponent.GetIsSaved() == false)
-			{
-				m_promptUnsavedLevel = true;
-				while(m_promptUnsavedLevel)
-				{
-					yield return null;
-				}
-			}
-		}
+			Grid gridComponent = level.GetComponent<Grid>();
+			List<List<GridCell>> cells = gridComponent.GetCells();
 
+			if(cells.Count > 0)
+			{
+				if(gridComponent.GetIsSaved() == false)
+				{
+					m_promptUnsavedLevel = true;
+					while(m_promptUnsavedLevel)
+					{
+						yield return null;
+					}
+				}
+			}		
+		}
+			
 		string filePath = UnityEditor.EditorUtility.OpenFilePanel("Load a level", "/Assets/Levels/", "lel");
 		if(filePath == null || filePath == "" || filePath.Length == 0)
 		{
@@ -168,18 +195,21 @@ public class IOManager : MonoBehaviour
 
 	IEnumerator LoadAsyncPath(string filePath)
 	{
-		GameObject grid = GameObject.Find("Grid");
-		Grid gridComponent = grid.GetComponent<Grid>();
-		List<List<GridCell>> cells = gridComponent.GetCells();
-
-		if(cells.Count > 0)
+		GameObject level = MapEditor.Instance.GetComponent<LoadLevelScript>().LoadedLevel;
+		if(level)
 		{
-			if(gridComponent.GetIsSaved() == false)
+			Grid gridComponent = level.GetComponent<Grid>();
+			List<List<GridCell>> cells = gridComponent.GetCells();
+
+			if(cells.Count > 0)
 			{
-				m_promptUnsavedLevel = true;
-				while(m_promptUnsavedLevel)
+				if(gridComponent.GetIsSaved() == false)
 				{
-					yield return null;
+					m_promptUnsavedLevel = true;
+					while(m_promptUnsavedLevel)
+					{
+						yield return null;
+					}
 				}
 			}
 		}
@@ -193,7 +223,6 @@ public class IOManager : MonoBehaviour
 	void OnGUI()
 	{
 		if(m_promptUnsavedLevel)
-
 			windowRect = GUI.Window(0, windowRect, PromptUnsavedLevel, "\nThe current changes haven't been saved.\nWould you like to save them now?");
 	}
 

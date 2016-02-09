@@ -5,6 +5,7 @@ public class EditorState : GameState
 {
 	public override void Begin()
 	{
+		Game.Instance.LoadLevel("Editor");
 		Game.Instance.UICore.Create<MapEditor>(Resources.Load("Prefabs/UI/EditorMenu") as GameObject);
 	}
 

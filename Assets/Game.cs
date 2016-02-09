@@ -15,7 +15,7 @@ public class Game
 
     public void GameStartUp()
     {
-		ObjectPool = new GameObjectPool();
+		ObjectPool = (GameObject.Instantiate(Resources.Load("Prefabs/System/GameObjectPool")) as GameObject).GetComponent<GameObjectPool>();
 
 		Object[] baseArray = Resources.LoadAll("Prefabs/Blocks");
 		ObjectPool.Prefabs = new GameObjectPool.PoolItem[baseArray.Length];
@@ -26,7 +26,7 @@ public class Game
 			item.PoolSize = 128;
 			ObjectPool.Prefabs[i] = item;
 		}
-		IOManager = new IOManager();
+		IOManager = (GameObject.Instantiate(Resources.Load("Prefabs/System/IOManager")) as GameObject).GetComponent<IOManager>();
 
         UICore = (GameObject.Instantiate(Resources.Load("Prefabs/UI/UIRoot")) as GameObject).GetComponent<UICore>();
         GameState = new GameStateHandler();

@@ -8,48 +8,64 @@ using System.Globalization;
 [CustomEditor(typeof(LoadLevelScript))]
 public class LoadLevelEditor : Editor
 {
-	private Grid m_grid;
 	void OnEnable()
 	{
-		m_grid = GameObject.Find("Grid").GetComponent<Grid>();
 	}
 	public override void OnInspectorGUI()
 	{
 		LoadLevelScript script = (LoadLevelScript)target;
 		string name = "NONE";
-		if(script.LoadedLevel.Name != null)
-			name = script.LoadedLevel.Name;	
-		EditorGUILayout.BeginHorizontal();
-		EditorGUILayout.LabelField("Loaded level: [" + name + "]");
-		if(Application.isPlaying && m_grid.GetIsSaved() == false)
+		if(script.LoadedLevel != null)
 		{
-			if(GUILayout.Button("Save"))
+			name = script.LoadedLevel.GetComponent<LevelBase>().Name;			
+			EditorGUILayout.BeginHorizontal();
+			EditorGUILayout.LabelField("Loaded level: [" + name + "]");
+			if(Application.isPlaying && script.LoadedLevel.GetComponent<Grid>().GetIsSaved() == false)
 			{
-				if(script.LoadedLevel != null)
+				if(GUILayout.Button("Save"))
 				{
-					script.SaveSelectedLevel();					
-				}
-			}				
+					if(script.LoadedLevel != null)
+					{
+						script.SaveSelectedLevel();					
+					}
+				}				
+			}
+			EditorGUILayout.EndHorizontal();
 		}
-		EditorGUILayout.EndHorizontal();
+		else
+		{	
+			EditorGUILayout.BeginHorizontal();
+			EditorGUILayout.LabelField("Loaded level: [" + name + "]");
+			if(Application.isPlaying)
+			{
+				if(GUILayout.Button("Create"))
+				{
+					script.CreateLevel();					
+				}				
+			}
+			EditorGUILayout.EndHorizontal();			
+		}
 
-		List<LoadLevelScript.Level> listOfLevels = new List<LoadLevelScript.Level>(script.Levels);
+		List<GameObject> listOfLevels = new List<GameObject>(script.Levels);
 		EditorGUILayout.LabelField("Available levels: ");
 
 		EditorGUI.indentLevel = 2;
 		for (int i = 0; i < listOfLevels.Count; ++i) 
 		{
-			EditorGUILayout.BeginHorizontal();
-			EditorGUILayout.LabelField(listOfLevels[i].Name);
-			if(Application.isPlaying)
+			if(listOfLevels[i])
 			{
-				if(GUILayout.Button("Load"))
+				EditorGUILayout.BeginHorizontal();
+				EditorGUILayout.LabelField(listOfLevels[i].GetComponent<LevelBase>().Name);
+				if(Application.isPlaying)
 				{
-					script.LoadedLevel = listOfLevels[i];
-					script.LoadSelectedLevel();
-				}				
+					if(GUILayout.Button("Load"))
+					{
+						script.LoadedLevel = listOfLevels[i];
+						script.LoadSelectedLevel();
+					}				
+				}
+				EditorGUILayout.EndHorizontal();				
 			}
-			EditorGUILayout.EndHorizontal();
 		}
 		EditorUtility.SetDirty(script);
 	}
