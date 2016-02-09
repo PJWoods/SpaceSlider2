@@ -8,6 +8,9 @@ public class Menu : MonoBehaviour
     private Button m_playButtonClicked;
 
     [SerializeField]
+    private Button m_editorButtonClicked;
+
+    [SerializeField]
     private TweenPosition[] m_anchors;
 
     [SerializeField]
@@ -17,9 +20,17 @@ public class Menu : MonoBehaviour
     {
         AnimateAnchors(true);
         m_playButtonClicked.onClick.AddListener(delegate { PlayButtonClicked(); });
+        m_editorButtonClicked.onClick.AddListener(delegate { EditorButtonClicked(); });
     }
 
-	void PlayButtonClicked()
+    void EditorButtonClicked()
+    {
+        m_playTextAlphaTween.Play(true);
+        AnimateAnchors(false);
+        CoroutineHandler.Run(YieldAnimationThenContinueToEditor(1f));
+    }
+
+    void PlayButtonClicked()
     {
         m_playTextAlphaTween.Play(true);
         AnimateAnchors(false);
@@ -30,6 +41,12 @@ public class Menu : MonoBehaviour
     {
         yield return new WaitForSeconds(yieldTime);
         Game.Instance.GameState.ChangeState(new InGameState());
+    }
+
+    IEnumerator YieldAnimationThenContinueToEditor(float yieldTime)
+    {
+        yield return new WaitForSeconds(yieldTime);
+        Game.Instance.GameState.ChangeState(new EditorState());
     }
 
     void AnimateAnchors(bool forward)
