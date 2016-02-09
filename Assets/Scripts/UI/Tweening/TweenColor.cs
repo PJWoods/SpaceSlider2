@@ -39,7 +39,8 @@ public class TweenColor : UITweener
 		set
 		{
 			if (mImage != null) mImage.color = value;
-			if (mMat != null) mMat.color = value;
+            if (mText != null) mText.color = value;
+            if (mMat != null) mMat.color = value;
 
 			if (mLight != null)
 			{

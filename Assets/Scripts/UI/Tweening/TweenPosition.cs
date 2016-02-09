@@ -12,15 +12,36 @@ using UnityEngine;
 [AddComponentMenu("NGUI/Tween/Position")]
 public class TweenPosition : UITweener
 {
-	public Vector3 from;
-	public Vector3 to;
+	public Vector2 from;
+	public Vector2 to;
 
-	Transform mTrans;
+    RectTransform mTrans;
 
-	public Transform cachedTransform { get { if (mTrans == null) mTrans = transform; return mTrans; } }
-	public Vector3 position { get { return cachedTransform.localPosition; } set { cachedTransform.localPosition = value; } }
+	public RectTransform cachedTransform
+    {
+        get
+        {
+            if (mTrans == null)
+                mTrans = GetComponent<RectTransform>();
+            return mTrans;
+        }
+    }
+	public Vector3 position
+    {
+        get
+        {
+            return cachedTransform.anchoredPosition;
+        }
+        set
+        {
+            cachedTransform.anchoredPosition = value;
+        }
+    }
 
-	protected override void OnUpdate (float factor, bool isFinished) { cachedTransform.localPosition = from * (1f - factor) + to * factor; }
+	protected override void OnUpdate (float factor, bool isFinished)
+    {
+        cachedTransform.anchoredPosition = from * (1f - factor) + to * factor;
+    }
 
 	/// <summary>
 	/// Start the tweening operation.

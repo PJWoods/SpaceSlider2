@@ -35,7 +35,7 @@ public class TweenAlpha : UITweener
 		set
 		{
 			if (mText != null) mText.color = new Color(mText.color.r, mText.color.g, mText.color.b, value);
-			else if (mImage != null) mImage.color = new Color(mText.color.r, mText.color.g, mText.color.b, value);
+			else if (mImage != null) mImage.color = new Color(mImage.color.r, mImage.color.g, mImage.color.b, value);
         }
 	}
 
