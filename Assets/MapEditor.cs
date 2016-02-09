@@ -129,7 +129,7 @@ public class MapEditor : MonoBehaviour {
 							block.transform.position = cell.GetPosition();
 
 						if(cell.GetBlock() != null)
-							GameObjectPool.Instance.AddToPool(cell.GetBlock().gameObject);	
+							Game.Instance.ObjectPool.AddToPool(cell.GetBlock().gameObject);	
 						
 						cell.SetBlock(block);
 						gridComponent.SetIsSaved(false);
@@ -183,7 +183,7 @@ public class MapEditor : MonoBehaviour {
 					block.transform.position = m_markedCell.GetPosition();
 
 				if(m_markedCell.GetBlock() != null)
-					GameObjectPool.Instance.AddToPool(m_markedCell.GetBlock().gameObject);	
+					Game.Instance.ObjectPool.AddToPool(m_markedCell.GetBlock().gameObject);	
 
 				m_markedCell.SetBlock(block);
 				gridComponent.SetIsSaved(false);

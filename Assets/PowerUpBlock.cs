@@ -26,7 +26,7 @@ public class PowerUpBlock : MovableBlock
 			m_currentDuration += Time.deltaTime;
 			transform.localScale -= m_scalingSteps * Time.deltaTime;
 			if(transform.localScale.sqrMagnitude < 0.001f)
-				GameObjectPool.Instance.AddToPool(this.gameObject);
+				Game.Instance.ObjectPool.AddToPool(this.gameObject);
 		}			
 	}
 

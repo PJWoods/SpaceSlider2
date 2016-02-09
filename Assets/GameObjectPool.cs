@@ -13,10 +13,6 @@ public class GameObjectPool : MonoBehaviour
         public GameObject Prefab;
         public int PoolSize = 0;
     }
-
-    //Singleton
-    public static GameObjectPool Instance { get; private set; }
-
 	//Show debug information (amount of pooled object etc.)
 	public bool ShowDebugInfo = false;
 
@@ -36,8 +32,6 @@ public class GameObjectPool : MonoBehaviour
 
 	void OnEnable ()
 	{
-		Instance = this;
-
         m_containerObject = new GameObject("GameObjectPool");
         m_poolOfObjects = new List<GameObject>[Prefabs.Length];
 

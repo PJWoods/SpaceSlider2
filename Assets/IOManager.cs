@@ -23,8 +23,7 @@ public class IOManager : MonoBehaviour
 				LoadLevelScript.Level l = new LoadLevelScript.Level(file.Name, file.FullName);
 				levels.Add(l);	
 			}
-		}
-			
+		}			
 		return levels;
 	}
 
@@ -127,11 +126,11 @@ public class IOManager : MonoBehaviour
 				readLine = reader.ReadLine();
 				if(readLine != "null")
 				{
-					GameObject block = GameObjectPool.Instance.GetFromPool(readLine, true);
+					GameObject block = Game.Instance.ObjectPool.GetFromPool(readLine, true);
 					block.transform.position = cell.GetPosition();
 
 					if(cell.GetBlock() != null)
-						GameObjectPool.Instance.AddToPool(cell.GetBlock().gameObject);	
+						Game.Instance.ObjectPool.AddToPool(cell.GetBlock().gameObject);	
 
 					cell.SetBlock(block.GetComponent<BlockBase>());		
 				}

@@ -47,7 +47,7 @@ public class BlockFactory
 
 		if(prefabName != null)
 		{
-			GameObject block = GameObjectPool.Instance.GetFromPool(prefabName, true);
+			GameObject block = Game.Instance.ObjectPool.GetFromPool(prefabName, true);
 			if(block == null)
 				return null;
 			return block.GetComponent<BlockBase>();

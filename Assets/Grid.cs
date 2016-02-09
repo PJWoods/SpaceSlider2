@@ -113,7 +113,7 @@ public class Grid : MonoBehaviour {
 				GridCell cell = m_cells[y][x];
 				if(cell.GetBlock() != null)
 				{
-					GameObjectPool.Instance.AddToPool(cell.GetBlock().gameObject);				
+					Game.Instance.ObjectPool.AddToPool(cell.GetBlock().gameObject);				
 				}
 			}
 			m_cells[y].Clear();

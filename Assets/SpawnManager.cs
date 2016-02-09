@@ -27,7 +27,7 @@ public class SpawnManager : MonoBehaviour {
 			for(int i = 0; i < blockCount; ++i)
 			{
 				string blockTypeId = "BlockType" + Random.Range(1, 3).ToString();
-				GameObject block = GameObjectPool.Instance.GetFromPool(blockTypeId, false);
+				GameObject block = Game.Instance.ObjectPool.GetFromPool(blockTypeId, false);
 
 				worldBottomRight.y = worldTopLeft.y + ((worldTopLeft.y - worldBottomRight.y) / blockCount) * i;
 				block.transform.position = worldBottomRight;				

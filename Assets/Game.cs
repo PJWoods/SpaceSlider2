@@ -7,10 +7,27 @@ public class Game
 
     public UICore UICore;
     public GameStateHandler GameState;
-    public PlayerInfo PlayerInfo;
+    
+	public GameObjectPool ObjectPool;
+	public IOManager IOManager;
+
+	public PlayerInfo PlayerInfo;
 
     public void GameStartUp()
     {
+		ObjectPool = new GameObjectPool();
+
+		Object[] baseArray = Resources.LoadAll("Prefabs/Blocks");
+		ObjectPool.Prefabs = new GameObjectPool.PoolItem[baseArray.Length];
+		for(int i = 0; i < baseArray.Length; ++i)
+		{
+			GameObjectPool.PoolItem item = new GameObjectPool.PoolItem();
+			item.Prefab = baseArray[i] as GameObject;
+			item.PoolSize = 128;
+			ObjectPool.Prefabs[i] = item;
+		}
+		IOManager = new IOManager();
+
         UICore = (GameObject.Instantiate(Resources.Load("Prefabs/UI/UIRoot")) as GameObject).GetComponent<UICore>();
         GameState = new GameStateHandler();
         GameState.Initialize();

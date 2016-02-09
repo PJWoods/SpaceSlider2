@@ -18,15 +18,11 @@ public class LoadLevelScript : MonoBehaviour
 	};
 
 	public Level LoadedLevel;
-
 	public List<Level> Levels = new List<Level>();
-	private IOManager m_ioManager;
 
 	void OnEnable()
 	{
-		GameObject managerObject = GameObject.Find("IOManager");
-		m_ioManager = managerObject.GetComponent<IOManager>();
-		Levels = m_ioManager.GetLevelsInDirectory(Application.dataPath + "/Levels/");		
+		Levels = Game.Instance.IOManager.GetLevelsInDirectory(Application.dataPath + "/Levels/");		
 		LoadedLevel = null;
 	}
 	void Start()
@@ -36,19 +32,19 @@ public class LoadLevelScript : MonoBehaviour
 
 	public void LoadSelectedLevel()
 	{
-		m_ioManager.Load(LoadedLevel.Path);
+		Game.Instance.IOManager.Load(LoadedLevel.Path);
 	}
 	public void SaveSelectedLevel()
 	{
 		if(LoadedLevel.Name != null)
 		{
-			m_ioManager.SaveFromPath(LoadedLevel.Path);
+			Game.Instance.IOManager.SaveFromPath(LoadedLevel.Path);
 			return;
 		}
-		string path = m_ioManager.SaveAndGetPath();
+		string path = Game.Instance.IOManager.SaveAndGetPath();
 		int index = path.LastIndexOf('/');
 		path = path.Substring(index + 1);
-		Levels = m_ioManager.GetLevelsInDirectory(Application.dataPath + "/Levels/");	
+		Levels = Game.Instance.IOManager.GetLevelsInDirectory(Application.dataPath + "/Levels/");	
 		foreach(Level l in Levels)
 		{
 			if(path == l.Name)
