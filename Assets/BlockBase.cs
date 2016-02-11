@@ -5,7 +5,6 @@ using System.Collections.Generic;
 [System.Serializable]
 public class BlockBase : MonoBehaviour 
 {
-
 	[System.Serializable]
 	public enum BlockProperty
 	{
@@ -20,6 +19,11 @@ public class BlockBase : MonoBehaviour
 
 	public BlockProperty 	BlockType;
 	protected GridCell 		m_parentCell;
+
+	void Awake () 
+	{
+		DontDestroyOnLoad(gameObject);
+	}
 
 	// Use this for initialization
 	void Start () 

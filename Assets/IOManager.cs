@@ -10,6 +10,11 @@ public class IOManager : MonoBehaviour
 	private Rect windowRect = new Rect((Screen.width * 0.5f) - 200f, (Screen.height * 0.5f) - 50f, 400f, 100f);
 	private bool m_promptUnsavedLevel = false;
 
+	public void Awake()
+	{
+		DontDestroyOnLoad(gameObject);
+	}
+
 	public List<GameObject> GetLevelsInDirectory(string directoryPath)
 	{
 		DirectoryInfo info = new DirectoryInfo(directoryPath);
@@ -29,18 +34,25 @@ public class IOManager : MonoBehaviour
 		return levels;
 	}
 
-	public GameObject Create()
+	public void Create()
 	{
 		string filePath = UnityEditor.EditorUtility.SaveFilePanel("Create new level", "/Assets/Levels/", "newLevel.lel", "lel");
-		return CreateFromPath(filePath);			
+		CreateFromPath(filePath);
 	}
-	public GameObject CreateFromPath(string filePath)
+	public void CreateFromPath(string filePath)
 	{
 		string fileName = filePath.Substring(filePath.LastIndexOf('/') + 1);
-		GameObject level = GameObject.Instantiate(Resources.Load("Prefabs/Levels/EmptyLevel")) as GameObject;
-		LevelBase levelBase = level.GetComponent<LevelBase>();
-		levelBase.Name = fileName; levelBase.Path = filePath;
-		return level;
+		if(fileName.Length > 0)
+		{
+			GameObject player = GameObject.Instantiate(Resources.Load("Prefabs/Levels/PlayerPrefab"), Vector3.zero, Quaternion.identity) as GameObject;
+			GameObject level = GameObject.Instantiate(Resources.Load("Prefabs/Levels/EmptyLevel"), Vector3.zero, Quaternion.identity) as GameObject;
+			LevelBase levelBase = level.GetComponent<LevelBase>();
+			levelBase.Name = fileName; levelBase.Path = filePath;
+			levelBase.PlayerObject = player;
+			MapEditor.Instance.GetComponent<LoadLevelScript>().SetLevel(level);	
+
+			Camera.main.transform.position = levelBase.CameraStart;
+		}
 	}
 
 	public void Save()
@@ -93,7 +105,13 @@ public class IOManager : MonoBehaviour
 
 	public void Load()
 	{
-		StartCoroutine(LoadAsync());
+		//StartCoroutine(LoadAsync());
+		string filePath = UnityEditor.EditorUtility.OpenFilePanel("Load a level", "/Assets/Levels/", "lel");
+		if(filePath == null || filePath == "" || filePath.Length == 0)
+		{
+			return;
+		}
+		LoadFromPath(filePath);
 	}
 	public void Load(string path)
 	{
@@ -110,8 +128,11 @@ public class IOManager : MonoBehaviour
 		GameObject level = MapEditor.Instance.GetComponent<LoadLevelScript>().LoadedLevel;
 		if(!level)
 		{
-			level = CreateFromPath(path);
+			CreateFromPath(path);
+			level = MapEditor.Instance.GetComponent<LoadLevelScript>().LoadedLevel;
 		}
+
+		Camera.main.transform.position = level.GetComponent<LevelBase>().CameraStart;
 
 		Grid gridComponent = level.GetComponent<Grid>();
 		List<List<GridCell>> cells = gridComponent.GetCells();

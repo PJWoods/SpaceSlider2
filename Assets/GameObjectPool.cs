@@ -32,26 +32,35 @@ public class GameObjectPool : MonoBehaviour
 
 	void OnEnable ()
 	{
-        m_containerObject = new GameObject("GameObjectPool");
-        m_poolOfObjects = new List<GameObject>[Prefabs.Length];
+	}	
+	public void Awake()
+	{
+		DontDestroyOnLoad(gameObject);
+	}
+	public void Init()
+	{
+		m_containerObject = new GameObject("GameObjectPool");
+		GameObject.DontDestroyOnLoad(m_containerObject);
+
+		m_poolOfObjects = new List<GameObject>[Prefabs.Length];
 
 		//We build up the pools
-        int prefabIndex = 0;
-        foreach (PoolItem poolItem in Prefabs)
-        {
-            Debug.Assert(poolItem.Prefab != null, "You need to specify a prefab / gameobject to initate the pool with, check element: " + prefabIndex.ToString());
-            Debug.Assert(poolItem.PoolSize > 0, "You tried to initiate a pool with size 0 with object type: " + poolItem.Prefab.name);
-            m_poolOfObjects[prefabIndex] = new List<GameObject>();
+		int prefabIndex = 0;
+		foreach (PoolItem poolItem in Prefabs)
+		{
+			Debug.Assert(poolItem.Prefab != null, "You need to specify a prefab / gameobject to initate the pool with, check element: " + prefabIndex.ToString());
+			Debug.Assert(poolItem.PoolSize > 0, "You tried to initiate a pool with size 0 with object type: " + poolItem.Prefab.name);
+			m_poolOfObjects[prefabIndex] = new List<GameObject>();
 
-            for (int n = 0; n < poolItem.PoolSize; ++n)
-            {
-                GameObject newObj = Instantiate(poolItem.Prefab) as GameObject;
-                newObj.name = poolItem.Prefab.name;
-                AddToPool(newObj);
-            }
-            ++prefabIndex;
-        }
-    }
+			for (int n = 0; n < poolItem.PoolSize; ++n)
+			{
+				GameObject newObj = Instantiate(poolItem.Prefab) as GameObject;
+				newObj.name = poolItem.Prefab.name;
+				AddToPool(newObj);
+			}
+			++prefabIndex;
+		}
+	}
 
 	//I thought about not having the "instantiateIfEmpty" flag, but figured it gives me 
 	//more control by giving me the option to instantiate a object or not when the pool is empty

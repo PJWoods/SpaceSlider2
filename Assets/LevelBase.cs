@@ -10,7 +10,7 @@ public class LevelBase : MonoBehaviour {
 	public Vector3 CameraStart;
 
 	[SerializeField]
-	private GameObject PlayerObject;
+	public GameObject PlayerObject;
 
 	// Use this for initialization
 	void Start () 
