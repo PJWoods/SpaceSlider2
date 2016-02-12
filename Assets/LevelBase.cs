@@ -15,12 +15,20 @@ public class LevelBase : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
-		Camera.main.transform.position = CameraStart;
-		PlayerObject.transform.position = PlayerStart;
 	}
 	
 	// Update is called once per frame
 	void Update () 
 	{
+	}
+
+	public void Init()
+	{
+		if(PlayerObject == null)
+		{
+			Debug.LogError("PlayerObject reference is null!");
+		}
+		Camera.main.transform.position = CameraStart;
+		PlayerObject.transform.position = PlayerStart;		
 	}
 }

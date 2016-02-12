@@ -27,7 +27,7 @@ public class LoadLevelScript : MonoBehaviour
 	}
 	public void LoadSelectedLevel()
 	{
-		Game.Instance.IOManager.Load(LoadedLevel.GetComponent<LevelBase>().Path);
+		Game.Instance.IOManager.LoadFromPath(LoadedLevel.GetComponent<LevelBase>().Path);
 	}
 	public void SaveSelectedLevel()
 	{

@@ -24,8 +24,9 @@ public class MapEditor : MonoBehaviour {
 	private Rect m_menuRect;
 
 	private EditorDrawMode m_drawMode = EditorDrawMode.DontDraw;
-	private GridCell m_lastDrawnCell = null;
-	private GridCell m_markedCell = null;
+	private GameObject m_lastDrawnCell = null;
+	private GameObject m_markedCell = null;
+	private Vector2 m_clickPos;
 
 	private bool m_active = true;
 
@@ -53,41 +54,39 @@ public class MapEditor : MonoBehaviour {
 		if(!m_active)
 			return;
 		
-		if(m_drawMode == EditorDrawMode.DontDraw)
-		{
-			if(Input.GetMouseButtonDown(0))
-			{
-				if(m_menuOpen && !m_menuRect.Contains(new Vector2(Input.mousePosition.x, (Screen.height - Input.mousePosition.y))))
-				{
-					m_markedCell = null;
-					m_menuOpen = false;
-					return;
-				}
-				if(Input.mousePosition.y > Screen.height - (Screen.height * 0.08f))
-				{
-					m_markedCell = null;
-					m_menuOpen = false;
-					return;
-				}
-
-				GameObject loadedLevel = GetComponent<LoadLevelScript>().LoadedLevel;
-				if(loadedLevel)
-				{
-					Grid gridComponent = loadedLevel.GetComponent<Grid>();
-					Vector2 screenPos = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
-					GridCell cell = gridComponent.GetCellFromScreenPosition(screenPos);
-					if(cell != null)
-					{
-						if(!m_menuOpen)
-						{
-							m_markedCell = cell;
-							OpenBlockClickMenu(screenPos);						
-						}
-					}							
-				}
-			}
-		}
-		else
+//		if(m_drawMode == EditorDrawMode.DontDraw)
+//		{
+//			if(Input.GetMouseButtonDown(0))
+//			{
+//				if(m_menuOpen && !m_menuRect.Contains(new Vector2(Input.mousePosition.x, (Screen.height - Input.mousePosition.y))))
+//				{
+//					m_markedCell = null;
+//					m_menuOpen = false;
+//					return;
+//				}
+//				if(Input.mousePosition.y > Screen.height - (Screen.height * 0.08f))
+//				{
+//					m_markedCell = null;
+//					m_menuOpen = false;
+//					return;
+//				}
+//
+//				GameObject loadedLevel = GetComponent<LoadLevelScript>().LoadedLevel;
+//				if(loadedLevel)
+//				{
+//					Grid gridComponent = loadedLevel.GetComponent<Grid>();
+//					Vector2 screenPos = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
+//					GameObject cell = gridComponent.GetCellFromScreenPosition(screenPos);
+//					if(!m_menuOpen)
+//					{
+//						m_markedCell = cell;
+//						m_clickPos = screenPos;
+//						OpenBlockClickMenu(screenPos);						
+//					}						
+//				}
+//			}
+//		}
+//		else
 		{
 			if(Input.GetMouseButton(0))
 			{			
@@ -101,14 +100,45 @@ public class MapEditor : MonoBehaviour {
 				{
 					Grid gridComponent = loadedLevel.GetComponent<Grid>();
 					Vector2 screenPos = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
-					GridCell cell = gridComponent.GetCellFromScreenPosition(screenPos);
-					if(cell != null)
+					GameObject cell = gridComponent.GetCellFromScreenPosition(screenPos);
+					if(cell == null)
+					{
+						m_lastDrawnCell = cell;
+
+						BlockBase block = null;
+						switch(m_drawMode)
+						{
+						case EditorDrawMode.DrawEmpty:
+							break;
+						case EditorDrawMode.DrawMovable:
+							block = BlockFactory.Instance.CreateBlock(BlockBase.BlockProperty.Movable);
+							break;
+						case EditorDrawMode.DrawNonMovable:
+							block = BlockFactory.Instance.CreateBlock(BlockBase.BlockProperty.NonMovable);
+							break;
+						case EditorDrawMode.DrawBoost:
+							block = BlockFactory.Instance.CreateBlock(BlockBase.BlockProperty.PowerUp);
+							break;
+						case EditorDrawMode.DrawLaneChangerLeft:
+							block = BlockFactory.Instance.CreateBlock(BlockBase.BlockProperty.LaneChangerLeft);
+							break;
+						case EditorDrawMode.DrawLaneChangerRight:
+							block = BlockFactory.Instance.CreateBlock(BlockBase.BlockProperty.LaneChangerRight);
+							break;
+						}
+						if(block != null)
+						{
+							gridComponent.AddCellAtScreenPosition(block.gameObject, screenPos);
+							gridComponent.SetIsSaved(false);							
+						}
+					}
+					else
 					{
 						if(cell != m_lastDrawnCell)
 						{
 							m_lastDrawnCell = cell;
-							BlockBase block = null;
 
+							BlockBase block = null;
 							switch(m_drawMode)
 							{
 							case EditorDrawMode.DrawEmpty:
@@ -129,13 +159,14 @@ public class MapEditor : MonoBehaviour {
 								block = BlockFactory.Instance.CreateBlock(BlockBase.BlockProperty.LaneChangerRight);
 								break;
 							}
-							if(block != null)
-								block.transform.position = cell.GetPosition();
 
-							if(cell.GetBlock() != null)
-								Game.Instance.ObjectPool.AddToPool(cell.GetBlock().gameObject);	
+							Vector3 cellPos = cell.transform.position;
+							Game.Instance.ObjectPool.AddToPool(cell);	
+							if(block != null)
+								gridComponent.AddCellAtWorldPosition(block.gameObject, cellPos);
+							else
+								gridComponent.AddCellAtWorldPosition(null, cellPos);
 							
-							cell.SetBlock(block);
 							gridComponent.SetIsSaved(false);
 						}
 					}
@@ -185,15 +216,26 @@ public class MapEditor : MonoBehaviour {
 				{
 					Grid gridComponent = loadedLevel.GetComponent<Grid>();
 
+					Vector3 cellPos = Vector3.zero;
+					if(m_markedCell != null)
+					{
+						cellPos = m_markedCell.transform.position;
+						Game.Instance.ObjectPool.AddToPool(m_markedCell);			
+					}
+					else
+					{
+						cellPos = m_clickPos;
+					}
 					BlockBase block = BlockFactory.Instance.CreateBlock(((BlockBase.BlockProperty)i));
 					if(block != null)
-						block.transform.position = m_markedCell.GetPosition();
-
-					if(m_markedCell.GetBlock() != null)
-						Game.Instance.ObjectPool.AddToPool(m_markedCell.GetBlock().gameObject);	
-
-					m_markedCell.SetBlock(block);
-					gridComponent.SetIsSaved(false);
+					{
+						gridComponent.AddCellAtScreenPosition(block.gameObject, cellPos);		
+						gridComponent.SetIsSaved(false);
+					}
+					else
+					{
+						Debug.LogError("Something went wrong when creating block!");
+					}
 					m_menuOpen = false;
 					m_markedCell = null;
 					return;

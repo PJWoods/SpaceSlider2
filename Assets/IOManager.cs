@@ -44,14 +44,26 @@ public class IOManager : MonoBehaviour
 		string fileName = filePath.Substring(filePath.LastIndexOf('/') + 1);
 		if(fileName.Length > 0)
 		{
-			GameObject player = GameObject.Instantiate(Resources.Load("Prefabs/Levels/PlayerPrefab"), Vector3.zero, Quaternion.identity) as GameObject;
-			GameObject level = GameObject.Instantiate(Resources.Load("Prefabs/Levels/EmptyLevel"), Vector3.zero, Quaternion.identity) as GameObject;
+			GameObject player = GameObject.FindGameObjectWithTag("Player");
+			if(player == null)
+				player = GameObject.Instantiate(Resources.Load("Prefabs/Levels/PlayerPrefab"), Vector3.zero, Quaternion.identity) as GameObject;
+
+			GameObject level = GameObject.FindGameObjectWithTag("Level");
+			if(level == null)
+				level = GameObject.Instantiate(Resources.Load("Prefabs/Levels/EmptyLevel"), Vector3.zero, Quaternion.identity) as GameObject;
+
+			if(Camera.main.gameObject.GetComponent<CameraMovement>() == null)
+				Camera.main.gameObject.AddComponent<CameraMovement>();
+			
 			LevelBase levelBase = level.GetComponent<LevelBase>();
 			levelBase.Name = fileName; levelBase.Path = filePath;
 			levelBase.PlayerObject = player;
-			MapEditor.Instance.GetComponent<LoadLevelScript>().SetLevel(level);	
+			levelBase.Init();
 
-			Camera.main.transform.position = levelBase.CameraStart;
+			Grid levelGrid = level.GetComponent<Grid>();
+			levelGrid.Init();
+
+			MapEditor.Instance.GetComponent<LoadLevelScript>().SetLevel(level);	
 		}
 	}
 
@@ -77,21 +89,28 @@ public class IOManager : MonoBehaviour
 		GameObject level = MapEditor.Instance.GetComponent<LoadLevelScript>().LoadedLevel;
 		if(level)
 		{
+			LevelBase levelBase = level.GetComponent<LevelBase>();
 			Grid gridComponent = level.GetComponent<Grid>();
-			List<List<GridCell>> cells = gridComponent.GetCells();
+			List<List<GameObject>> cells = gridComponent.GetCells();
 
 			StreamWriter writer = File.CreateText(filePath);
 			writer.WriteLine(gridComponent.Cells.X.ToString());
 			writer.WriteLine(gridComponent.Cells.Y.ToString());
 			writer.WriteLine(gridComponent.CellDimensions.x.ToString());
 			writer.WriteLine(gridComponent.CellDimensions.x.ToString());
+			writer.WriteLine(levelBase.CameraStart.x.ToString());
+			writer.WriteLine(levelBase.CameraStart.y.ToString());
+			writer.WriteLine(levelBase.CameraStart.z.ToString());
+			writer.WriteLine(levelBase.PlayerStart.x.ToString());
+			writer.WriteLine(levelBase.PlayerStart.y.ToString());
+			writer.WriteLine(levelBase.PlayerStart.z.ToString());
 
 			for (int y = 0; y < cells.Count; ++y) 
 			{
 				for (int x = 0; x < cells[y].Count; ++x) 
 				{
-					if(cells[y][x].GetBlock() != null)
-						writer.WriteLine(cells[y][x].GetBlock().name);
+					if(cells[y][x] != null)
+						writer.WriteLine(cells[y][x].name);
 					else
 						writer.WriteLine("null");
 				}
@@ -105,7 +124,17 @@ public class IOManager : MonoBehaviour
 
 	public void Load()
 	{
-		//StartCoroutine(LoadAsync());
+		GameObject level = MapEditor.Instance.GetComponent<LoadLevelScript>().LoadedLevel;
+		if(level)
+		{
+			level.GetComponent<Grid>();
+			if(level.GetComponent<Grid>().GetIsSaved() == false)
+			{
+				m_promptUnsavedLevel = true;
+				return;
+			}
+		}		
+
 		string filePath = UnityEditor.EditorUtility.OpenFilePanel("Load a level", "/Assets/Levels/", "lel");
 		if(filePath == null || filePath == "" || filePath.Length == 0)
 		{
@@ -113,18 +142,14 @@ public class IOManager : MonoBehaviour
 		}
 		LoadFromPath(filePath);
 	}
-	public void Load(string path)
-	{
-		StartCoroutine(LoadAsyncPath(path));
-	}
-	private void LoadFromPath(string path)
+
+	public void LoadFromPath(string path)
 	{		
 		if(!File.Exists(path))
 		{
 			Debug.LogError("File doesn't exist!");
 			return;
 		}
-
 		GameObject level = MapEditor.Instance.GetComponent<LoadLevelScript>().LoadedLevel;
 		if(!level)
 		{
@@ -132,113 +157,54 @@ public class IOManager : MonoBehaviour
 			level = MapEditor.Instance.GetComponent<LoadLevelScript>().LoadedLevel;
 		}
 
-		Camera.main.transform.position = level.GetComponent<LevelBase>().CameraStart;
-
 		Grid gridComponent = level.GetComponent<Grid>();
-		List<List<GridCell>> cells = gridComponent.GetCells();
+		gridComponent.Init();
+
+		LevelBase levelBase = level.GetComponent<LevelBase>();
 
 		StreamReader reader = File.OpenText(path);
 		gridComponent.Cells.X = int.Parse(reader.ReadLine());
 		gridComponent.Cells.Y = int.Parse(reader.ReadLine());
 		gridComponent.CellDimensions.x = float.Parse(reader.ReadLine());
 		gridComponent.CellDimensions.y = float.Parse(reader.ReadLine());
+		levelBase.CameraStart.x = float.Parse(reader.ReadLine());
+		levelBase.CameraStart.y = float.Parse(reader.ReadLine());
+		levelBase.CameraStart.z = float.Parse(reader.ReadLine());
+		levelBase.PlayerStart.x = float.Parse(reader.ReadLine());
+		levelBase.PlayerStart.y = float.Parse(reader.ReadLine());
+		levelBase.PlayerStart.z = float.Parse(reader.ReadLine());
 
 		Vector3 centerPosition = Camera.main.transform.position;
 		float centerX = (gridComponent.Cells.X * gridComponent.CellDimensions.x) * 0.5f;
 		float centerY = (gridComponent.Cells.Y * gridComponent.CellDimensions.y) * 0.5f;
-		float startX = Camera.main.transform.position.x; //centerPosition.x - centerX;
+		float startX = Camera.main.transform.position.x;
 		float startY = centerPosition.y - centerY;
 		if(gridComponent.Type == Grid.GridType.Vertical)
 		{
 			startX = centerPosition.x - centerX;
 			startY = centerPosition.y;			
-		}
-			
-		gridComponent.Reset();
-		cells.Clear();
+		}			
 
 		string readLine = "";
-		cells = new List<List<GridCell>>(gridComponent.Cells.Y);
+		List<List<GameObject>> cells = new List<List<GameObject>>(gridComponent.Cells.Y);
 		for (int y = 0; y < gridComponent.Cells.Y; ++y) 
 		{
-			List<GridCell> newColumn = new List<GridCell>(gridComponent.Cells.X);
+			List<GameObject> newColumn = new List<GameObject>(gridComponent.Cells.X);
 			for (int x = 0; x < gridComponent.Cells.X; ++x) 
 			{
-				GridCell cell = new GridCell();
-				cell.SetDimensions(gridComponent.CellDimensions.x, gridComponent.CellDimensions.y);
-				cell.SetPosition(startX + gridComponent.CellDimensions.x * 0.5f + (x * gridComponent.CellDimensions.x), (startY + gridComponent.CellDimensions.y * 0.5f + (y * gridComponent.CellDimensions.y)), Camera.main.nearClipPlane);
-
 				readLine = reader.ReadLine();
 				if(readLine != "null")
 				{
 					GameObject block = Game.Instance.ObjectPool.GetFromPool(readLine, true);
-					block.transform.position = cell.GetPosition();
-
-					if(cell.GetBlock() != null)
-						Game.Instance.ObjectPool.AddToPool(cell.GetBlock().gameObject);	
-
-					cell.SetBlock(block.GetComponent<BlockBase>());		
+					block.transform.position = new Vector3(startX + gridComponent.CellDimensions.x * 0.5f + (x * gridComponent.CellDimensions.x), (startY + gridComponent.CellDimensions.y * 0.5f + (y * gridComponent.CellDimensions.y)), Camera.main.nearClipPlane);
+					block.GetComponent<BlockBase>().SetGridIndices(new Vector2(x, y));
+					newColumn.Add(block);
 				}
-				newColumn.Add(cell);
 			}
 			cells.Add(newColumn);
 		}	
-		gridComponent.SetCells(cells);
-	}
-	IEnumerator LoadAsync()
-	{
-		GameObject level = MapEditor.Instance.GetComponent<LoadLevelScript>().LoadedLevel;
-		if(level)
-		{
-			Grid gridComponent = level.GetComponent<Grid>();
-			List<List<GridCell>> cells = gridComponent.GetCells();
-
-			if(cells.Count > 0)
-			{
-				if(gridComponent.GetIsSaved() == false)
-				{
-					m_promptUnsavedLevel = true;
-					while(m_promptUnsavedLevel)
-					{
-						yield return null;
-					}
-				}
-			}		
-		}
-			
-		string filePath = UnityEditor.EditorUtility.OpenFilePanel("Load a level", "/Assets/Levels/", "lel");
-		if(filePath == null || filePath == "" || filePath.Length == 0)
-		{
-			yield return false;
-		}
-		LoadFromPath(filePath);
-	}
-
-	IEnumerator LoadAsyncPath(string filePath)
-	{
-		GameObject level = MapEditor.Instance.GetComponent<LoadLevelScript>().LoadedLevel;
-		if(level)
-		{
-			Grid gridComponent = level.GetComponent<Grid>();
-			List<List<GridCell>> cells = gridComponent.GetCells();
-
-			if(cells.Count > 0)
-			{
-				if(gridComponent.GetIsSaved() == false)
-				{
-					m_promptUnsavedLevel = true;
-					while(m_promptUnsavedLevel)
-					{
-						yield return null;
-					}
-				}
-			}
-		}
-		if(filePath == null || filePath == "" || filePath.Length == 0)
-		{
-			yield return false;
-		}
-		LoadFromPath(filePath);
+		gridComponent.BuildFromData(cells);
+		levelBase.Init();
 	}
 
 	void OnGUI()
@@ -254,10 +220,12 @@ public class IOManager : MonoBehaviour
 		{
 			m_promptUnsavedLevel = false;
 			Save();
+			Load();
 		}
 		else if(GUI.Button(new Rect((windowRect.width * 0.5f) + 20, 60, 80, 20), "No"))
 		{
 			m_promptUnsavedLevel = false;
+			Load();
 			return;			
 		}
 	}

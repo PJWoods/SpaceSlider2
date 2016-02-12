@@ -25,43 +25,53 @@ public class Grid : MonoBehaviour {
 	public CellCount Cells;
 	public Vector2 CellDimensions;
 
-	private List<List<GridCell>> m_cells;
+	[SerializeField]
+	private GameObject CellPrefab;
+
+	private List<List<GameObject>> m_cells;
+	private BlockBase m_selectedBlock { get; set; }
 	private bool m_isSaved = true;
-	private BlockBase m_selectedBlock;
 
 	void Awake()
 	{
-		Debug.Assert(Cells.X > 0 && Cells.Y > 0 && CellDimensions.x > 0 && CellDimensions.y > 0, "INVALID GRID! Gör om gör rätt!");
-
-		Vector3 centerPosition = Camera.main.transform.position;
-		float centerX = (Cells.X * CellDimensions.x) * 0.5f;
-		float centerY = (Cells.Y * CellDimensions.y) * 0.5f;
-		float startX = centerPosition.x;//centerPosition.x - centerX;
-		float startY = centerPosition.y - centerY;
-		if(Type == GridType.Vertical)
+		if(Cells.X <= 0 || Cells.Y <= 0 || CellDimensions.x <= 0 || CellDimensions.y <= 0)
 		{
-			startX = centerPosition.x - centerX;
-			startY = centerPosition.y;			
+			Debug.LogError("INVALID GRID!");
+			return;			
 		}
-
-		m_cells = new List<List<GridCell>>(Cells.Y);
-		for (int y = 0; y < Cells.Y; ++y) 
-		{
-			List<GridCell> newColumn = new List<GridCell>(Cells.X);
-			for (int x = 0; x < Cells.X; ++x) 
-			{
-				GridCell cell = new GridCell();
-				cell.SetDimensions(CellDimensions.x, CellDimensions.y);
-				cell.SetPosition(startX + CellDimensions.x * 0.5f + (x * CellDimensions.x), (startY + CellDimensions.y * 0.5f + (y * CellDimensions.y)), Camera.main.nearClipPlane);
-				newColumn.Add(cell);
-			}
-			m_cells.Add(newColumn);
-		}	
 	}
 
 	void Start () 
 	{
+	}
 
+	public void Init()
+	{
+		if(m_cells != null)
+		{
+			Reset();
+			return;
+		}
+		m_cells = new List<List<GameObject>>(Cells.Y);
+		for (int y = 0; y < Cells.Y; ++y) 
+		{
+			List<GameObject> newColumn = new List<GameObject>(Cells.X);
+			for (int x = 0; x < Cells.X; ++x) 
+			{
+				newColumn.Add(null);
+			}
+			m_cells.Add(newColumn);
+		}		
+	}
+
+	public void BuildFromData(List<List<GameObject>> list)
+	{
+		if(m_cells == null)
+		{
+			Debug.LogError("Grid not inited!!");
+			return;			
+		}
+		m_cells = list;			
 	}
 
 	void Update ()
@@ -70,19 +80,7 @@ public class Grid : MonoBehaviour {
 		{
 			if(m_cells == null) return;
 
-			if(m_selectedBlock == null)
-			{
-				for (int y = 0; y < m_cells.Count; ++y) 
-				{
-					for (int x = 0; x < m_cells[y].Count; ++x) 
-					{
-						m_selectedBlock = m_cells[y][x].UpdateInput();
-						if(m_selectedBlock)
-							return;
-					}
-				}
-			}
-			else
+			if(m_selectedBlock != null)
 			{
 				m_selectedBlock.UpdateMovement();
 				if(!Input.GetMouseButton(0))
@@ -107,54 +105,99 @@ public class Grid : MonoBehaviour {
 		{
 			for (int x = 0; x < m_cells[y].Count; ++x) 
 			{
-				GridCell cell = m_cells[y][x];
-				if(cell.GetBlock() != null)
-				{
-					Game.Instance.ObjectPool.AddToPool(cell.GetBlock().gameObject);				
-				}
+				Game.Instance.ObjectPool.AddToPool(m_cells[y][x]);				
 			}
 			m_cells[y].Clear();
 		}	
 		m_cells.Clear();
 	}
 
-	public void SetCells(List<List<GridCell>> cells)
-	{
-		m_cells = cells;
-	}
-
-	public List<List<GridCell>> GetCells()
+	public List<List<GameObject>> GetCells()
 	{
 		return m_cells;
 	}
-
-	public GridCell GetCellFromScreenPosition(Vector2 position)
+		
+	public GameObject GetCellFromScreenPosition(Vector2 position)
 	{
 		if(m_cells == null) { return null; }
 		Vector3 worldPos = Camera.main.ScreenToWorldPoint(new Vector3(position.x, position.y, -Camera.main.transform.position.z));
+		return GetCellFromWorldPosition(worldPos);
+	}
+
+	public GameObject GetCellFromWorldPosition(Vector3 position)
+	{
+		if(m_cells == null) { return null; }
 		for (int y = 0; y < m_cells.Count; ++y) 
 		{
 			for (int x = 0; x < m_cells[y].Count; ++x) 
 			{
-				if(m_cells[y][x].Inside(worldPos.x, worldPos.y))
-					return m_cells[y][x];
+				if(m_cells[y][x] != null)
+				{
+					if(m_cells[y][x].GetComponent<BoxCollider2D>().OverlapPoint(position))
+						return m_cells[y][x];					
+				}
 			}
 		}	
 		return null;
 	}
-
-	public GridCell GetCellFromWorldPosition(Vector3 position)
+	public void AddCellAtScreenPosition(GameObject cell, Vector3 position)
 	{
-		if(m_cells == null) { return null; }
+		if(m_cells == null) { return; }
+		Vector3 worldPos = Camera.main.ScreenToWorldPoint(new Vector3(position.x, position.y, -Camera.main.transform.position.z));
+		AddCellAtWorldPosition(cell, worldPos);	
+	}
+	public void AddCellAtWorldPosition(GameObject cell, Vector3 position)
+	{
+		if(m_cells == null) { return; }
+		Vector3 centerPosition = GetComponent<LevelBase>().CameraStart;
+		float centerX = (Cells.X * CellDimensions.x) * 0.5f;
+		float centerY = (Cells.Y * CellDimensions.y) * 0.5f;
+		float startX = centerPosition.x;
+		float startY = centerPosition.y - centerY;
+		if(Type == Grid.GridType.Vertical)
+		{
+			startX = centerPosition.x - centerX;
+			startY = centerPosition.y;			
+		}
+
 		for (int y = 0; y < m_cells.Count; ++y) 
 		{
 			for (int x = 0; x < m_cells[y].Count; ++x) 
 			{
-				if(m_cells[y][x].Inside(position.x, position.y))
-					return m_cells[y][x];
+				Vector3 virtualPosition = new Vector3(startX + CellDimensions.x * 0.5f + (x * CellDimensions.x), (startY + CellDimensions.y * 0.5f + (y * CellDimensions.y)), Camera.main.nearClipPlane);
+				float halfSizeX = CellDimensions.x * 0.5f;
+				float halfSizeY = CellDimensions.y * 0.5f;
+				if(position.x > virtualPosition.x - halfSizeX && position.x < virtualPosition.x + halfSizeX)
+				{
+					if(position.y > virtualPosition.y - halfSizeY && position.y < virtualPosition.y + halfSizeY)
+					{
+						if(cell)
+						{
+							cell.transform.position = virtualPosition;
+							cell.GetComponent<BlockBase>().SetGridIndices(new Vector2(x, y));
+						}
+						m_cells[y][x] = cell;
+						return;
+					}
+				}
 			}
-		}	
-		return null;
+		}		
+	}
+
+	public Vector3 GetPositionFromIndex(Vector2 indices)
+	{
+		Vector3 centerPosition = GetComponent<LevelBase>().CameraStart;
+		float centerX = (Cells.X * CellDimensions.x) * 0.5f;
+		float centerY = (Cells.Y * CellDimensions.y) * 0.5f;
+		float startX = centerPosition.x;
+		float startY = centerPosition.y - centerY;
+		if(Type == Grid.GridType.Vertical)
+		{
+			startX = centerPosition.x - centerX;
+			startY = centerPosition.y;			
+		}
+
+		return new Vector3(startX + CellDimensions.x * 0.5f + (indices.x * CellDimensions.x), (startY + CellDimensions.y * 0.5f + (indices.y * CellDimensions.y)), Camera.main.nearClipPlane);	
 	}
 
 	void OnDrawGizmos()
@@ -167,12 +210,13 @@ public class Grid : MonoBehaviour {
 			{
 				for (int x = 0; x < m_cells[y].Count; ++x) 
 				{
-					GridCell cell = m_cells[y][x];
-					Gizmos.DrawWireCube(cell.GetPosition(), new Vector3(CellDimensions.x, CellDimensions.y, 0f));
+					Vector3 pos = GetPositionFromIndex(new Vector2(x, y));
+					Gizmos.DrawWireCube(pos, new Vector3(CellDimensions.x, CellDimensions.y, 0f));
 				}
 			}	
 		}		
 	}
+
 	void OnGUI()
 	{
 		if(ShowDebugPositions)
@@ -182,12 +226,14 @@ public class Grid : MonoBehaviour {
 			{
 				for (int x = 0; x < m_cells[y].Count; ++x) 
 				{
-					GridCell cell = m_cells[y][x];
-					Vector3 worldPos = new Vector3(cell.GetPosition().x, cell.GetPosition().y + 0.8f, cell.GetPosition().z);
+					GameObject cell = m_cells[y][x];
+					if(cell == null) continue;
+
+					Vector3 worldPos = new Vector3(cell.transform.position.x, cell.transform.position.y + 0.8f, cell.transform.position.z);
 					Vector3 screenPos = Camera.main.WorldToScreenPoint(worldPos);
 					Rect screenRectangle = new Rect(screenPos.x - 18.0f, Screen.height - screenPos.y , 50.0f, 60.0f);
 
-					string text = "x: " + cell.GetPosition().x.ToString() + "\ny: " + cell.GetPosition().y.ToString() + "\nz: " + cell.GetPosition().z.ToString();
+					string text = "x: " + cell.transform.position.x.ToString() + "\ny: " + cell.transform.position.y.ToString() + "\nz: " + cell.transform.position.z.ToString();
 					GUI.Label(screenRectangle, text);
 				}
 			}	

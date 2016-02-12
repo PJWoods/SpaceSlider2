@@ -4,13 +4,12 @@ using UnityEngine;
 public class MovableBlock : BlockBase
 {
 	public float SlidingSpeed;
-
 	protected override void Update()
 	{
-		if(m_parentCell != null && !MapEditor.Instance)
+		if(!MapEditor.Instance)
 		{
 			base.Update();
-			Vector3 parentPos = m_parentCell.GetPosition();
+			Vector3 parentPos = m_grid.GetPositionFromIndex(m_gridIndex);
 			Vector3 direction = (parentPos - transform.position);
 			float length = direction.sqrMagnitude;
 			direction.Normalize();
@@ -24,62 +23,53 @@ public class MovableBlock : BlockBase
 
 	public override void UpdateMovement()
 	{
-		if(m_parentCell != null)
+		if(BlockType == BlockProperty.Movable)
 		{
-			if(BlockType == BlockProperty.Movable)
+			Grid gridComponent = m_grid;
+	
+			Vector3 currentScreenPos = Camera.main.WorldToScreenPoint(transform.position);
+			currentScreenPos.x = Mathf.Lerp(currentScreenPos.x, Input.mousePosition.x, Time.deltaTime * 25f);
+
+			Vector3 currentWorldPos = Camera.main.ScreenToWorldPoint(currentScreenPos);
+			transform.position = currentWorldPos;
+
+			Vector3 parentPos = m_grid.GetPositionFromIndex(m_gridIndex);
+			if(Mathf.Abs(transform.position.x - parentPos.x) > 0.001f)
 			{
-				GameObject grid = GameObject.Find("Grid");
-				Grid gridComponent = grid.GetComponent<Grid>();
-		
-				Vector3 currentScreenPos = Camera.main.WorldToScreenPoint(transform.position);
-				currentScreenPos.x = Mathf.Lerp(currentScreenPos.x, Input.mousePosition.x, Time.deltaTime * 25f);
+				float nextdoorCellX = -gridComponent.CellDimensions.x;
+				if(transform.position.x > parentPos.x)
+					nextdoorCellX = gridComponent.CellDimensions.x;
 
-				Vector3 currentWorldPos = Camera.main.ScreenToWorldPoint(currentScreenPos);
-				transform.position = currentWorldPos;
-
-				if(Mathf.Abs(transform.position.x - m_parentCell.GetPosition().x) > 0.001f)
+				GameObject cellCheck = gridComponent.GetCellFromWorldPosition(new Vector3(parentPos.x + nextdoorCellX, parentPos.y, parentPos.z));
+				if(cellCheck != null && cellCheck != this)
 				{
-					float nextdoorCellX = -gridComponent.CellDimensions.x;
-					if(transform.position.x > m_parentCell.GetPosition().x)
-						nextdoorCellX = gridComponent.CellDimensions.x;
-
-					GridCell cellCheck = gridComponent.GetCellFromWorldPosition(new Vector3(m_parentCell.GetPosition().x + nextdoorCellX, m_parentCell.GetPosition().y, m_parentCell.GetPosition().z));
-					if(cellCheck != null && cellCheck != m_parentCell)
+					//Return here because the target cell has block
+					transform.position = parentPos;
+					return;
+				}
+				else
+				{
+					if((m_gridIndex.x <= 0 && parentPos.x + nextdoorCellX < parentPos.x) ||
+						(m_gridIndex.x >= m_grid.Cells.X - 1 && parentPos.x + nextdoorCellX > parentPos.x))
 					{
-						if(cellCheck.GetBlock() != null)
-						{
-							//Return here because the target cell has block
-							transform.position = m_parentCell.GetPosition();
-							return;
-						}
-					}
-					else
-					{
-						transform.position = m_parentCell.GetPosition();
-						return;
+						transform.position = parentPos;
+						return;					
 					}
 				}
+			}
 
-				Vector3 direction = (transform.position - m_parentCell.GetPosition());
-				float currentLenght = direction.sqrMagnitude;
-				currentLenght *= currentLenght;
+			Vector3 direction = (transform.position - parentPos);
+			float currentLenght = direction.sqrMagnitude;
+			currentLenght *= currentLenght;
 
-				direction.Normalize();
-				float limit = (m_parentCell.GetDimensions().x * 0.2f) * (m_parentCell.GetDimensions().x * 0.2f);
-				if(currentLenght >= limit)
-				{
-					Vector3 worldPos = m_parentCell.GetPosition();
-					worldPos += direction * m_parentCell.GetDimensions().x;
-					GridCell cell = gridComponent.GetCellFromWorldPosition(worldPos);
-					if(cell != null)
-					{
-						if(cell.GetBlock() == null)
-						{
-							m_parentCell.SetBlock(null);
-							cell.SetBlock(this);						
-						}
-					}
-				}
+			direction.Normalize();
+			float limit = (m_grid.CellDimensions.x * 0.2f) * (m_grid.CellDimensions.x * 0.2f);
+			if(currentLenght >= limit)
+			{
+				Vector3 worldPos = parentPos;
+				worldPos += direction * m_grid.CellDimensions.x;
+				m_grid.AddCellAtWorldPosition(null, parentPos);
+				m_grid.AddCellAtWorldPosition(gameObject, worldPos);
 			}
 		}
 	}

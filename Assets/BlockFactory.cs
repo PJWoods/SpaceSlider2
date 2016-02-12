@@ -33,7 +33,7 @@ public class BlockFactory
 			prefabName = "NonMovable";
 			break;
 		case BlockBase.BlockProperty.PowerUp:
-			prefabName = "PowerUp";
+			prefabName = "SlowPowerUp";
 			break;
 		case BlockBase.BlockProperty.LaneChangerLeft:
 			prefabName = "LaneChangerLeft";

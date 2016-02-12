@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 
 [System.Serializable]
-////////[ExecuteInEditMode]
 public class GridCell
 {		
 	private BlockBase m_currentBlock;
@@ -15,19 +14,7 @@ public class GridCell
 	{ 
 		m_currentBlock = null;
 	}
-
-	public void SetBlock(BlockBase block) 
-	{ 
-		if(m_currentBlock)
-		{
-			m_currentBlock.SetParentCell(null);
-		}
-
-		m_currentBlock = block;
-		if(m_currentBlock)
-			m_currentBlock.SetParentCell(this);
-	}
-
+		
 	public BlockBase GetBlock() 
 	{ 
 		return m_currentBlock;

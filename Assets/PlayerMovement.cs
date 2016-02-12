@@ -76,8 +76,8 @@ public class PlayerMovement : MonoBehaviour {
 		Vector3 pos = transform.position;
 		pos.y += grid.CellDimensions.y * 0.5f;
 
-		GridCell currentCell = grid.GetCellFromWorldPosition(pos);
-		Vector3 cellPos = currentCell.GetPosition();
+		GameObject currentCell = grid.GetCellFromWorldPosition(pos);
+		Vector3 cellPos = currentCell.transform.position;
 		m_laneChangeTarget = cellPos + new Vector3(grid.CellDimensions.x * count, grid.CellDimensions.y * Mathf.Abs(count), cellPos.z);
 		m_changingLane = true;
 	}
