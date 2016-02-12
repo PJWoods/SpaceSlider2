@@ -18,6 +18,7 @@ public class PlayerMovement : MonoBehaviour {
 	void Start () 
 	{
 		//MaximumDistance *= MaximumDistance;
+		DontDestroyOnLoad(gameObject);
 	}
 
 	// Update is called once per frame
@@ -71,13 +72,12 @@ public class PlayerMovement : MonoBehaviour {
 
 	public void ChangeLane(int count)
 	{
-		GameObject gridObject = GameObject.Find("Grid");
-		Grid grid = gridObject.GetComponent<Grid>();
+		GameObject level = GameObject.FindGameObjectWithTag("Level");
+		Grid grid = level.GetComponent<Grid>();
 		Vector3 pos = transform.position;
 		pos.y += grid.CellDimensions.y * 0.5f;
 
-		GameObject currentCell = grid.GetCellFromWorldPosition(pos);
-		Vector3 cellPos = currentCell.transform.position;
+		Vector3 cellPos = grid.GetWorldPositionFromIndex(grid.GetCellIndexFromWorldPosition(pos));
 		m_laneChangeTarget = cellPos + new Vector3(grid.CellDimensions.x * count, grid.CellDimensions.y * Mathf.Abs(count), cellPos.z);
 		m_changingLane = true;
 	}
@@ -93,6 +93,7 @@ public class PlayerMovement : MonoBehaviour {
 	}
 	void OnTriggerEnter2D(Collider2D collision)
 	{
+		m_isColliding = false;
 		if(collision.gameObject.GetComponent<BlockBase>() != null)
 		{
 			collision.gameObject.GetComponent<BlockBase>().OnCollision();

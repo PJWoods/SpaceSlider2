@@ -9,7 +9,7 @@ public class MovableBlock : BlockBase
 		if(!MapEditor.Instance)
 		{
 			base.Update();
-			Vector3 parentPos = m_grid.GetPositionFromIndex(m_gridIndex);
+			Vector3 parentPos = m_grid.GetWorldPositionFromIndex(m_gridIndex);
 			Vector3 direction = (parentPos - transform.position);
 			float length = direction.sqrMagnitude;
 			direction.Normalize();
@@ -33,7 +33,7 @@ public class MovableBlock : BlockBase
 			Vector3 currentWorldPos = Camera.main.ScreenToWorldPoint(currentScreenPos);
 			transform.position = currentWorldPos;
 
-			Vector3 parentPos = m_grid.GetPositionFromIndex(m_gridIndex);
+			Vector3 parentPos = m_grid.GetWorldPositionFromIndex(m_gridIndex);
 			if(Mathf.Abs(transform.position.x - parentPos.x) > 0.001f)
 			{
 				float nextdoorCellX = -gridComponent.CellDimensions.x;
@@ -63,13 +63,16 @@ public class MovableBlock : BlockBase
 			currentLenght *= currentLenght;
 
 			direction.Normalize();
-			float limit = (m_grid.CellDimensions.x * 0.2f) * (m_grid.CellDimensions.x * 0.2f);
+			float limit = (m_grid.CellDimensions.x * 0.5f) * (m_grid.CellDimensions.x * 0.5f);
 			if(currentLenght >= limit)
 			{
 				Vector3 worldPos = parentPos;
 				worldPos += direction * m_grid.CellDimensions.x;
+				Vector3 currentWorld = transform.position;
 				m_grid.AddCellAtWorldPosition(null, parentPos);
 				m_grid.AddCellAtWorldPosition(gameObject, worldPos);
+				gameObject.transform.position = currentWorld;
+				m_grid.SetSelectedBlock(null);
 			}
 		}
 	}

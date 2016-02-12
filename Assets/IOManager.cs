@@ -54,7 +54,9 @@ public class IOManager : MonoBehaviour
 
 			if(Camera.main.gameObject.GetComponent<CameraMovement>() == null)
 				Camera.main.gameObject.AddComponent<CameraMovement>();
-			
+			Camera.main.gameObject.GetComponent<CameraMovement>().Velocity.y = 0.5f;
+			Camera.main.gameObject.GetComponent<CameraMovement>().Acceleration = 0.01f;
+
 			LevelBase levelBase = level.GetComponent<LevelBase>();
 			levelBase.Name = fileName; levelBase.Path = filePath;
 			levelBase.PlayerObject = player;
@@ -89,11 +91,16 @@ public class IOManager : MonoBehaviour
 		GameObject level = MapEditor.Instance.GetComponent<LoadLevelScript>().LoadedLevel;
 		if(level)
 		{
+			CameraMovement camMovement = Camera.main.GetComponent<CameraMovement>();
 			LevelBase levelBase = level.GetComponent<LevelBase>();
 			Grid gridComponent = level.GetComponent<Grid>();
 			List<List<GameObject>> cells = gridComponent.GetCells();
 
 			StreamWriter writer = File.CreateText(filePath);
+			writer.WriteLine(camMovement.Velocity.x.ToString());
+			writer.WriteLine(camMovement.Velocity.y.ToString());
+			writer.WriteLine(camMovement.Velocity.z.ToString());
+			writer.WriteLine(camMovement.Acceleration.ToString());
 			writer.WriteLine(gridComponent.Cells.X.ToString());
 			writer.WriteLine(gridComponent.Cells.Y.ToString());
 			writer.WriteLine(gridComponent.CellDimensions.x.ToString());
@@ -160,9 +167,14 @@ public class IOManager : MonoBehaviour
 		Grid gridComponent = level.GetComponent<Grid>();
 		gridComponent.Init();
 
+		CameraMovement camMovement = Camera.main.GetComponent<CameraMovement>();
 		LevelBase levelBase = level.GetComponent<LevelBase>();
 
 		StreamReader reader = File.OpenText(path);
+		camMovement.Velocity.x = float.Parse(reader.ReadLine());
+		camMovement.Velocity.y = float.Parse(reader.ReadLine());
+		camMovement.Velocity.z = float.Parse(reader.ReadLine());
+		camMovement.Acceleration = float.Parse(reader.ReadLine());
 		gridComponent.Cells.X = int.Parse(reader.ReadLine());
 		gridComponent.Cells.Y = int.Parse(reader.ReadLine());
 		gridComponent.CellDimensions.x = float.Parse(reader.ReadLine());
@@ -192,14 +204,15 @@ public class IOManager : MonoBehaviour
 			List<GameObject> newColumn = new List<GameObject>(gridComponent.Cells.X);
 			for (int x = 0; x < gridComponent.Cells.X; ++x) 
 			{
+				GameObject block = null;
 				readLine = reader.ReadLine();
 				if(readLine != "null")
 				{
-					GameObject block = Game.Instance.ObjectPool.GetFromPool(readLine, true);
+					block = Game.Instance.ObjectPool.GetFromPool(readLine, true);
 					block.transform.position = new Vector3(startX + gridComponent.CellDimensions.x * 0.5f + (x * gridComponent.CellDimensions.x), (startY + gridComponent.CellDimensions.y * 0.5f + (y * gridComponent.CellDimensions.y)), Camera.main.nearClipPlane);
 					block.GetComponent<BlockBase>().SetGridIndices(new Vector2(x, y));
-					newColumn.Add(block);
 				}
+				newColumn.Add(block);
 			}
 			cells.Add(newColumn);
 		}	

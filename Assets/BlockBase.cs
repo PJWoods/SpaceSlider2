@@ -26,7 +26,7 @@ public class BlockBase : MonoBehaviour
 		DontDestroyOnLoad(gameObject);
 	
 		GameObject level = GameObject.FindGameObjectWithTag("Level");
-		if(!level)
+		if(level)
 		{
 			m_grid = level.GetComponent<Grid>();
 		}
@@ -44,6 +44,14 @@ public class BlockBase : MonoBehaviour
 	// Update is called once per frame
 	protected virtual void Update () 
 	{
+	}
+
+	void OnMouseDown()
+	{
+		if(!MapEditor.Instance)
+		{	
+			m_grid.SetSelectedBlock(this);
+		}	
 	}
 
 	public virtual void OnCollision()
