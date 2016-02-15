@@ -5,6 +5,7 @@ public class EditorState : GameState
 {
 	public override void Begin()
 	{
+		GameStateHandler.EditorMode = true;
 		Game.Instance.LoadLevel("Editor");
 		Game.Instance.UICore.Create<MapEditor>(Resources.Load("Prefabs/UI/EditorMenu") as GameObject);
 
@@ -18,7 +19,12 @@ public class EditorState : GameState
 			Game.Instance.ObjectPool.Prefabs[i] = item;
 		}
 		Game.Instance.ObjectPool.Init();
-		Camera.main.gameObject.AddComponent<CameraMovement>();
+
+		if(Camera.main.gameObject.GetComponent<CameraMovement>() == null)
+			Camera.main.gameObject.AddComponent<CameraMovement>();
+
+		if(Player == null)
+			Player = GameObject.Instantiate(Resources.Load("Prefabs/Levels/PlayerPrefab"), Vector3.zero, Quaternion.identity) as GameObject;
 	}
 
 	public override void Update()

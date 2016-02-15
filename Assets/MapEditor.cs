@@ -50,7 +50,7 @@ public class MapEditor : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-		CheckAttachmentInput();
+		//CheckAttachmentInput();
 		if(!m_active)
 			return;
 		
@@ -95,7 +95,7 @@ public class MapEditor : MonoBehaviour {
 					return;
 				}
 
-				GameObject loadedLevel = GetComponent<LoadLevelScript>().LoadedLevel;
+				GameObject loadedLevel = GameState.CurrentLevel;
 				if(loadedLevel)
 				{
 					Grid gridComponent = loadedLevel.GetComponent<Grid>();
@@ -147,6 +147,8 @@ public class MapEditor : MonoBehaviour {
 		{			
 			m_active = false;
 			OnDisable();
+			Game.Instance.GameState.ChangeState(new InGameState());
+			//Game.Instance.IOManager.LoadFromPath(GameState.CurrentLevel.GetComponent<LevelBase>().Path);
 		}
 	}
 
@@ -168,7 +170,7 @@ public class MapEditor : MonoBehaviour {
 		{
 			if(GUI.Button(new Rect((m_menuRect.width * 0.5f) - 70f, 40f + (spacing * i), boxWidth, 20), ((BlockBase.BlockProperty)i).ToString()))
 			{
-				GameObject loadedLevel = GetComponent<LoadLevelScript>().LoadedLevel;
+				GameObject loadedLevel = GameState.CurrentLevel;
 				if(loadedLevel)
 				{
 					Grid gridComponent = loadedLevel.GetComponent<Grid>();

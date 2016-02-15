@@ -19,7 +19,8 @@ public class SlowPowerUpBlock : PowerUpBlock
 		m_type = PowerUpType.Slow;
 
 		m_targets = new List<GameObject>(2);
-		GameObject obj = GameObject.FindGameObjectWithTag("Player");
+		GameObject obj = GameState.Player;
+
 		if(!obj)
 			Debug.LogError("Couldnt find the object with tag Player");
 		m_targets.Add(obj);

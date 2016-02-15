@@ -39,6 +39,7 @@ public class Grid : MonoBehaviour {
 			Debug.LogError("INVALID GRID!");
 			return;			
 		}
+		DontDestroyOnLoad(gameObject);
 	}
 
 	void Start () 

@@ -1,13 +1,19 @@
-﻿public abstract class GameState
+﻿using UnityEngine;
+
+public abstract class GameState
 {
-    public abstract void Begin();
+	static public GameObject Player { get; protected set; }
+	static public GameObject CurrentLevel;
+
+	public abstract void Begin();
     public abstract void Update();
     public abstract void End();
 }
 
 public class GameStateHandler
 {
-    private GameState m_currentState;
+	static public bool EditorMode = false;
+	private GameState m_currentState;
 
     public void Initialize()
     {
@@ -18,7 +24,10 @@ public class GameStateHandler
     {
         SetState(state);
     }
-
+	public GameState GetCurrentState()
+	{
+		return m_currentState;
+	}
     private void SetState(GameState state)
     {
         if (m_currentState != null)

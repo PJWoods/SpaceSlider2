@@ -25,7 +25,7 @@ public class BlockBase : MonoBehaviour
 	{
 		DontDestroyOnLoad(gameObject);
 	
-		GameObject level = GameObject.FindGameObjectWithTag("Level");
+		GameObject level = GameState.CurrentLevel;
 		if(level)
 		{
 			m_grid = level.GetComponent<Grid>();

@@ -72,7 +72,7 @@ public class PlayerMovement : MonoBehaviour {
 
 	public void ChangeLane(int count)
 	{
-		GameObject level = GameObject.FindGameObjectWithTag("Level");
+		GameObject level = GameState.CurrentLevel;
 		Grid grid = level.GetComponent<Grid>();
 		Vector3 pos = transform.position;
 		pos.y += grid.CellDimensions.y * 0.5f;

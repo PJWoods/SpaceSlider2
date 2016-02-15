@@ -44,28 +44,21 @@ public class IOManager : MonoBehaviour
 		string fileName = filePath.Substring(filePath.LastIndexOf('/') + 1);
 		if(fileName.Length > 0)
 		{
-			GameObject player = GameObject.FindGameObjectWithTag("Player");
-			if(player == null)
-				player = GameObject.Instantiate(Resources.Load("Prefabs/Levels/PlayerPrefab"), Vector3.zero, Quaternion.identity) as GameObject;
-
-			GameObject level = GameObject.FindGameObjectWithTag("Level");
-			if(level == null)
-				level = GameObject.Instantiate(Resources.Load("Prefabs/Levels/EmptyLevel"), Vector3.zero, Quaternion.identity) as GameObject;
+			if(GameState.CurrentLevel == null)
+				GameState.CurrentLevel = GameObject.Instantiate(Resources.Load("Prefabs/Levels/EmptyLevel"), Vector3.zero, Quaternion.identity) as GameObject;
 
 			if(Camera.main.gameObject.GetComponent<CameraMovement>() == null)
 				Camera.main.gameObject.AddComponent<CameraMovement>();
 			Camera.main.gameObject.GetComponent<CameraMovement>().Velocity.y = 0.5f;
 			Camera.main.gameObject.GetComponent<CameraMovement>().Acceleration = 0.01f;
 
-			LevelBase levelBase = level.GetComponent<LevelBase>();
+			LevelBase levelBase = GameState.CurrentLevel.GetComponent<LevelBase>();
 			levelBase.Name = fileName; levelBase.Path = filePath;
-			levelBase.PlayerObject = player;
+			levelBase.PlayerObject = GameState.Player;
 			levelBase.Init();
 
-			Grid levelGrid = level.GetComponent<Grid>();
+			Grid levelGrid = GameState.CurrentLevel.GetComponent<Grid>();
 			levelGrid.Init();
-
-			MapEditor.Instance.GetComponent<LoadLevelScript>().SetLevel(level);	
 		}
 	}
 
@@ -88,7 +81,7 @@ public class IOManager : MonoBehaviour
 		{
 			return;
 		}
-		GameObject level = MapEditor.Instance.GetComponent<LoadLevelScript>().LoadedLevel;
+		GameObject level = GameState.CurrentLevel;
 		if(level)
 		{
 			CameraMovement camMovement = Camera.main.GetComponent<CameraMovement>();
@@ -131,7 +124,7 @@ public class IOManager : MonoBehaviour
 
 	public void Load()
 	{
-		GameObject level = MapEditor.Instance.GetComponent<LoadLevelScript>().LoadedLevel;
+		GameObject level = GameState.CurrentLevel;
 		if(level)
 		{
 			level.GetComponent<Grid>();
@@ -157,11 +150,11 @@ public class IOManager : MonoBehaviour
 			Debug.LogError("File doesn't exist!");
 			return;
 		}
-		GameObject level = MapEditor.Instance.GetComponent<LoadLevelScript>().LoadedLevel;
+		GameObject level = GameState.CurrentLevel;
 		if(!level)
 		{
 			CreateFromPath(path);
-			level = MapEditor.Instance.GetComponent<LoadLevelScript>().LoadedLevel;
+			level = GameState.CurrentLevel;
 		}
 
 		Grid gridComponent = level.GetComponent<Grid>();
