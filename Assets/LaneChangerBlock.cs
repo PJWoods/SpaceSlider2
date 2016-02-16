@@ -8,7 +8,7 @@ public class LaneChangerBlock : BlockBase
 
 	void Start()
 	{
-		m_target = GameState.Player;
+		//m_target = GameState.Player;
 
 		if(!m_target)
 			Debug.LogError("Couldnt find the object with tag Player");

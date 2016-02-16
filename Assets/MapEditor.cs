@@ -1,284 +1,234 @@
 ﻿using UnityEngine;
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using System.IO;
 
-////////[ExecuteInEditMode]
-public class MapEditor : MonoBehaviour {
+public class MapEditor : MonoBehaviour
+{
+    public const int DEFAULT_ROWS = 64;
+    public const int DEFAULT_ROW_WIDTH = 5;
+    public const int DEFAULT_SPEED = 100;
 
-	public enum EditorDrawMode
-	{
-		DontDraw,
-		DrawMovable,
-		DrawNonMovable,
-		DrawBoost,
-		DrawLaneChangerLeft,
-		DrawLaneChangerRight,
-		DrawEmpty,
-		Total
-	}
-		
-	public static MapEditor Instance { get; private set; }
-	private bool m_menuOpen = false;
-	private Rect m_menuRect;
+    public enum EditorDrawMode
+    {
+        DrawEmpty,
+        DrawMovable,
+        DrawNonMovable,
+        DrawBoost,
+        DrawLaneChangerLeft,
+        DrawLaneChangerRight
+    }
+    public class MapRow
+    {
+        public List<EditorTileButton> Tiles = new List<EditorTileButton>(DEFAULT_ROW_WIDTH);
+    }
+    public class Map
+    {
+        public List<MapRow> Rows = new List<MapRow>(DEFAULT_ROWS);
 
-	private EditorDrawMode m_drawMode = EditorDrawMode.DontDraw;
-	private Vector2 m_lastDrawnCellIndex;
-	private GameObject m_markedCell = null;
+        public void Destroy()
+        {
+            for (int y = 0; y < Rows.Count; y++)
+            {
+                for (int x = 0; x < Rows[y].Tiles.Count; x++)
+                {
+                    GameObject.Destroy(Rows[y].Tiles[x].gameObject);
+                }
+            }
+        }
+    }
 
-	private bool m_active = true;
+    [SerializeField]
+    private Sprite[] m_tileTextures;
 
-	void OnEnable()
-	{
-		Instance = this;
-		m_lastDrawnCellIndex = new Vector2(-1, -1);
-		for(int i = 0; i < transform.childCount; ++i)
-			transform.GetChild(i).gameObject.SetActive(true);
-	}
-	void OnDisable()
-	{
-		Instance = null;
-		for(int i = 0; i < transform.childCount; ++i)
-			transform.GetChild(i).gameObject.SetActive(false);
-	}
+    [SerializeField]
+    private GameObject m_tilePrefab;
 
-	void Start () 
-	{
-	}
+    [SerializeField]
+    private GameObject m_tileContainer;
 
-	// Update is called once per frame
-	void Update () 
-	{
-		//CheckAttachmentInput();
-		if(!m_active)
-			return;
-		
-//		if(m_drawMode == EditorDrawMode.DontDraw)
-//		{
-//			if(Input.GetMouseButtonDown(0))
-//			{
-//				if(m_menuOpen && !m_menuRect.Contains(new Vector2(Input.mousePosition.x, (Screen.height - Input.mousePosition.y))))
-//				{
-//					m_markedCell = null;
-//					m_menuOpen = false;
-//					return;
-//				}
-//				if(Input.mousePosition.y > Screen.height - (Screen.height * 0.08f))
-//				{
-//					m_markedCell = null;
-//					m_menuOpen = false;
-//					return;
-//				}
-//
-//				GameObject loadedLevel = GetComponent<LoadLevelScript>().LoadedLevel;
-//				if(loadedLevel)
-//				{
-//					Grid gridComponent = loadedLevel.GetComponent<Grid>();
-//					Vector2 screenPos = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
-//					GameObject cell = gridComponent.GetCellFromScreenPosition(screenPos);
-//					if(!m_menuOpen)
-//					{
-//						m_markedCell = cell;
-//						m_clickPos = screenPos;
-//						OpenBlockClickMenu(screenPos);						
-//					}						
-//				}
-//			}
-//		}
-		if(m_drawMode != EditorDrawMode.DontDraw)
-		{
-			if(Input.GetMouseButton(0))
-			{			
-				if(Input.mousePosition.y > Screen.height - (Screen.height * 0.08f))
-				{
-					return;
-				}
+    [SerializeField]
+    private int m_mapWith;
 
-				GameObject loadedLevel = GameState.CurrentLevel;
-				if(loadedLevel)
-				{
-					Grid gridComponent = loadedLevel.GetComponent<Grid>();
-					Vector2 screenPos = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
-					if(!gridComponent.IsScreenPositionWithinCellArea(screenPos))
-					{
-						return;
-					}
+    [SerializeField]
+    private int m_mapHeight;
 
-					Vector2 currentCellIndex = gridComponent.GetCellIndexFromScreenPosition(screenPos);
-					if(currentCellIndex.x != m_lastDrawnCellIndex.x || currentCellIndex.y != m_lastDrawnCellIndex.y)
-					{
-						GameObject cell = gridComponent.GetCellFromScreenPosition(screenPos);
-						if(cell != null)
-						{
-							Game.Instance.ObjectPool.AddToPool(cell);
-						}
+    [SerializeField]
+    private Dropdown m_tileDropDown;
 
-						BlockBase block = CreateBlockFromDrawMode();
-						if(block != null)
-						{
-							gridComponent.AddCellAtScreenPosition(block.gameObject, screenPos);
-						}
-						else
-						{
-							gridComponent.AddCellAtScreenPosition(null, screenPos);							
-						}
+    [SerializeField]
+    private Button m_saveButton;
 
-						m_lastDrawnCellIndex = currentCellIndex;
-						gridComponent.SetIsSaved(false);
-					}
-				}
-			}
-		}
-	}
+    [SerializeField]
+    private Button m_loadButton;
 
-	private void CheckAttachmentInput()
-	{
-		if(!m_active)
-		{
-			if(Input.GetKeyDown(KeyCode.F5))
-			{			
-				m_active = true;
-				OnEnable();
-			}
-			return;
-		}
-		if(Input.GetKeyDown(KeyCode.F5))
-		{			
-			m_active = false;
-			OnDisable();
-			Game.Instance.GameState.ChangeState(new InGameState());
-			//Game.Instance.IOManager.LoadFromPath(GameState.CurrentLevel.GetComponent<LevelBase>().Path);
-		}
-	}
+    [SerializeField]
+    private Button m_clearButton;
 
-	void OnGUI()
-	{
-		if(!Instance)
-		{
-			return;
-		}
-		if(m_menuOpen)
-			m_menuRect = GUI.Window(0, m_menuRect, ShowRightClickMenu, "\nBlockTypes:\n");
-	}
+    [SerializeField]
+    private Button m_playButton;
 
-	void ShowRightClickMenu(int windowId)
-	{	
-		float spacing = 20f;
-		float boxWidth = 140f;
-		for (int i = 0; i < (int)BlockBase.BlockProperty.TotalAmountOfTypes; ++i) 
-		{
-			if(GUI.Button(new Rect((m_menuRect.width * 0.5f) - 70f, 40f + (spacing * i), boxWidth, 20), ((BlockBase.BlockProperty)i).ToString()))
-			{
-				GameObject loadedLevel = GameState.CurrentLevel;
-				if(loadedLevel)
-				{
-					Grid gridComponent = loadedLevel.GetComponent<Grid>();
+    [SerializeField]
+    private InputField m_speedLabel;
 
-					Vector3 cellPos = Vector3.zero;
-					if(m_markedCell != null)
-					{
-						cellPos = m_markedCell.transform.position;
-						Game.Instance.ObjectPool.AddToPool(m_markedCell);			
-					}
-					BlockBase block = BlockFactory.Instance.CreateBlock(((BlockBase.BlockProperty)i));
-					if(block != null)
-					{
-						gridComponent.AddCellAtScreenPosition(block.gameObject, cellPos);		
-						gridComponent.SetIsSaved(false);
-					}
-					else
-					{
-						Debug.LogError("Something went wrong when creating block!");
-					}
-					m_menuOpen = false;
-					m_markedCell = null;
-					return;
-				}
-			}				
-		}
-		if(GUI.Button(new Rect((m_menuRect.width * 0.5f) - 70, 40 + (spacing * (int)BlockBase.BlockProperty.TotalAmountOfTypes), 140, 20), "Cancel"))
-		{
-			m_menuOpen = false;
-		}
-	}
+    [SerializeField]
+    private InputField m_rowLabel;
 
-	public void OpenBlockClickMenu(Vector2 position)
-	{
-		m_menuOpen = true;
-		float spacing = 20f;
-		float boxHeight = ((int)BlockBase.BlockProperty.TotalAmountOfTypes + 1) * 20f + 45f;
-		float boxWidth = 140f;
+    [SerializeField]
+    private RectTransform scrollViewContentTransform;
 
-		Vector2 screenPos2 = position;
-		screenPos2.x += boxWidth;
-		screenPos2.y -= boxHeight;
-		if(screenPos2.x > Screen.width) 
-			position.x -= (screenPos2.x - Screen.width);
-		if(screenPos2.y < 0) 
-			position.y -= screenPos2.y;
+    //Map specific values
+    private Map m_map;
+    private int m_speed = DEFAULT_SPEED;
+    private int m_rows = DEFAULT_ROWS;
+    private int m_rowWidth = DEFAULT_ROW_WIDTH;
+    private string m_level = "default";
 
-		m_menuRect = new Rect(position.x, (Screen.height - position.y), 150f, ((int)BlockBase.BlockProperty.TotalAmountOfTypes + 1) * spacing + 45f);
-		StartCoroutine(OnLeftClickGridCell());
-	}
+    private EditorTileButton m_lastClickedTile;
+    
+    private void Start()
+    {
+        //Add event methods to relavant callbacks.
+        m_saveButton.onClick.AddListener(delegate { SaveButtonClicked(); });
+        m_loadButton.onClick.AddListener(delegate { LoadButtonClicked(); });
+        m_clearButton.onClick.AddListener(delegate { ClearButtonClicked(); });
+        m_playButton.onClick.AddListener(delegate { PlayButtonClicked(); });
+        m_rowLabel.onValueChanged.AddListener(delegate { RowValueChanged(); });
+        m_speedLabel.onValueChanged.AddListener(delegate { SpeedValueChanged(); });
 
-	private BlockBase CreateBlockFromDrawMode()
-	{
-		switch(m_drawMode)
-		{
-		case EditorDrawMode.DrawMovable:
-			return BlockFactory.Instance.CreateBlock(BlockBase.BlockProperty.Movable);
-		case EditorDrawMode.DrawNonMovable:
-			return BlockFactory.Instance.CreateBlock(BlockBase.BlockProperty.NonMovable);
-		case EditorDrawMode.DrawBoost:
-			return BlockFactory.Instance.CreateBlock(BlockBase.BlockProperty.PowerUp);
-		case EditorDrawMode.DrawLaneChangerLeft:
-			return BlockFactory.Instance.CreateBlock(BlockBase.BlockProperty.LaneChangerLeft);
-		case EditorDrawMode.DrawLaneChangerRight:
-			return BlockFactory.Instance.CreateBlock(BlockBase.BlockProperty.LaneChangerRight);
-		}	
-		return null;
-	}
+        InitMap(m_rows, m_rowWidth);
+    }
 
-	IEnumerator OnLeftClickGridCell()
-	{
-		while(m_menuOpen)
-		{
-			yield return null;
-		}
-		yield return false;
-	}
-		
-	//Draw Mode Toggeling
-	public void ToggleDrawMode(int mode)
-	{
-		m_drawMode = (EditorDrawMode)mode;
-		m_lastDrawnCellIndex = new Vector2(-1, -1);
-	}
+    //Init map and hook up buttons.
+    private void InitMap(int height, int width, StreamReader reader = null)
+    {
+        //Wipe the old one first
+        if(m_map != null)
+        {
+            m_map.Destroy();
+        }
 
-	public void ToggleDrawEmpty(bool flag)
-	{
-		if(flag)
-			m_drawMode = EditorDrawMode.DrawEmpty;
-	}
-	public void ToggleDrawMovable(bool flag)
-	{
-		if(flag)
-			m_drawMode = EditorDrawMode.DrawMovable;
-	}
-	public void ToggleDrawNonMovable(bool flag)
-	{
-		if(flag)
-			m_drawMode = EditorDrawMode.DrawNonMovable;
-	}
-	public void ToggleDrawBoost(bool flag)
-	{
-		if(flag)
-			m_drawMode = EditorDrawMode.DrawBoost;
-	}
-	public void ToggleDontDraw(bool flag)
-	{
-		if(flag)
-			m_drawMode = EditorDrawMode.DontDraw;
-	}
+        m_map = new Map();
+        for (int y = 0; y < height; y++)
+        {
+            m_map.Rows.Add(new MapRow());
+
+            MapRow currentRow = m_map.Rows[y];
+            for (int x = 0; x < width; x++)
+            {
+                EditorTileButton tile = GameObject.Instantiate(m_tilePrefab).GetComponent<EditorTileButton>();
+                currentRow.Tiles.Add(tile);
+
+                SetTilePosition(tile, x, y);
+                tile.transform.parent = m_tileContainer.transform;
+
+                if (reader != null)
+                {
+                    int index = int.Parse(reader.ReadLine());
+                    tile.SetTile(index, m_tileTextures[index]);
+                }
+                else
+                    tile.SetTile((int)EditorDrawMode.DrawEmpty, m_tileTextures[(int)EditorDrawMode.DrawEmpty]);
+
+                tile.onClick.AddListener(delegate { TileButtonClicked(); });
+            }
+        }
+    }
+
+    //Calculates the tile buttons position and width/height based on sceensize.
+    private void SetTilePosition(EditorTileButton tile, int x, int y)
+    {
+        float size = Screen.width / m_rowWidth;
+        Vector2 textureLengths = new Vector2(size, size);
+        tile.transform.position = new Vector3((size / 2f) + tile.transform.localPosition.x + (textureLengths.x * x), (size / 2f) + tile.transform.localPosition.y + (textureLengths.y * y), 0);
+        tile.GetComponent<RectTransform>().sizeDelta = textureLengths;
+    }
+
+    //If you press a tile in our map we cache via unity eventsystem. Then we set the tile to current drawed tile.
+    private void TileButtonClicked()
+    {
+        m_lastClickedTile = UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject.GetComponent<EditorTileButton>();
+        m_lastClickedTile.SetTile(m_tileDropDown.value, m_tileTextures[m_tileDropDown.value]);
+    }
+
+    private void SaveButtonClicked()
+    {
+        Save(m_map, m_speed, m_rowWidth, m_rows, m_level);
+    }
+
+    private void LoadButtonClicked()
+    {
+        Load(m_tileTextures);
+    }
+
+    private void ClearButtonClicked()
+    {
+        InitMap(m_rows, DEFAULT_ROW_WIDTH);
+    }
+
+    private void PlayButtonClicked()
+    {
+        //Change to gamestate
+        InGameState.Context context = new InGameState.Context();
+        context.EntryAction = InGameState.EntryAction.EditorEntry;
+        context.Level = m_level;
+        Game.Instance.GameState.ChangeState(new InGameState());
+    }
+
+    private void RowValueChanged()
+    {
+        m_rows = int.Parse(m_rowLabel.text);
+    }
+
+    private void SpeedValueChanged()
+    {
+        m_speed = int.Parse(m_speedLabel.text);
+    }
+
+
+    public void Save(MapEditor.Map map, int speed, int mapWidth, int mapHeight, string levelName)
+    {
+        #if UNITY_EDITOR
+        string filePath = UnityEditor.EditorUtility.SaveFilePanel("Save level", "/Assets/Levels/", levelName, "lel");
+
+        if (filePath == null || filePath == "" || filePath.Length == 0)
+        {
+            return;
+        }
+
+        StreamWriter writer = File.CreateText(filePath);
+        writer.WriteLine(speed.ToString());
+        writer.WriteLine(mapWidth.ToString());
+        writer.WriteLine(mapHeight.ToString());
+
+        for (int y = 0; y < mapHeight; ++y)
+        {
+            for (int x = 0; x < mapWidth; ++x)
+            {
+                writer.WriteLine(map.Rows[y].Tiles[x].Index);
+            }
+        }
+        writer.Close();
+        #endif
+    }
+
+    public void Load(Sprite[] textures)
+    {
+        #if UNITY_EDITOR
+        string filePath = UnityEditor.EditorUtility.OpenFilePanel("Load level", "/Assets/Levels/", "lel");
+        if (!File.Exists(filePath))
+        {
+            Debug.LogError("File doesn't exist!");
+            return;
+        }
+
+        StreamReader reader = File.OpenText(filePath);
+        int speed = int.Parse(reader.ReadLine());
+        int mapWidth = int.Parse(reader.ReadLine());
+        int mapHeight = int.Parse(reader.ReadLine());
+
+        InitMap(mapHeight,mapWidth,reader);
+        reader.Close();
+        #endif
+    }
 }

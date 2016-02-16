@@ -1,9 +1,4 @@
-﻿using System;
-using UnityEngine;
-using UnityEditor;
-using System.Collections.Generic;
-using System.Reflection;
-using System.Globalization;
+﻿
 
 //[CustomEditor(typeof(LoadLevelScript))]
 //public class LoadLevelEditor : Editor

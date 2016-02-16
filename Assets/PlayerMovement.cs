@@ -24,30 +24,27 @@ public class PlayerMovement : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-		if(!MapEditor.Instance)
+		if(!m_isColliding)
 		{
-			if(!m_isColliding)
+			CalculatedCameraDragAndMovement();
+			if(m_changingLane)
 			{
-				CalculatedCameraDragAndMovement();
-				if(m_changingLane)
+				Vector3 laneChangeDir = (m_laneChangeTarget - transform.position);
+				if(laneChangeDir.sqrMagnitude > 0.01f && Mathf.Abs(Mathf.Abs(m_laneChangeTarget.x) - Mathf.Abs(transform.position.x)) > 0.01f)
 				{
-					Vector3 laneChangeDir = (m_laneChangeTarget - transform.position);
-					if(laneChangeDir.sqrMagnitude > 0.01f && Mathf.Abs(Mathf.Abs(m_laneChangeTarget.x) - Mathf.Abs(transform.position.x)) > 0.01f)
-					{
-						float direction = (laneChangeDir.normalized.x > 0 ? 1f : -1f);
-						m_currentVelocity.x = direction * m_currentVelocity.y * LaneChangeSpeed * Time.deltaTime;
-					}
-					else
-					{
-						Vector3 pos = transform.position;
-						pos.x = m_laneChangeTarget.x;
-						transform.position = pos;
-						m_currentVelocity.x = 0;
-						m_changingLane = false;
-					}			
+					float direction = (laneChangeDir.normalized.x > 0 ? 1f : -1f);
+					m_currentVelocity.x = direction * m_currentVelocity.y * LaneChangeSpeed * Time.deltaTime;
 				}
-				transform.position += m_currentVelocity;			
+				else
+				{
+					Vector3 pos = transform.position;
+					pos.x = m_laneChangeTarget.x;
+					transform.position = pos;
+					m_currentVelocity.x = 0;
+					m_changingLane = false;
+				}			
 			}
+			transform.position += m_currentVelocity;			
 		}
 	}
 
@@ -72,14 +69,14 @@ public class PlayerMovement : MonoBehaviour {
 
 	public void ChangeLane(int count)
 	{
-		GameObject level = GameState.CurrentLevel;
-		Grid grid = level.GetComponent<Grid>();
-		Vector3 pos = transform.position;
+		//GameObject level = GameState.CurrentLevel;
+		//Grid grid = level.GetComponent<Grid>();
+		/*Vector3 pos = transform.position;
 		pos.y += grid.CellDimensions.y * 0.5f;
 
 		Vector3 cellPos = grid.GetWorldPositionFromIndex(grid.GetCellIndexFromWorldPosition(pos));
 		m_laneChangeTarget = cellPos + new Vector3(grid.CellDimensions.x * count, grid.CellDimensions.y * Mathf.Abs(count), cellPos.z);
-		m_changingLane = true;
+		m_changingLane = true;*/
 	}
 
 	void OnCollisionEnter2D(Collision2D collision)

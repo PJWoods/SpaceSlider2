@@ -19,7 +19,7 @@ public class SlowPowerUpBlock : PowerUpBlock
 		m_type = PowerUpType.Slow;
 
 		m_targets = new List<GameObject>(2);
-		GameObject obj = GameState.Player;
+		/*GameObject obj = GameState.Player;
 
 		if(!obj)
 			Debug.LogError("Couldnt find the object with tag Player");
@@ -32,27 +32,24 @@ public class SlowPowerUpBlock : PowerUpBlock
 				m_lastTargetPositions.Add(g.transform.position);
 
 		if(FadeInTime > FadeOutTime || FadeInTime + FadeOutTime > Duration || FadeInTime < 0 || FadeOutTime < 0 || FadeOutTime > Duration)
-			Debug.LogError("Timing error in SlowPowerUpBlock!");
+			Debug.LogError("Timing error in SlowPowerUpBlock!");*/
 	}
 
 	protected override void Update()
 	{
-		if(!MapEditor.Instance)
+		for(int i = 0; i < m_targets.Count; ++i)
 		{
-			for(int i = 0; i < m_targets.Count; ++i)
+			if(m_targets[i] != null)
 			{
-				if(m_targets[i] != null)
-				{
-					base.Update();
+				base.Update();
 
-					if(m_currentDuration < FadeInTime)
-						m_currentSlowAmount += (SlowAmount / FadeInTime) * Time.deltaTime;
-					else if(m_currentDuration < FadeOutTime)
-						m_currentSlowAmount -= (SlowAmount / FadeOutTime) * Time.deltaTime;
+				if(m_currentDuration < FadeInTime)
+					m_currentSlowAmount += (SlowAmount / FadeInTime) * Time.deltaTime;
+				else if(m_currentDuration < FadeOutTime)
+					m_currentSlowAmount -= (SlowAmount / FadeOutTime) * Time.deltaTime;
 
-					m_targets[i].transform.position -= ((m_targets[i].transform.position - m_lastTargetPositions[i]).normalized * m_currentSlowAmount) * Time.deltaTime;
-				}			
-			}
+				m_targets[i].transform.position -= ((m_targets[i].transform.position - m_lastTargetPositions[i]).normalized * m_currentSlowAmount) * Time.deltaTime;
+			}			
 		}
 	}
 

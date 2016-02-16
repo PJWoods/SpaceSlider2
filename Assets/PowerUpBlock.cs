@@ -21,13 +21,11 @@ public class PowerUpBlock : MovableBlock
 
 	protected override void Update()
 	{
-		if(!MapEditor.Instance)
-		{
+
 			m_currentDuration += Time.deltaTime;
 			transform.localScale -= m_scalingSteps * Time.deltaTime;
 			if(transform.localScale.sqrMagnitude < 0.001f)
-				Game.Instance.ObjectPool.AddToPool(this.gameObject);
-		}			
+				Game.Instance.ObjectPool.AddToPool(this.gameObject);		
 	}
 
 	public override void OnCollision()

@@ -4,7 +4,7 @@ using System.Collections;
 public class CameraMovement : MonoBehaviour {
 
 	public bool ShowDebugInfo = false;
-	[ShowOnly] public Vector3 CurrentVelocity  = new Vector3(0, 0, 0);
+	public Vector3 CurrentVelocity  = new Vector3(0, 0, 0);
 	public Vector3 Velocity = new Vector3(0, 0, 0);
 	public float Acceleration = 0f;
 
@@ -21,8 +21,6 @@ public class CameraMovement : MonoBehaviour {
 	// Update is called once per frame
 	void Update() 
     {
-		if(!MapEditor.Instance)
-		{
 			float currentSpeed = CurrentVelocity.sqrMagnitude;
 			float targetSpeed = Velocity.sqrMagnitude;
 			if(targetSpeed - currentSpeed < 0.0001f)
@@ -32,11 +30,6 @@ public class CameraMovement : MonoBehaviour {
 			Vector3 target = Velocity - CurrentVelocity;
 			CurrentVelocity += (target.normalized * Acceleration * Time.deltaTime);
 			transform.position += CurrentVelocity;
-		}
-		else
-		{
-			UpdateFreeFly();			
-		}
 	}
 	private void UpdateFreeFly()
 	{

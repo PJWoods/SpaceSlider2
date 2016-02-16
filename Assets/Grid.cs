@@ -77,16 +77,13 @@ public class Grid : MonoBehaviour {
 
 	void Update ()
 	{
-		if(!MapEditor.Instance)
-		{
-			if(m_cells == null) return;
+		if(m_cells == null) return;
 
-			if(m_selectedBlock != null)
-			{
-				m_selectedBlock.UpdateMovement();
-				if(!Input.GetMouseButton(0))
-					m_selectedBlock = null;
-			}
+		if(m_selectedBlock != null)
+		{
+			m_selectedBlock.UpdateMovement();
+			if(!Input.GetMouseButton(0))
+				m_selectedBlock = null;
 		}
 	}
 

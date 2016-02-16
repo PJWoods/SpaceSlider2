@@ -6,19 +6,16 @@ public class MovableBlock : BlockBase
 	public float SlidingSpeed;
 	protected override void Update()
 	{
-		if(!MapEditor.Instance)
-		{
-			base.Update();
-			Vector3 parentPos = m_grid.GetWorldPositionFromIndex(m_gridIndex);
-			Vector3 direction = (parentPos - transform.position);
-			float length = direction.sqrMagnitude;
-			direction.Normalize();
+		base.Update();
+		Vector3 parentPos = m_grid.GetWorldPositionFromIndex(m_gridIndex);
+		Vector3 direction = (parentPos - transform.position);
+		float length = direction.sqrMagnitude;
+		direction.Normalize();
 
-			if(length < 0.05f)
-				transform.position = parentPos;
-			else
-				transform.position += direction * SlidingSpeed * Time.deltaTime;
-		}
+		if(length < 0.05f)
+			transform.position = parentPos;
+		else
+			transform.position += direction * SlidingSpeed * Time.deltaTime;
 	}
 
 	public override void UpdateMovement()

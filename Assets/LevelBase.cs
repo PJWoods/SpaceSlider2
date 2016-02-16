@@ -3,8 +3,8 @@ using System.Collections;
 
 public class LevelBase : MonoBehaviour {
 
-	[ShowOnly] public string Name;
-	[ShowOnly] public string Path;
+	public string Name;
+	public string Path;
 
 	public Vector3 PlayerStart;
 	public Vector3 CameraStart;
@@ -20,7 +20,7 @@ public class LevelBase : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-		if(GameStateHandler.EditorMode)
+		/*if(GameStateHandler.EditorMode)
 		{
 			InGameState state = Game.Instance.GameState.GetCurrentState() as InGameState;
 			if(state != null)
@@ -36,7 +36,7 @@ public class LevelBase : MonoBehaviour {
 				Game.Instance.GameState.ChangeState(new InGameState());
 				//Game.Instance.IOManager.LoadFromPath(GameState.CurrentLevel.GetComponent<LevelBase>().Path);
 			}
-		}
+		}*/
 	}
 
 	public void Init()
