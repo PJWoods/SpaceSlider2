@@ -39,11 +39,11 @@ public class InGameState : GameState
 			grid.InitAndLoadLevel(castedContext.Level);
 
 			//m_mainCamera = GameObject.Instantiate(Resources.Load("Prefabs/MainCameraPrefab"), Vector3.zero, Quaternion.identity) as GameObject;
-			GameObject cam = Camera.current.gameObject;
+			GameObject cam = Camera.main.gameObject;
 			cam.AddComponent<CameraMovement>();
 
-//			Camera.main.gameObject.GetComponent<CameraMovement>().Acceleration = 0.05f;
-//			Camera.main.gameObject.GetComponent<CameraMovement>().Velocity.y = 0.5f;
+			cam.GetComponent<CameraMovement>().Acceleration = 0.05f;
+			cam.GetComponent<CameraMovement>().Velocity.y = 0.1f;
 
 			m_player = GameObject.Instantiate(Resources.Load("Prefabs/PlayerPrefab"), Vector3.zero, Quaternion.identity) as GameObject;
 			m_player.GetComponent<PlayerMovement>().SetCamera(cam);
