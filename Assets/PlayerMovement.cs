@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour {
 	private Vector3 m_laneChangeTarget;
 	private bool m_changingLane = false;
 
+	private GameObject m_Camera;
 	// Use this for initialization
 	void Start () 
 	{
@@ -50,14 +51,14 @@ public class PlayerMovement : MonoBehaviour {
 
 	void CalculatedCameraDragAndMovement()
 	{
-		Vector3 camPos = Camera.main.transform.position;
+		Vector3 camPos = m_Camera.transform.position;
 		camPos.x = transform.position.x;
 		camPos.z = transform.position.z;
 
 		float distance = Mathf.Abs(camPos.y - transform.position.y);
 		if(distance < MaximumDistance)
 		{
-			Vector3 vel_diff = Camera.main.GetComponent<CameraMovement>().CurrentVelocity - m_currentVelocity;
+			Vector3 vel_diff = m_Camera.GetComponent<CameraMovement>().CurrentVelocity - m_currentVelocity;
 			m_currentVelocity += vel_diff * Time.deltaTime;
 			return;
 		}
@@ -79,6 +80,11 @@ public class PlayerMovement : MonoBehaviour {
 		m_changingLane = true;*/
 	}
 
+	public void SetCamera(GameObject camera)
+	{
+		m_Camera = camera;
+	}
+
 	void OnCollisionEnter2D(Collision2D collision)
 	{
 		m_isColliding = true;
@@ -96,18 +102,4 @@ public class PlayerMovement : MonoBehaviour {
 			collision.gameObject.GetComponent<BlockBase>().OnCollision();
 		}
 	}
-//	void OnTriggerStay2D(Collider2D collision)
-//	{
-//		if(collision.gameObject.GetComponent<BlockBase>().BlockType == BlockBase.BlockProperty.PowerUp)
-//		{
-//
-//		}
-//	}
-//	void OnTriggerExit2D(Collider2D collision)
-//	{
-//		if(collision.gameObject.GetComponent<BlockBase>().BlockType == BlockBase.BlockProperty.PowerUp)
-//		{
-//			GameObjectPool.Instance.AddToPool(collision.gameObject);
-//		}
-//	}
 }

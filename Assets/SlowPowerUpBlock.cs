@@ -19,7 +19,7 @@ public class SlowPowerUpBlock : PowerUpBlock
 		m_type = PowerUpType.Slow;
 
 		m_targets = new List<GameObject>(2);
-		/*GameObject obj = GameState.Player;
+		GameObject obj = GameObject.FindGameObjectWithTag("Player");
 
 		if(!obj)
 			Debug.LogError("Couldnt find the object with tag Player");
@@ -32,7 +32,7 @@ public class SlowPowerUpBlock : PowerUpBlock
 				m_lastTargetPositions.Add(g.transform.position);
 
 		if(FadeInTime > FadeOutTime || FadeInTime + FadeOutTime > Duration || FadeInTime < 0 || FadeOutTime < 0 || FadeOutTime > Duration)
-			Debug.LogError("Timing error in SlowPowerUpBlock!");*/
+			Debug.LogError("Timing error in SlowPowerUpBlock!");
 	}
 
 	protected override void Update()

@@ -11,7 +11,7 @@ public class BlockBase : MonoBehaviour
 		Empty,
 		Movable,
 		NonMovable,
-		PowerUp,
+		SlowPowerUp,
 		LaneChangerLeft,
 		LaneChangerRight,
 		TotalAmountOfTypes
@@ -30,7 +30,17 @@ public class BlockBase : MonoBehaviour
 	void Start () 
 	{
 	}
-	
+
+	public void SetGrid(Grid grid)
+	{
+		m_grid = grid;
+	}
+
+	public void SetGridIndex(Vector2 gridIndex)
+	{
+		m_gridIndex = gridIndex;
+	}
+
 	// Update is called once per frame
 	protected virtual void Update () 
 	{

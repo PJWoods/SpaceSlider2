@@ -7,6 +7,8 @@ public class MovableBlock : BlockBase
 	protected override void Update()
 	{
 		base.Update();
+		if(m_grid == null) { return; }
+
 		Vector3 parentPos = m_grid.GetWorldPositionFromIndex(m_gridIndex);
 		Vector3 direction = (parentPos - transform.position);
 		float length = direction.sqrMagnitude;

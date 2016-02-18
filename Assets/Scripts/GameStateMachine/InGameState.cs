@@ -15,13 +15,42 @@ public class InGameState : GameState
     }
 
     public EntryAction Action { get { return m_entryAction; } }
-
     private EntryAction m_entryAction;
+
+	public GameObject CurrentLevel { get { return m_currentLevel; } }
+	private GameObject m_currentLevel;
+
+	public GameObject Player { get { return m_player; } }
+	private GameObject m_player;
+//	public GameObject MainCamera { get { return m_mainCamera; } }
+//	private GameObject m_mainCamera;
 
     public override void Begin(ContextBase context)
     {
         Context castedContext = context as Context;
+		m_entryAction = castedContext.EntryAction;
+
         Game.Instance.LoadLevel("Game");
+
+		if(castedContext != null)
+		{
+			m_currentLevel = GameObject.Instantiate(Resources.Load("Prefabs/Levels/EmptyLevel"), Vector3.zero, Quaternion.identity) as GameObject;
+			Grid grid = m_currentLevel.GetComponent<Grid>();
+			grid.InitAndLoadLevel(castedContext.Level);
+
+			//m_mainCamera = GameObject.Instantiate(Resources.Load("Prefabs/MainCameraPrefab"), Vector3.zero, Quaternion.identity) as GameObject;
+			GameObject cam = Camera.current.gameObject;
+			cam.AddComponent<CameraMovement>();
+
+//			Camera.main.gameObject.GetComponent<CameraMovement>().Acceleration = 0.05f;
+//			Camera.main.gameObject.GetComponent<CameraMovement>().Velocity.y = 0.5f;
+
+			m_player = GameObject.Instantiate(Resources.Load("Prefabs/PlayerPrefab"), Vector3.zero, Quaternion.identity) as GameObject;
+			m_player.GetComponent<PlayerMovement>().SetCamera(cam);
+
+//			m_mainCamera.GetComponent<CameraMovement>().SetTopSpeed(grid.GameSpeed);
+//			m_player.GetComponent<PlayerMovement>().SetTopSpeed(grid.GameSpeed);
+		}
     }
 
     public override void Update()

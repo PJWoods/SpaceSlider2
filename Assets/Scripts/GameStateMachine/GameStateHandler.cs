@@ -36,10 +36,10 @@ public class GameStateHandler
 
         m_currentState = state;
 
-        if(context != null)
-        {
-            context = new GameState.ContextBase();
-        }
+//        if(context != null)
+//        {
+//            context = new GameState.ContextBase();
+//        }
         m_currentState.Begin(context);
     }
 }

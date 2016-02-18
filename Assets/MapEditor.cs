@@ -172,7 +172,7 @@ public class MapEditor : MonoBehaviour
         InGameState.Context context = new InGameState.Context();
         context.EntryAction = InGameState.EntryAction.EditorEntry;
         context.Level = m_level;
-        Game.Instance.GameState.ChangeState(new InGameState());
+		Game.Instance.GameState.ChangeState(new InGameState(), context);
     }
 
     private void RowValueChanged()

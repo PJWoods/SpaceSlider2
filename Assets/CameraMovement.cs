@@ -11,6 +11,7 @@ public class CameraMovement : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
+		DontDestroyOnLoad(gameObject);
 	}
 
 	public Vector3 GetCurrentVelocity()
@@ -21,39 +22,16 @@ public class CameraMovement : MonoBehaviour {
 	// Update is called once per frame
 	void Update() 
     {
-			float currentSpeed = CurrentVelocity.sqrMagnitude;
-			float targetSpeed = Velocity.sqrMagnitude;
-			if(targetSpeed - currentSpeed < 0.0001f)
-			{
-				CurrentVelocity = Velocity;
-			}
-			Vector3 target = Velocity - CurrentVelocity;
-			CurrentVelocity += (target.normalized * Acceleration * Time.deltaTime);
-			transform.position += CurrentVelocity;
-	}
-	private void UpdateFreeFly()
-	{
-		float scroll = Input.GetAxis("Mouse ScrollWheel");
-		if(scroll != 0f)
-		{
-			float currentOrto = Camera.main.orthographicSize;
-			currentOrto += (scroll * -3);
-			currentOrto = Mathf.Clamp(currentOrto, 1f, 15f);
-			Camera.main.orthographicSize = currentOrto;
-		}
-		if(Input.GetMouseButton(1))
-		{
-			Vector3 centerPos = new Vector3();
-			centerPos.x = Screen.width * 0.5f;
-			centerPos.y = Screen.height * 0.5f;
-			centerPos.z = Input.mousePosition.z;
+		Vector3 target = Velocity - CurrentVelocity;
+		CurrentVelocity += (target.normalized * Acceleration * Time.deltaTime);
 
-			Vector3 diff = Input.mousePosition - centerPos;
-			Vector3 direction = diff.normalized;
-			float speed = diff.sqrMagnitude * 0.0001f;
-
-			transform.position += direction * speed * Time.deltaTime;
+		float currentSpeed = CurrentVelocity.sqrMagnitude;
+		float targetSpeed = Velocity.sqrMagnitude;
+		if(targetSpeed - currentSpeed < 0.0001f)
+		{
+			CurrentVelocity = Velocity;
 		}
+		transform.position += CurrentVelocity;
 	}
 
 	void OnGUI()
