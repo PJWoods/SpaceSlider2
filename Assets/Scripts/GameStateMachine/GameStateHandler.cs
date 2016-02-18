@@ -10,6 +10,7 @@ public class GameState
     public virtual void Begin(ContextBase context) {}
     public virtual void Update() {}
     public virtual void End() {}
+    public virtual void OnSceneDoneLoading() {}
 }
 
 public class GameStateHandler
@@ -29,6 +30,10 @@ public class GameStateHandler
 	{
 		return m_currentState;
 	}
+    public void OnSceneDoneLoading()
+    {
+        m_currentState.OnSceneDoneLoading();
+    }
     private void SetState(GameState state, GameState.ContextBase context = null)
     {
         if (m_currentState != null)
@@ -36,10 +41,10 @@ public class GameStateHandler
 
         m_currentState = state;
 
-//        if(context != null)
-//        {
-//            context = new GameState.ContextBase();
-//        }
+        if(context == null)
+        {
+            context = new GameState.ContextBase();
+        }
         m_currentState.Begin(context);
     }
 }

@@ -55,6 +55,6 @@ public class Game
     }
     private void OnSceneDoneLoading()
     {
-        
+        GameState.OnSceneDoneLoading();
     }
 }

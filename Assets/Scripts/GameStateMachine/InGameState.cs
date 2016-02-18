@@ -53,6 +53,11 @@ public class InGameState : GameState
 		}
     }
 
+    public override void OnSceneDoneLoading()
+    {
+
+    }
+
     public override void Update()
     {
 
