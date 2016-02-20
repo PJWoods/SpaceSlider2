@@ -4,6 +4,9 @@ using UnityEngine;
 public class MovableBlock : BlockBase
 {
 	public float SlidingSpeed;
+	private void Awake()
+	{
+	}
 	protected override void Update()
 	{
 		base.Update();

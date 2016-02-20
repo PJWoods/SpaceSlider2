@@ -7,7 +7,7 @@ public class Game
 
     public UICore UICore;
     public GameStateHandler GameState;
-    
+	public EventManager EventManager;
 	public GameObjectPool ObjectPool;
 	public IOManager IOManager;
 
@@ -23,6 +23,7 @@ public class Game
         GameState.Initialize();
 
         PlayerInfo = new PlayerInfo();	
+		EventManager = new EventManager();
     }
 
     public static Game Instance
@@ -55,6 +56,6 @@ public class Game
     }
     private void OnSceneDoneLoading()
     {
-        GameState.OnSceneDoneLoading();
+	    GameState.OnSceneDoneLoading();
     }
 }
