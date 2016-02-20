@@ -169,8 +169,8 @@ public class MapEditor : MonoBehaviour
     private void PlayButtonClicked()
     {
         //Change to gamestate
-        InGameState.Context context = new InGameState.Context();
-        context.EntryAction = InGameState.EntryAction.EditorEntry;
+		GameState.ContextBase context = new GameState.ContextBase();
+		context.ActionOnEnter = GameState.ContextBase.EntryAction.EditorEntry;
         context.Level = m_level;
 		Game.Instance.GameState.ChangeState(new InGameState(), context);
     }
@@ -231,4 +231,23 @@ public class MapEditor : MonoBehaviour
         reader.Close();
         #endif
     }
+	public void Load(string filePath)
+	{
+		#if UNITY_EDITOR
+		if (!File.Exists(filePath))
+		{
+			Debug.LogError("File doesn't exist!");
+			return;
+		}
+
+		StreamReader reader = File.OpenText(filePath);
+		int speed = int.Parse(reader.ReadLine());
+		int mapWidth = int.Parse(reader.ReadLine());
+		int mapHeight = int.Parse(reader.ReadLine());
+
+		InitMap(mapHeight,mapWidth,reader);
+		reader.Close();
+		#endif
+	}
+
 }

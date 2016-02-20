@@ -4,8 +4,18 @@ public class GameState
 {
     public class ContextBase
     {
-        
-    }
+		public enum EntryAction
+		{
+			None,
+			EditorEntry,
+			GameEntry,
+		}
+		public EntryAction ActionOnEnter = EntryAction.None;
+		public string Level;
+	}
+
+	public ContextBase.EntryAction Action { get { return m_entryAction; } }
+	protected ContextBase.EntryAction m_entryAction;
 
     public virtual void Begin(ContextBase context) {}
     public virtual void Update() {}

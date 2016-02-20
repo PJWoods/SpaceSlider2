@@ -46,7 +46,11 @@ public class Menu : MonoBehaviour
     IEnumerator YieldAnimationThenContinueToEditor(float yieldTime)
     {
         yield return new WaitForSeconds(yieldTime);
-        Game.Instance.GameState.ChangeState(new EditorState());
+
+		GameState.ContextBase context = new GameState.ContextBase();
+		context.ActionOnEnter = GameState.ContextBase.EntryAction.GameEntry;
+		context.Level = "default";
+		Game.Instance.GameState.ChangeState(new EditorState(), context);
     }
 
     void AnimateAnchors(bool forward)

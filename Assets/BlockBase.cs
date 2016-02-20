@@ -23,7 +23,6 @@ public class BlockBase : MonoBehaviour
 
 	void Awake ()
 	{
-		DontDestroyOnLoad(gameObject);
 	}
 
 	// Use this for initialization

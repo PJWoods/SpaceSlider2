@@ -11,7 +11,6 @@ public class CameraMovement : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
-		DontDestroyOnLoad(gameObject);
 	}
 
 	public Vector3 GetCurrentVelocity()

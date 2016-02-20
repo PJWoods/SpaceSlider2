@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.IO;
 
 [System.Serializable]
-////////[ExecuteInEditMode]
 public class Grid : MonoBehaviour 
 {
 	[System.Serializable]
@@ -41,8 +40,6 @@ public class Grid : MonoBehaviour
 			GameObject.Instantiate(Resources.Load("Prefabs/Blocks/LaneChangerLeft"), Vector3.zero, Quaternion.identity) as GameObject,
 			GameObject.Instantiate(Resources.Load("Prefabs/Blocks/LaneChangerRight"), Vector3.zero, Quaternion.identity) as GameObject,
 		};
-
-		DontDestroyOnLoad(gameObject);
 	}
 
 	void Start () 

@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PlayerMovement : MonoBehaviour {
+public class PlayerMovement : MonoBehaviour 
+{
 
 	public float Acceleration;
 	public float LaneChangeSpeed;
@@ -14,12 +15,14 @@ public class PlayerMovement : MonoBehaviour {
 	private Vector3 m_laneChangeTarget;
 	private bool m_changingLane = false;
 
-	private GameObject m_Camera;
+	public Grid GridRef { set { m_grid = GridRef; } get { return m_grid; } }
+	private Grid m_grid;
+
+	private GameObject m_camera;
 	// Use this for initialization
 	void Start () 
 	{
 		//MaximumDistance *= MaximumDistance;
-		DontDestroyOnLoad(gameObject);
 	}
 
 	// Update is called once per frame
@@ -51,14 +54,14 @@ public class PlayerMovement : MonoBehaviour {
 
 	void CalculatedCameraDragAndMovement()
 	{
-		Vector3 camPos = m_Camera.transform.position;
+		Vector3 camPos = m_camera.transform.position;
 		camPos.x = transform.position.x;
 		camPos.z = transform.position.z;
 
 		float distance = Mathf.Abs(camPos.y - transform.position.y);
 		if(distance < MaximumDistance)
 		{
-			Vector3 vel_diff = m_Camera.GetComponent<CameraMovement>().CurrentVelocity - m_currentVelocity;
+			Vector3 vel_diff = m_camera.GetComponent<CameraMovement>().CurrentVelocity - m_currentVelocity;
 			m_currentVelocity += vel_diff * Time.deltaTime;
 			return;
 		}
@@ -70,19 +73,21 @@ public class PlayerMovement : MonoBehaviour {
 
 	public void ChangeLane(int count)
 	{
-		//GameObject level = GameState.CurrentLevel;
-		//Grid grid = level.GetComponent<Grid>();
-		/*Vector3 pos = transform.position;
-		pos.y += grid.CellDimensions.y * 0.5f;
-
-		Vector3 cellPos = grid.GetWorldPositionFromIndex(grid.GetCellIndexFromWorldPosition(pos));
-		m_laneChangeTarget = cellPos + new Vector3(grid.CellDimensions.x * count, grid.CellDimensions.y * Mathf.Abs(count), cellPos.z);
-		m_changingLane = true;*/
+		Vector3 pos = transform.position;
+		pos.y += m_grid.CellDimensions.y * 0.5f;
+		
+		Vector3 cellPos = m_grid.GetWorldPositionFromIndex(m_grid.GetCellIndexFromWorldPosition(pos));
+		m_laneChangeTarget = cellPos + new Vector3(m_grid.CellDimensions.x * count, m_grid.CellDimensions.y * Mathf.Abs(count), cellPos.z);
+		m_changingLane = true;
 	}
 
 	public void SetCamera(GameObject camera)
 	{
-		m_Camera = camera;
+		m_camera = camera;
+	}
+	public void SetGrid(Grid grid)
+	{
+		m_grid = grid;
 	}
 
 	void OnCollisionEnter2D(Collision2D collision)
