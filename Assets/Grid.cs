@@ -12,6 +12,9 @@ public class Grid : MonoBehaviour
 		public int X;
 		public int Y;
 	};
+	public GameObject CellPrefab { get { return m_cellPrefab; } }
+	private GameObject m_cellPrefab;
+
 	public CellCount Cells { get { return m_cellCount; } }
 	private CellCount m_cellCount;
 
@@ -31,6 +34,7 @@ public class Grid : MonoBehaviour
 		m_cellCount = Cells;
 		m_cellDimensions = CellDimensions;
 
+		m_cellPrefab = GameObject.Instantiate(Resources.Load("Prefabs/Levels/GridCell"), Vector3.zero, Quaternion.identity) as GameObject;
 		m_blockPrefabs = new List<GameObject>()
 		{
 			GameObject.Instantiate(Resources.Load("Prefabs/Blocks/EmptyBlock"), Vector3.zero, Quaternion.identity) as GameObject,
@@ -60,42 +64,59 @@ public class Grid : MonoBehaviour
 		m_cellCount.X = width;
 		m_cellCount.Y = height;
 
-		float size = Screen.width / m_cellCount.X;
-		m_cellDimensions = new Vector2(5, 5);
-
-		Vector3 centerPosition = Vector3.zero;
-		float centerX = (Cells.X * CellDimensions.x) * 0.5f;
-		float startX = centerPosition.x - centerX;
-		float startY = centerPosition.y;
-
 		m_cells = new List<List<GameObject>>(m_cellCount.Y);
 		for (int y = 0; y < m_cellCount.Y; ++y) 
 		{
 			List<GameObject> newColumn = new List<GameObject>(m_cellCount.X);
 			for (int x = 0; x < m_cellCount.X; ++x) 
 			{
-				GameObject tile = GameObject.Instantiate(m_blockPrefabs[0]); // empty block prefab
+				GameObject cell = GameObject.Instantiate(m_cellPrefab);
+				GameObject tile = null;
 				if(reader != null)
 				{
 					int index = int.Parse(reader.ReadLine());
 					if(index > 0)
 					{
-						DestroyImmediate(tile);
 						tile = GameObject.Instantiate(m_blockPrefabs[index]);
 					}
-				}				
-				tile.SetActive(true);
-
-				Vector3 virtualPosition = new Vector3(startX + CellDimensions.x * 0.5f + (x * CellDimensions.x), (startY + CellDimensions.y * 0.5f + (y * CellDimensions.y)), 0);
-				tile.transform.position = virtualPosition;
-				tile.GetComponent<BlockBase>().SetGridIndex(new Vector2(x, y));
-				tile.GetComponent<BlockBase>().SetGrid(this);
-				newColumn.Add(tile);
+				}
+				InitCell(cell, tile, x, y);
+				newColumn.Add(cell);
 			}
 			m_cells.Add(newColumn);
 		}		
 	}
+	private void InitCell(GameObject cell, GameObject tile, int x, int y)
+	{
+		Sprite s = m_cellPrefab.GetComponent<SpriteRenderer>().sprite;
+		float windowHeight = Camera.main.orthographicSize * 2f;
+		float windowWidth = windowHeight / Screen.height * Screen.width;
 
+		float spriteHeight = s.bounds.size.y;
+		float spriteWidth = s.bounds.size.x;
+
+		float scale = (windowWidth / spriteWidth) / m_cellCount.X;
+		m_cellDimensions = new Vector2(scale * spriteWidth, scale * spriteWidth);
+
+		Vector3 centerPosition = Vector3.zero;
+		float centerX = (Cells.X * CellDimensions.x) * 0.5f;
+		float startX = centerPosition.x - centerX;
+		float startY = centerPosition.y;
+
+		Vector3 virtualPosition = new Vector3(startX + (CellDimensions.x * 0.5f) + (x * CellDimensions.x), (startY + CellDimensions.y * 0.5f + (y * CellDimensions.y)), 0.3f);
+		cell.transform.position = virtualPosition;
+		cell.transform.localScale = new Vector2(scale, scale);
+
+		if(tile != null)
+		{
+			tile.SetActive(true);
+			tile.GetComponent<BlockBase>().SetParentCell(cell);
+			tile.GetComponent<BlockBase>().SetGridIndex(new Vector2(x, y));
+			tile.GetComponent<BlockBase>().SetGrid(this);
+			cell.GetComponent<GridCell>().SetBlock(tile, true);		
+		}
+		cell.SetActive(true);
+	}
 	//Builds the grid from a list of gameobject, this is made post Init()!
 	public void BuildFromData(List<List<GameObject>> list)
 	{
@@ -198,43 +219,6 @@ public class Grid : MonoBehaviour
 			}
 		}	
 		return null;
-	}
-	public void AddCellAtScreenPosition(GameObject cell, Vector3 position)
-	{
-		if(m_cells == null) { return; }
-		Vector3 worldPos = Camera.main.ScreenToWorldPoint(new Vector3(position.x, position.y, -Camera.main.transform.position.z));
-		AddCellAtWorldPosition(cell, worldPos);	
-	}
-	public void AddCellAtWorldPosition(GameObject cell, Vector3 position)
-	{
-		if(m_cells == null) { return; }
-		Vector3 centerPosition = Vector3.zero;
-		float centerX = (Cells.X * CellDimensions.x) * 0.5f;
-		float startX = centerPosition.x - centerX;
-		float startY = centerPosition.y;
-
-		for (int y = 0; y < m_cells.Count; ++y) 
-		{
-			for (int x = 0; x < m_cells[y].Count; ++x) 
-			{
-				Vector3 virtualPosition = new Vector3(startX + CellDimensions.x * 0.5f + (x * CellDimensions.x), (startY + CellDimensions.y * 0.5f + (y * CellDimensions.y)), Camera.main.nearClipPlane);
-				float halfSizeX = CellDimensions.x * 0.5f;
-				float halfSizeY = CellDimensions.y * 0.5f;
-				if(position.x > virtualPosition.x - halfSizeX && position.x < virtualPosition.x + halfSizeX)
-				{
-					if(position.y > virtualPosition.y - halfSizeY && position.y < virtualPosition.y + halfSizeY)
-					{
-						if(cell)
-						{
-							cell.transform.position = virtualPosition;
-							cell.GetComponent<BlockBase>().SetGridIndices(new Vector2(x, y));
-						}
-						m_cells[y][x] = cell;
-						return;
-					}
-				}
-			}
-		}		
 	}
 
 	public Vector3 GetWorldPositionFromIndex(Vector2 indices)

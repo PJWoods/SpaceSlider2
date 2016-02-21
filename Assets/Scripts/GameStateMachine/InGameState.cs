@@ -11,8 +11,6 @@ public class InGameState : GameState
 
 	public GameObject Player { get { return m_player; } }
 	private GameObject m_player;
-//	public GameObject MainCamera { get { return m_mainCamera; } }
-//	private GameObject m_mainCamera;
 
     public override void Begin(ContextBase context)
     {
@@ -26,17 +24,14 @@ public class InGameState : GameState
     {
 		if(m_entryAction == ContextBase.EntryAction.EditorEntry)
 		{
+			GameObject.DestroyImmediate(Camera.main.gameObject);
+			GameObject cam = GameObject.Instantiate(Resources.Load("Prefabs/MainCameraPrefab"), Vector3.zero, Quaternion.identity) as GameObject;
+
 			m_currentLevel = GameObject.Instantiate(Resources.Load("Prefabs/Levels/EmptyLevel"), Vector3.zero, Quaternion.identity) as GameObject;
 			Grid grid = m_currentLevel.GetComponent<Grid>();
 			grid.InitAndLoadLevel(m_levelToLoad);
 
-			//m_mainCamera = GameObject.Instantiate(Resources.Load("Prefabs/MainCameraPrefab"), Vector3.zero, Quaternion.identity) as GameObject;
-			GameObject cam = Camera.main.gameObject;
-			cam.AddComponent<CameraMovement>();
-			cam.GetComponent<CameraMovement>().Acceleration = 0.01f;
-			cam.GetComponent<CameraMovement>().Velocity.y = 0.05f;
-
-			m_player = GameObject.Instantiate(Resources.Load("Prefabs/PlayerPrefab"), Vector3.zero, Quaternion.identity) as GameObject;
+			m_player = GameObject.Instantiate(Resources.Load("Prefabs/PlayerPrefab")) as GameObject;
 			m_player.GetComponent<PlayerMovement>().SetCamera(cam);
 			m_player.GetComponent<PlayerMovement>().SetGrid(grid);
 

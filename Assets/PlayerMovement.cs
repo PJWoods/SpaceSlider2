@@ -3,7 +3,6 @@ using System.Collections;
 
 public class PlayerMovement : MonoBehaviour 
 {
-
 	public float Acceleration;
 	public float LaneChangeSpeed;
 	public float MaximumDistance;

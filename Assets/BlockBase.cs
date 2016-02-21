@@ -18,6 +18,7 @@ public class BlockBase : MonoBehaviour
 	};
 
 	public BlockProperty 	BlockType;
+	protected GameObject 	m_parentCell;
 	protected Vector2 		m_gridIndex;
 	protected Grid 			m_grid;
 
@@ -33,6 +34,11 @@ public class BlockBase : MonoBehaviour
 	public void SetGrid(Grid grid)
 	{
 		m_grid = grid;
+	}
+
+	public void SetParentCell(GameObject parent)
+	{
+		m_parentCell = parent;
 	}
 
 	public void SetGridIndex(Vector2 gridIndex)
