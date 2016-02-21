@@ -35,6 +35,14 @@ public class InGameState : GameState
 			m_player.GetComponent<PlayerMovement>().SetCamera(cam);
 			m_player.GetComponent<PlayerMovement>().SetGrid(grid);
 
+			Sprite s = m_player.GetComponent<SpriteRenderer>().sprite;
+			float windowHeight = Camera.main.orthographicSize * 2f;
+			float windowWidth = windowHeight / Screen.height * Screen.width;
+			float spriteHeight = s.bounds.size.y;
+			float spriteWidth = s.bounds.size.x;
+			float scale = (windowWidth / spriteWidth) * 0.05f;
+			m_player.transform.localScale = new Vector2(scale, scale);
+
 			//m_mainCamera.GetComponent<CameraMovement>().SetTopSpeed(grid.GameSpeed);
 			//m_player.GetComponent<PlayerMovement>().SetTopSpeed(grid.GameSpeed);
 
