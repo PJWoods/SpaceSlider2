@@ -47,6 +47,11 @@ public class BombPowerUp : PowerUpBlock
 								c.GetComponent<GridCell>().SetBlock(null);
 								b.SetActive(false);
 							}
+							else if(b.GetComponent<BlockBase>().BlockType == BlockProperty.BombPowerUp)
+							{
+								// Triggers chain-reaction
+								b.GetComponent<BombPowerUp>().OnCollision();
+							}
 						}
 					}
 				}
