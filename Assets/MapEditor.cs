@@ -14,9 +14,10 @@ public class MapEditor : MonoBehaviour
         DrawEmpty,
         DrawMovable,
         DrawNonMovable,
-        DrawBoost,
         DrawLaneChangerLeft,
-        DrawLaneChangerRight
+        DrawLaneChangerRight,
+		DrawSlowPowerUp,
+		DrawBombPowerUp,
     }
     public class MapRow
     {

@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-public class PowerUpBlock : MovableBlock
+public class PowerUpBlock : BlockBase
 {
 	public enum PowerUpType
 	{
@@ -10,22 +10,27 @@ public class PowerUpBlock : MovableBlock
 		Slow
 	};
 	public float 			Duration;
+	protected float			m_scaleMultiplier; 
 	protected float			m_currentDuration;
 	protected PowerUpType 	m_type;
-	private Vector3			m_scalingSteps;
+
+	protected Vector3		m_scalingSteps;
+	protected Vector3		m_targetScale;
 
 	public virtual void Start()
 	{
+		m_scaleMultiplier = -1;
 		m_currentDuration = Duration;
 	}
 
-	protected override void Update()
+	protected new virtual void Update()
 	{
 		m_currentDuration += Time.deltaTime;
-		transform.localScale -= m_scalingSteps * Time.deltaTime;
-		if(transform.localScale.sqrMagnitude < 0.001f)
+		transform.localScale += m_scalingSteps * Time.deltaTime * m_scaleMultiplier;
+		if((m_targetScale - transform.localScale).sqrMagnitude < 0.01f)
 		{
-			this.enabled = false;
+			m_parentCell.GetComponent<GridCell>().SetBlock(null);
+			gameObject.SetActive(false);
 		}
 	}
 
@@ -33,6 +38,7 @@ public class PowerUpBlock : MovableBlock
 	{
 		m_currentDuration = 0f;
 		m_scalingSteps = transform.localScale / Duration;
+		m_targetScale = transform.localScale + (Duration * m_scalingSteps * m_scaleMultiplier);
 	}
 }
 

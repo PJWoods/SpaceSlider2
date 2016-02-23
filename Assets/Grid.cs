@@ -40,9 +40,10 @@ public class Grid : MonoBehaviour
 			GameObject.Instantiate(Resources.Load("Prefabs/Blocks/EmptyBlock"), Vector3.zero, Quaternion.identity) as GameObject,
 			GameObject.Instantiate(Resources.Load("Prefabs/Blocks/Movable"), Vector3.zero, Quaternion.identity) as GameObject,
 			GameObject.Instantiate(Resources.Load("Prefabs/Blocks/NonMovable"), Vector3.zero, Quaternion.identity) as GameObject,
-			GameObject.Instantiate(Resources.Load("Prefabs/Blocks/SlowPowerUp"), Vector3.zero, Quaternion.identity) as GameObject,
 			GameObject.Instantiate(Resources.Load("Prefabs/Blocks/LaneChangerLeft"), Vector3.zero, Quaternion.identity) as GameObject,
 			GameObject.Instantiate(Resources.Load("Prefabs/Blocks/LaneChangerRight"), Vector3.zero, Quaternion.identity) as GameObject,
+			GameObject.Instantiate(Resources.Load("Prefabs/Blocks/SlowPowerUp"), Vector3.zero, Quaternion.identity) as GameObject,
+			GameObject.Instantiate(Resources.Load("Prefabs/Blocks/BombPowerUp"), Vector3.zero, Quaternion.identity) as GameObject,
 		};
 	}
 

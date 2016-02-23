@@ -11,9 +11,10 @@ public class BlockBase : MonoBehaviour
 		Empty,
 		Movable,
 		NonMovable,
-		SlowPowerUp,
 		LaneChangerLeft,
 		LaneChangerRight,
+		SlowPowerUp,
+		BombPowerUp,
 		TotalAmountOfTypes
 	};
 
