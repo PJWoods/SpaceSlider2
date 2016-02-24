@@ -34,7 +34,7 @@ public class DropDownArrowControl : MonoBehaviour {
 		if(Input.GetKeyDown(KeyCode.DownArrow))
 		{
 			++m_currentSelectionIndex;
-			if(m_currentSelectionIndex + 1 >= Parent.options.Count)
+			if(m_currentSelectionIndex >= Parent.options.Count)
 				m_currentSelectionIndex = 0;
 
 			Parent.value = m_currentSelectionIndex;

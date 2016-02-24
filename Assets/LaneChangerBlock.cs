@@ -3,8 +3,13 @@ using UnityEngine;
 
 public class LaneChangerBlock : BlockBase
 {
+	[SerializeField] 
+	private int ChangeCount;
+
 	private GameObject m_target;
-	public int ChangeCount;
+
+	private bool m_swiped;
+	private float m_initialSelectionX;
 
 	void Start()
 	{
@@ -15,13 +20,54 @@ public class LaneChangerBlock : BlockBase
 		else if(m_target.GetComponent<PlayerMovement>() == null)
 			Debug.LogError("The target need a PlayerMovement component for this script to take effect!");
 	}
+
+
+	public override void OnCollision ()
+	{
+		if(m_target != null && BlockType != BlockProperty.LaneChangerSwipe)
+			m_target.GetComponent<PlayerMovement>().ChangeLane(ChangeCount);
+	}
+
+	public override void UpdateMovement()
+	{
+		if(BlockType != BlockProperty.LaneChangerSwipe)
+			return;
+
+		if(m_target)
+		{
+			if(Input.GetMouseButtonUp(0))
+			{
+				m_swiped = false;
+				if(m_parentCell.GetComponent<GridCell>().Inside(m_target.transform.position.x, m_target.transform.position.y))
+				{
+					if(Input.mousePosition.x < m_initialSelectionX)
+						m_target.GetComponent<PlayerMovement>().ChangeLane(-1); //Left
+					else
+						m_target.GetComponent<PlayerMovement>().ChangeLane(1); //Right
+
+					enabled = false;
+				}			
+			}
+		}
+		this.OnCollision();
+	}
+
 	protected override void Update () 
 	{
 	}
-	public override void OnCollision ()
+
+	protected override void OnMouseDown()
 	{
-		if(m_target != null)
-			m_target.GetComponent<PlayerMovement>().ChangeLane(ChangeCount);
+		base.OnMouseDown();
+
+		if(BlockType != BlockProperty.LaneChangerSwipe)
+			return;
+		
+		if(!m_swiped)
+		{
+			m_initialSelectionX = Input.mousePosition.x;
+			m_swiped = true;
+		}	
 	}
 }
 

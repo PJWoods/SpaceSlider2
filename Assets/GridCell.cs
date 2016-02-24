@@ -41,7 +41,7 @@ public class GridCell : MonoBehaviour
 	public bool Inside(float x, float y)
 	{
 		float halfSizeX = m_dimensions.x * 0.5f;
-		float halfSizeY = m_dimensions.x * 0.5f;
+		float halfSizeY = m_dimensions.y * 0.5f;
 		if(x > transform.position.x - halfSizeX && x < transform.position.x + halfSizeX) 
 		if(y > transform.position.y - halfSizeY && y < transform.position.y + halfSizeY) 
 			return true;

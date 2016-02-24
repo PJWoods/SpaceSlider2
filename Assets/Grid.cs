@@ -42,6 +42,7 @@ public class Grid : MonoBehaviour
 			GameObject.Instantiate(Resources.Load("Prefabs/Blocks/NonMovable"), Vector3.zero, Quaternion.identity) as GameObject,
 			GameObject.Instantiate(Resources.Load("Prefabs/Blocks/LaneChangerLeft"), Vector3.zero, Quaternion.identity) as GameObject,
 			GameObject.Instantiate(Resources.Load("Prefabs/Blocks/LaneChangerRight"), Vector3.zero, Quaternion.identity) as GameObject,
+			GameObject.Instantiate(Resources.Load("Prefabs/Blocks/LaneChangerSwipe"), Vector3.zero, Quaternion.identity) as GameObject,
 			GameObject.Instantiate(Resources.Load("Prefabs/Blocks/SlowPowerUp"), Vector3.zero, Quaternion.identity) as GameObject,
 			GameObject.Instantiate(Resources.Load("Prefabs/Blocks/BombPowerUp"), Vector3.zero, Quaternion.identity) as GameObject,
 		};
@@ -114,7 +115,8 @@ public class Grid : MonoBehaviour
 			tile.GetComponent<BlockBase>().SetParentCell(cell);
 			tile.GetComponent<BlockBase>().SetGridIndex(new Vector2(x, y));
 			tile.GetComponent<BlockBase>().SetGrid(this);
-			cell.GetComponent<GridCell>().SetBlock(tile, true);		
+			cell.GetComponent<GridCell>().SetBlock(tile, true);
+			cell.GetComponent<GridCell>().SetDimensions(m_cellDimensions.x, m_cellDimensions.y);
 		}
 		cell.SetActive(true);
 	}

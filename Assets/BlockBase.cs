@@ -13,6 +13,7 @@ public class BlockBase : MonoBehaviour
 		NonMovable,
 		LaneChangerLeft,
 		LaneChangerRight,
+		LaneChangerSwipe,
 		SlowPowerUp,
 		BombPowerUp,
 		TotalAmountOfTypes
@@ -47,16 +48,6 @@ public class BlockBase : MonoBehaviour
 		m_gridIndex = gridIndex;
 	}
 
-	// Update is called once per frame
-	protected virtual void Update () 
-	{
-	}
-
-	void OnMouseDown()
-	{
-		m_grid.SetSelectedBlock(this);
-	}
-
 	public virtual void OnCollision()
 	{
 	}
@@ -65,8 +56,15 @@ public class BlockBase : MonoBehaviour
 	{
 	}
 
-	public void SetGridIndices(Vector2 indices)
+	// Update is called once per frame
+	protected virtual void Update () 
 	{
-		m_gridIndex = indices;
 	}
+
+	protected virtual void OnMouseDown()
+	{
+		m_grid.SetSelectedBlock(this);
+	}
+
+
 }

@@ -16,6 +16,7 @@ public class MapEditor : MonoBehaviour
         DrawNonMovable,
         DrawLaneChangerLeft,
         DrawLaneChangerRight,
+		DrawLaneChangerSwipe,
 		DrawSlowPowerUp,
 		DrawBombPowerUp,
     }
