@@ -92,6 +92,8 @@ public class PlayerMovement : MonoBehaviour
 	void OnCollisionEnter2D(Collision2D collision)
 	{
 		m_isColliding = true;
+		InGameState state = Game.Instance.GameState.GetCurrentState() as InGameState;
+		state.Restart();
 	}
 	void OnCollisionExit2D(Collision2D collision)
 	{

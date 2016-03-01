@@ -60,6 +60,14 @@ public class InGameState : GameState
         Game.Instance.UICore.Clear();
     }
 
+	public void Restart()
+	{
+		ContextBase context = new ContextBase();
+		context.ActionOnEnter = m_entryAction;
+		context.Level = m_levelToLoad;
+		Game.Instance.GameState.ChangeState(new InGameState(), context);
+	}
+
 	private void ReturnToEditor()
 	{
 		ContextBase context = new ContextBase();
