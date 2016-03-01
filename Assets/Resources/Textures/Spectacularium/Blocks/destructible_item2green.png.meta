@@ -1,9 +1,57 @@
 fileFormatVersion: 2
 guid: fddfa22c3271f5f42960cbf64e46448c
-timeCreated: 1456259863
+timeCreated: 1456869660
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: destructible_item2green_0
+    21300002: destructible_item2green_1
+    21300004: destructible_item2green_2
+    21300006: destructible_item2green_3
+    21300008: destructible_item2green_4
+    21300010: destructible_item2green_5
+    21300012: destructible_item2green_6
+    21300014: destructible_item2green_7
+    21300016: destructible_item2green_8
+    21300018: destructible_item2green_9
+    21300020: destructible_item2green_10
+    21300022: destructible_item2green_11
+    21300024: destructible_item2green_12
+    21300026: destructible_item2green_13
+    21300028: destructible_item2green_14
+    21300030: destructible_item2green_15
+    21300032: destructible_item2green_16
+    21300034: destructible_item2green_17
+    21300036: destructible_item2green_18
+    21300038: destructible_item2green_19
+    21300040: destructible_item2green_20
+    21300042: destructible_item2green_21
+    21300044: destructible_item2green_22
+    21300046: destructible_item2green_23
+    21300048: destructible_item2green_24
+    21300050: destructible_item2green_25
+    21300052: destructible_item2green_26
+    21300054: destructible_item2green_27
+    21300056: destructible_item2green_28
+    21300058: destructible_item2green_29
+    21300060: destructible_item2green_30
+    21300062: destructible_item2green_31
+    21300064: destructible_item2green_32
+    21300066: destructible_item2green_33
+    21300068: destructible_item2green_34
+    21300070: destructible_item2green_35
+    21300072: destructible_item2green_36
+    21300074: destructible_item2green_37
+    21300076: destructible_item2green_38
+    21300078: destructible_item2green_39
+    21300080: destructible_item2green_40
+    21300082: destructible_item2green_41
+    21300084: destructible_item2green_42
+    21300086: destructible_item2green_43
+    21300088: destructible_item2green_44
+    21300090: destructible_item2green_45
+    21300092: destructible_item2green_46
+    21300094: destructible_item2green_47
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -30,7 +78,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     filterMode: -1
-    aniso: -1
+    aniso: 16
     mipBias: -1
     wrapMode: 1
   nPOTScale: 0
@@ -38,7 +86,7 @@ TextureImporter:
   rGBM: 0
   compressionQuality: 50
   allowsAlphaSplitting: 0
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -49,7 +97,999 @@ TextureImporter:
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    sprites: []
+    sprites:
+    - name: destructible_item2green_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 896
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -58, y: 57}
+        - {x: -58, y: -21}
+        - {x: -44, y: -53}
+        - {x: -35, y: -57}
+        - {x: 38, y: -57}
+        - {x: 48, y: -54}
+        - {x: 58, y: -27}
+        - {x: 58, y: 27}
+        - {x: 54, y: 57}
+    - name: destructible_item2green_1
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 896
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -47, y: 57}
+        - {x: -58, y: 39}
+        - {x: -58, y: -45}
+        - {x: -53, y: -50}
+        - {x: -28, y: -57}
+        - {x: 38, y: -57}
+        - {x: 58, y: -35}
+        - {x: 58, y: 24}
+        - {x: 48, y: 57}
+    - name: destructible_item2green_2
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 896
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 35, y: 56}
+        - {x: -36, y: 56}
+        - {x: -57, y: 37}
+        - {x: -57, y: -31}
+        - {x: -49, y: -54}
+        - {x: -44, y: -56}
+        - {x: 20, y: -56}
+        - {x: 49, y: -46}
+        - {x: 58, y: -29}
+        - {x: 58, y: 17}
+        - {x: 44, y: 54}
+    - name: destructible_item2green_3
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 896
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 29, y: 57}
+        - {x: -34, y: 57}
+        - {x: -58, y: 31}
+        - {x: -58, y: -26}
+        - {x: -51, y: -44}
+        - {x: -36, y: -56}
+        - {x: 22, y: -56}
+        - {x: 49, y: -47}
+        - {x: 57, y: -35}
+        - {x: 57, y: 21}
+        - {x: 50, y: 48}
+    - name: destructible_item2green_4
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 896
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -31, y: 57}
+        - {x: -57, y: 30}
+        - {x: -57, y: -17}
+        - {x: -43, y: -45}
+        - {x: -29, y: -51}
+        - {x: -17, y: -56}
+        - {x: -15, y: -57}
+        - {x: 32, y: -57}
+        - {x: 57, y: -34}
+        - {x: 57, y: 25}
+        - {x: 40, y: 57}
+    - name: destructible_item2green_5
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 896
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 14, y: 57}
+        - {x: -36, y: 57}
+        - {x: -58, y: 36}
+        - {x: -58, y: -30}
+        - {x: -48, y: -57}
+        - {x: 34, y: -57}
+        - {x: 58, y: -36}
+        - {x: 58, y: 20}
+        - {x: 46, y: 48}
+    - name: destructible_item2green_6
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 896
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -46, y: 58}
+        - {x: -60, y: 23}
+        - {x: -60, y: -36}
+        - {x: -56, y: -57}
+        - {x: -49, y: -58}
+        - {x: 50, y: -58}
+        - {x: 60, y: -30}
+        - {x: 60, y: 24}
+        - {x: 42, y: 58}
+    - name: destructible_item2green_7
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 896
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -40, y: 58}
+        - {x: -61, y: 32}
+        - {x: -61, y: -27}
+        - {x: -42, y: -58}
+        - {x: 31, y: -58}
+        - {x: 40, y: -53}
+        - {x: 61, y: -13}
+        - {x: 61, y: 8}
+        - {x: 40, y: 58}
+    - name: destructible_item2green_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 768
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -43, y: 58}
+        - {x: -62, y: 20}
+        - {x: -62, y: -21}
+        - {x: -34, y: -58}
+        - {x: 37, y: -58}
+        - {x: 62, y: -28}
+        - {x: 62, y: 38}
+        - {x: 47, y: 58}
+    - name: destructible_item2green_9
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 768
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -41, y: 58}
+        - {x: -63, y: 47}
+        - {x: -63, y: -46}
+        - {x: -41, y: -58}
+        - {x: -8, y: -58}
+        - {x: -3, y: -57}
+        - {x: -1, y: -56}
+        - {x: 1, y: -58}
+        - {x: 36, y: -58}
+        - {x: 63, y: -42}
+        - {x: 63, y: 13}
+        - {x: 43, y: 58}
+    - name: destructible_item2green_10
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 768
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 37, y: 59}
+        - {x: -33, y: 59}
+        - {x: -55, y: 41}
+        - {x: -64, y: 22}
+        - {x: -64, y: -9}
+        - {x: -49, y: -36}
+        - {x: -36, y: -59}
+        - {x: 16, y: -59}
+        - {x: 39, y: -57}
+        - {x: 59, y: -29}
+        - {x: 64, y: -5}
+        - {x: 64, y: 21}
+    - name: destructible_item2green_11
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 768
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -36, y: 59}
+        - {x: -60, y: 24}
+        - {x: -64, y: 15}
+        - {x: -64, y: -23}
+        - {x: -41, y: -59}
+        - {x: 46, y: -59}
+        - {x: 64, y: -19}
+        - {x: 64, y: 20}
+        - {x: 36, y: 59}
+    - name: destructible_item2green_12
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 768
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -59, y: 59}
+        - {x: -64, y: 29}
+        - {x: -64, y: -45}
+        - {x: -37, y: -59}
+        - {x: 39, y: -59}
+        - {x: 64, y: -19}
+        - {x: 64, y: 19}
+        - {x: 45, y: 59}
+    - name: destructible_item2green_13
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 768
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -41, y: 59}
+        - {x: -64, y: 36}
+        - {x: -64, y: -55}
+        - {x: -62, y: -59}
+        - {x: 40, y: -59}
+        - {x: 64, y: -20}
+        - {x: 64, y: 19}
+        - {x: 44, y: 59}
+    - name: destructible_item2green_14
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 768
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -36, y: 58}
+        - {x: -41, y: 57}
+        - {x: -63, y: 25}
+        - {x: -63, y: -26}
+        - {x: -37, y: -58}
+        - {x: 43, y: -58}
+        - {x: 63, y: -46}
+        - {x: 63, y: 36}
+        - {x: 36, y: 58}
+    - name: destructible_item2green_15
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 768
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 42, y: 58}
+        - {x: -39, y: 58}
+        - {x: -62, y: 35}
+        - {x: -62, y: -38}
+        - {x: -45, y: -58}
+        - {x: 50, y: -58}
+        - {x: 62, y: -21}
+        - {x: 62, y: 43}
+    - name: destructible_item2green_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 640
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 42, y: 58}
+        - {x: -54, y: 58}
+        - {x: -60, y: 29}
+        - {x: -60, y: -40}
+        - {x: -42, y: -58}
+        - {x: 38, y: -58}
+        - {x: 57, y: -54}
+        - {x: 60, y: -40}
+        - {x: 60, y: 26}
+        - {x: 52, y: 44}
+    - name: destructible_item2green_17
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 640
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 38, y: 57}
+        - {x: -29, y: 57}
+        - {x: -48, y: 48}
+        - {x: -57, y: 14}
+        - {x: -59, y: 4}
+        - {x: -59, y: -2}
+        - {x: -58, y: -3}
+        - {x: -50, y: -7}
+        - {x: -50, y: -6}
+        - {x: -52, y: -7}
+        - {x: -59, y: -8}
+        - {x: -59, y: -16}
+        - {x: -40, y: -57}
+        - {x: 31, y: -57}
+        - {x: 52, y: -41}
+        - {x: 59, y: -31}
+        - {x: 59, y: 28}
+    - name: destructible_item2green_18
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 640
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 58, y: 4}
+        - {x: 55, y: 5}
+        - {x: 51, y: 7}
+        - {x: 51, y: 6}
+        - {x: 53, y: 7}
+        - {x: 58, y: 8}
+        - {x: 58, y: 18}
+        - {x: 45, y: 43}
+        - {x: 29, y: 57}
+        - {x: -28, y: 57}
+        - {x: -56, y: 51}
+        - {x: -58, y: 38}
+        - {x: -58, y: -27}
+        - {x: -28, y: -55}
+        - {x: -19, y: -57}
+        - {x: 19, y: -57}
+        - {x: 47, y: -41}
+        - {x: 58, y: -9}
+    - name: destructible_item2green_19
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 640
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -39, y: 57}
+        - {x: -48, y: 47}
+        - {x: -57, y: 19}
+        - {x: -57, y: -29}
+        - {x: -29, y: -57}
+        - {x: 34, y: -57}
+        - {x: 57, y: -33}
+        - {x: 57, y: 46}
+        - {x: 36, y: 57}
+    - name: destructible_item2green_20
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 640
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 57, y: 18}
+        - {x: 40, y: 42}
+        - {x: 29, y: 56}
+        - {x: -54, y: 56}
+        - {x: -58, y: 43}
+        - {x: -58, y: -56}
+        - {x: 36, y: -56}
+        - {x: 44, y: -43}
+        - {x: 56, y: -15}
+        - {x: 57, y: -3}
+    - name: destructible_item2green_21
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 640
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -31, y: 56}
+        - {x: -50, y: 50}
+        - {x: -58, y: 38}
+        - {x: -58, y: -32}
+        - {x: -48, y: -58}
+        - {x: 37, y: -58}
+        - {x: 58, y: -47}
+        - {x: 58, y: 24}
+        - {x: 35, y: 56}
+    - name: destructible_item2green_22
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 640
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -40, y: 57}
+        - {x: -43, y: 54}
+        - {x: -58, y: 18}
+        - {x: -58, y: -31}
+        - {x: -33, y: -57}
+        - {x: 33, y: -57}
+        - {x: 58, y: -42}
+        - {x: 58, y: 45}
+        - {x: 39, y: 57}
+    - name: destructible_item2green_23
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 640
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -37, y: 57}
+        - {x: -43, y: 56}
+        - {x: -58, y: 44}
+        - {x: -58, y: -34}
+        - {x: -45, y: -57}
+        - {x: 29, y: -57}
+        - {x: 58, y: -26}
+        - {x: 58, y: 31}
+        - {x: 33, y: 57}
+    - name: destructible_item2green_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 512
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -30, y: 57}
+        - {x: -58, y: 47}
+        - {x: -58, y: -29}
+        - {x: -34, y: -57}
+        - {x: 46, y: -57}
+        - {x: 58, y: -23}
+        - {x: 58, y: 35}
+        - {x: 41, y: 57}
+    - name: destructible_item2green_25
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 512
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -58, y: 56}
+        - {x: -58, y: -37}
+        - {x: -51, y: -58}
+        - {x: 45, y: -58}
+        - {x: 58, y: -37}
+        - {x: 58, y: 56}
+    - name: destructible_item2green_26
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 512
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -39, y: 56}
+        - {x: -58, y: 38}
+        - {x: -58, y: -29}
+        - {x: -51, y: -47}
+        - {x: -38, y: -56}
+        - {x: 39, y: -56}
+        - {x: 53, y: -53}
+        - {x: 58, y: -42}
+        - {x: 58, y: 35}
+        - {x: 21, y: 56}
+    - name: destructible_item2green_27
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 512
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 39, y: 57}
+        - {x: -43, y: 57}
+        - {x: -57, y: 33}
+        - {x: -57, y: -57}
+        - {x: 40, y: -57}
+        - {x: 57, y: -13}
+        - {x: 57, y: 20}
+        - {x: 45, y: 54}
+    - name: destructible_item2green_28
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 512
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -44, y: 57}
+        - {x: -58, y: 40}
+        - {x: -58, y: -25}
+        - {x: -45, y: -40}
+        - {x: -30, y: -51}
+        - {x: -21, y: -57}
+        - {x: 34, y: -57}
+        - {x: 58, y: -35}
+        - {x: 58, y: 43}
+        - {x: 35, y: 57}
+    - name: destructible_item2green_29
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 512
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 49, y: 7}
+        - {x: 51, y: 7}
+        - {x: 59, y: 12}
+        - {x: 59, y: 26}
+        - {x: 35, y: 57}
+        - {x: -24, y: 57}
+        - {x: -53, y: 44}
+        - {x: -59, y: 32}
+        - {x: -59, y: -34}
+        - {x: -47, y: -57}
+        - {x: 36, y: -57}
+        - {x: 59, y: -51}
+        - {x: 59, y: 4}
+        - {x: 57, y: 7}
+    - name: destructible_item2green_30
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 512
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -53, y: 58}
+        - {x: -60, y: 37}
+        - {x: -60, y: -46}
+        - {x: -30, y: -58}
+        - {x: 39, y: -58}
+        - {x: 60, y: -16}
+        - {x: 60, y: 35}
+        - {x: 32, y: 58}
+    - name: destructible_item2green_31
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 512
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -39, y: 58}
+        - {x: -62, y: 35}
+        - {x: -62, y: -45}
+        - {x: -58, y: -53}
+        - {x: -37, y: -58}
+        - {x: 56, y: -58}
+        - {x: 62, y: -50}
+        - {x: 62, y: 42}
+        - {x: 50, y: 58}
+    - name: destructible_item2green_32
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 384
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -43, y: 58}
+        - {x: -63, y: 30}
+        - {x: -63, y: -21}
+        - {x: -41, y: -58}
+        - {x: 44, y: -58}
+        - {x: 63, y: -29}
+        - {x: 63, y: 24}
+        - {x: 40, y: 58}
+    - name: destructible_item2green_33
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 384
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -38, y: 59}
+        - {x: -64, y: 24}
+        - {x: -64, y: -34}
+        - {x: -55, y: -59}
+        - {x: 48, y: -59}
+        - {x: 64, y: -27}
+        - {x: 64, y: 23}
+        - {x: 47, y: 59}
+    - name: destructible_item2green_34
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 384
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -41, y: 59}
+        - {x: -64, y: 21}
+        - {x: -64, y: -12}
+        - {x: -56, y: -28}
+        - {x: -37, y: -59}
+        - {x: 41, y: -59}
+        - {x: 64, y: -26}
+        - {x: 64, y: 20}
+        - {x: 38, y: 59}
+    - name: destructible_item2green_35
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 384
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 36, y: 59}
+        - {x: -44, y: 59}
+        - {x: -64, y: 17}
+        - {x: -64, y: -20}
+        - {x: -42, y: -59}
+        - {x: 40, y: -59}
+        - {x: 56, y: -30}
+        - {x: 64, y: -7}
+        - {x: 64, y: 10}
+    - name: destructible_item2green_36
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 384
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -42, y: 59}
+        - {x: -56, y: 29}
+        - {x: -64, y: 3}
+        - {x: -64, y: -44}
+        - {x: -45, y: -59}
+        - {x: 42, y: -59}
+        - {x: 42, y: -58}
+        - {x: 64, y: -6}
+        - {x: 64, y: 11}
+        - {x: 43, y: 59}
+    - name: destructible_item2green_37
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 384
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 63, y: 3}
+        - {x: 56, y: 8}
+        - {x: 50, y: 37}
+        - {x: 38, y: 59}
+        - {x: -34, y: 59}
+        - {x: -64, y: 43}
+        - {x: -64, y: -37}
+        - {x: -36, y: -55}
+        - {x: -14, y: -59}
+        - {x: 22, y: -59}
+        - {x: 37, y: -55}
+        - {x: 64, y: -10}
+        - {x: 64, y: 2}
+    - name: destructible_item2green_38
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 384
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 49, y: 42}
+        - {x: 33, y: 58}
+        - {x: -37, y: 58}
+        - {x: -63, y: 36}
+        - {x: -63, y: -35}
+        - {x: -44, y: -58}
+        - {x: 25, y: -58}
+        - {x: 40, y: -53}
+        - {x: 63, y: -12}
+        - {x: 63, y: 18}
+    - name: destructible_item2green_39
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 384
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -57, y: 58}
+        - {x: -62, y: 40}
+        - {x: -62, y: -58}
+        - {x: 51, y: -58}
+        - {x: 62, y: -25}
+        - {x: 62, y: 58}
+    - name: destructible_item2green_40
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 256
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 27, y: 58}
+        - {x: -33, y: 58}
+        - {x: -38, y: 54}
+        - {x: -60, y: 37}
+        - {x: -60, y: -19}
+        - {x: -53, y: -49}
+        - {x: -33, y: -58}
+        - {x: 47, y: -58}
+        - {x: 60, y: -25}
+        - {x: 60, y: 35}
+        - {x: 56, y: 44}
+    - name: destructible_item2green_41
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 256
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -42, y: 58}
+        - {x: -59, y: 33}
+        - {x: -59, y: -31}
+        - {x: -41, y: -57}
+        - {x: 42, y: -57}
+        - {x: 59, y: -25}
+        - {x: 59, y: 28}
+        - {x: 40, y: 58}
+    - name: destructible_item2green_42
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 256
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 57}
+        - {x: -35, y: 49}
+        - {x: -34, y: 44}
+        - {x: -33, y: 42}
+        - {x: -39, y: 41}
+        - {x: -43, y: 37}
+        - {x: -58, y: 28}
+        - {x: -58, y: -40}
+        - {x: -57, y: -48}
+        - {x: -38, y: -57}
+        - {x: 39, y: -57}
+        - {x: 58, y: -19}
+        - {x: 58, y: 30}
+        - {x: 29, y: 57}
+    - name: destructible_item2green_43
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 256
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 29, y: 57}
+        - {x: -30, y: 57}
+        - {x: -57, y: 28}
+        - {x: -57, y: -27}
+        - {x: -49, y: -53}
+        - {x: -40, y: -57}
+        - {x: 43, y: -57}
+        - {x: 58, y: -29}
+        - {x: 58, y: 40}
+        - {x: 47, y: 49}
+    - name: destructible_item2green_44
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 256
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -57, y: -56}
+        - {x: 37, y: -56}
+        - {x: 57, y: -45}
+        - {x: 57, y: 42}
+        - {x: 48, y: 57}
+        - {x: -34, y: 57}
+        - {x: -57, y: 47}
+    - name: destructible_item2green_45
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 256
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -43, y: 57}
+        - {x: -57, y: 32}
+        - {x: -57, y: -46}
+        - {x: -56, y: -56}
+        - {x: 58, y: -56}
+        - {x: 58, y: 53}
+        - {x: 45, y: 57}
+    - name: destructible_item2green_46
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 256
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 16, y: 57}
+        - {x: -33, y: 57}
+        - {x: -58, y: 38}
+        - {x: -58, y: -39}
+        - {x: -25, y: -57}
+        - {x: 31, y: -57}
+        - {x: 58, y: -25}
+        - {x: 58, y: 19}
+        - {x: 43, y: 52}
+    - name: destructible_item2green_47
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 256
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -58, y: 57}
+        - {x: -58, y: -21}
+        - {x: -44, y: -53}
+        - {x: -35, y: -57}
+        - {x: 38, y: -57}
+        - {x: 48, y: -54}
+        - {x: 58, y: -27}
+        - {x: 58, y: 27}
+        - {x: 54, y: 57}
     outline: []
   spritePackingTag: 
   userData: 

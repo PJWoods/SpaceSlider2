@@ -1,9 +1,38 @@
 fileFormatVersion: 2
 guid: 6a9f24f9d417dff4c952b94f3db7390c
-timeCreated: 1456259522
+timeCreated: 1456869789
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: StarPillar_0
+    21300002: StarPillar_1
+    21300004: StarPillar_2
+    21300006: StarPillar_3
+    21300008: StarPillar_4
+    21300010: StarPillar_5
+    21300012: StarPillar_6
+    21300014: StarPillar_7
+    21300016: StarPillar_8
+    21300018: StarPillar_9
+    21300020: StarPillar_10
+    21300022: StarPillar_11
+    21300024: StarPillar_12
+    21300026: StarPillar_13
+    21300028: StarPillar_14
+    21300030: StarPillar_15
+    21300032: StarPillar_16
+    21300034: StarPillar_17
+    21300036: StarPillar_18
+    21300038: StarPillar_19
+    21300040: StarPillar_20
+    21300042: StarPillar_21
+    21300044: StarPillar_22
+    21300046: StarPillar_23
+    21300048: StarPillar_24
+    21300050: StarPillar_25
+    21300052: StarPillar_26
+    21300054: StarPillar_27
+    21300056: StarPillar_28
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -30,7 +59,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     filterMode: -1
-    aniso: -1
+    aniso: 16
     mipBias: -1
     wrapMode: 1
   nPOTScale: 0
@@ -38,7 +67,7 @@ TextureImporter:
   rGBM: 0
   compressionQuality: 50
   allowsAlphaSplitting: 0
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -49,7 +78,612 @@ TextureImporter:
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    sprites: []
+    sprites:
+    - name: StarPillar_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1792
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -4, y: 112}
+        - {x: -47, y: 105}
+        - {x: -65, y: 82}
+        - {x: -65, y: -89}
+        - {x: -28, y: -108}
+        - {x: 47, y: -108}
+        - {x: 48, y: -96}
+        - {x: 48, y: 104}
+        - {x: 22, y: 112}
+    - name: StarPillar_1
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 1792
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 12, y: 112}
+        - {x: -14, y: 112}
+        - {x: -47, y: 105}
+        - {x: -48, y: 102}
+        - {x: -65, y: 64}
+        - {x: -65, y: -81}
+        - {x: -28, y: -108}
+        - {x: -5, y: -108}
+        - {x: 30, y: -102}
+        - {x: 48, y: -76}
+        - {x: 48, y: 87}
+    - name: StarPillar_2
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1792
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 48, y: 105}
+        - {x: 29, y: 112}
+        - {x: -21, y: 112}
+        - {x: -51, y: 103}
+        - {x: -65, y: 66}
+        - {x: -65, y: -83}
+        - {x: -34, y: -108}
+        - {x: 48, y: -108}
+    - name: StarPillar_3
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 1792
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -24, y: 112}
+        - {x: -62, y: 106}
+        - {x: -65, y: 75}
+        - {x: -65, y: -95}
+        - {x: -37, y: -108}
+        - {x: -10, y: -108}
+        - {x: 34, y: -100}
+        - {x: 48, y: -81}
+        - {x: 48, y: 89}
+        - {x: 12, y: 112}
+    - name: StarPillar_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1536
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 43, y: -45}
+        - {x: 48, y: -44}
+        - {x: 48, y: 85}
+        - {x: 16, y: 112}
+        - {x: -21, y: 112}
+        - {x: -51, y: 103}
+        - {x: -65, y: 64}
+        - {x: -65, y: -80}
+        - {x: -32, y: -108}
+        - {x: -5, y: -108}
+        - {x: 30, y: -104}
+        - {x: 37, y: -102}
+        - {x: 48, y: -63}
+        - {x: 48, y: -45}
+    - name: StarPillar_5
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 1536
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -19, y: 112}
+        - {x: -51, y: 103}
+        - {x: -65, y: 75}
+        - {x: -65, y: -86}
+        - {x: -29, y: -109}
+        - {x: -4, y: -109}
+        - {x: 31, y: -107}
+        - {x: 48, y: -69}
+        - {x: 48, y: 92}
+        - {x: 17, y: 112}
+    - name: StarPillar_6
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1536
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 46, y: -46}
+        - {x: 43, y: -46}
+        - {x: 48, y: -45}
+        - {x: 48, y: 92}
+        - {x: 39, y: 112}
+        - {x: -65, y: 112}
+        - {x: -65, y: -104}
+        - {x: -36, y: -109}
+        - {x: -12, y: -109}
+        - {x: 31, y: -105}
+        - {x: 48, y: -71}
+        - {x: 48, y: -48}
+    - name: StarPillar_7
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 1536
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -62, y: 112}
+        - {x: -65, y: 91}
+        - {x: -65, y: -99}
+        - {x: -35, y: -109}
+        - {x: -2, y: -109}
+        - {x: 31, y: -106}
+        - {x: 48, y: -76}
+        - {x: 48, y: 90}
+        - {x: 15, y: 112}
+    - name: StarPillar_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1280
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -8, y: 112}
+        - {x: -59, y: 106}
+        - {x: -65, y: 76}
+        - {x: -65, y: -85}
+        - {x: -32, y: -109}
+        - {x: -4, y: -109}
+        - {x: 48, y: -103}
+        - {x: 48, y: 102}
+        - {x: 12, y: 112}
+    - name: StarPillar_9
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 1280
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -14, y: 112}
+        - {x: -52, y: 103}
+        - {x: -65, y: 65}
+        - {x: -65, y: -82}
+        - {x: -27, y: -110}
+        - {x: 48, y: -110}
+        - {x: 48, y: 104}
+        - {x: 27, y: 112}
+    - name: StarPillar_10
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1280
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -14, y: 112}
+        - {x: -47, y: 105}
+        - {x: -48, y: 102}
+        - {x: -65, y: 66}
+        - {x: -65, y: -86}
+        - {x: -36, y: -110}
+        - {x: -2, y: -110}
+        - {x: 34, y: -103}
+        - {x: 48, y: -83}
+        - {x: 48, y: 89}
+        - {x: 12, y: 112}
+    - name: StarPillar_11
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 1280
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -14, y: 112}
+        - {x: -47, y: 105}
+        - {x: -48, y: 102}
+        - {x: -65, y: 67}
+        - {x: -65, y: -83}
+        - {x: -31, y: -110}
+        - {x: -10, y: -110}
+        - {x: 30, y: -105}
+        - {x: 48, y: -71}
+        - {x: 48, y: 84}
+        - {x: 12, y: 112}
+    - name: StarPillar_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1024
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -61, y: 112}
+        - {x: -65, y: 77}
+        - {x: -65, y: -97}
+        - {x: -32, y: -110}
+        - {x: -16, y: -110}
+        - {x: 33, y: -102}
+        - {x: 48, y: -67}
+        - {x: 48, y: 84}
+        - {x: 14, y: 112}
+    - name: StarPillar_13
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 1024
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -43, y: 112}
+        - {x: -57, y: 110}
+        - {x: -65, y: 64}
+        - {x: -65, y: -91}
+        - {x: -40, y: -111}
+        - {x: 4, y: -111}
+        - {x: 34, y: -103}
+        - {x: 48, y: -68}
+        - {x: 48, y: 84}
+        - {x: 15, y: 112}
+    - name: StarPillar_14
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1024
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -40, y: 112}
+        - {x: -65, y: 96}
+        - {x: -65, y: -63}
+        - {x: -62, y: -65}
+        - {x: -60, y: -65}
+        - {x: -62, y: -65}
+        - {x: -65, y: -67}
+        - {x: -65, y: -106}
+        - {x: -41, y: -111}
+        - {x: 48, y: -111}
+        - {x: 48, y: 109}
+        - {x: 46, y: 112}
+    - name: StarPillar_15
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 1024
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 3, y: 112}
+        - {x: -47, y: 105}
+        - {x: -48, y: 102}
+        - {x: -65, y: 64}
+        - {x: -65, y: -88}
+        - {x: -31, y: -111}
+        - {x: -10, y: -111}
+        - {x: 30, y: -106}
+        - {x: 48, y: -68}
+        - {x: 48, y: 94}
+        - {x: 44, y: 112}
+    - name: StarPillar_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -14, y: 112}
+        - {x: -52, y: 103}
+        - {x: -65, y: 71}
+        - {x: -65, y: -84}
+        - {x: -40, y: -111}
+        - {x: 44, y: -111}
+        - {x: 48, y: -79}
+        - {x: 48, y: 101}
+        - {x: 25, y: 112}
+    - name: StarPillar_17
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 0, y: 112}
+        - {x: -49, y: 108}
+        - {x: -65, y: 65}
+        - {x: -65, y: -85}
+        - {x: -39, y: -112}
+        - {x: 23, y: -112}
+        - {x: 33, y: -110}
+        - {x: 48, y: -92}
+        - {x: 48, y: 105}
+        - {x: 47, y: 112}
+    - name: StarPillar_18
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 21, y: 112}
+        - {x: -21, y: 112}
+        - {x: -51, y: 103}
+        - {x: -65, y: 67}
+        - {x: -65, y: -85}
+        - {x: -32, y: -112}
+        - {x: 45, y: -112}
+        - {x: 48, y: -82}
+        - {x: 48, y: 97}
+    - name: StarPillar_19
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -15, y: 112}
+        - {x: -51, y: 104}
+        - {x: -65, y: 69}
+        - {x: -65, y: -86}
+        - {x: -29, y: -112}
+        - {x: 48, y: -112}
+        - {x: 48, y: 99}
+        - {x: 16, y: 112}
+    - name: StarPillar_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -59, y: 112}
+        - {x: -65, y: 65}
+        - {x: -65, y: -96}
+        - {x: -33, y: -112}
+        - {x: -14, y: -112}
+        - {x: 33, y: -103}
+        - {x: 48, y: -68}
+        - {x: 48, y: 84}
+        - {x: 15, y: 112}
+    - name: StarPillar_21
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 15, y: 112}
+        - {x: 2, y: 112}
+        - {x: -48, y: 106}
+        - {x: -65, y: 68}
+        - {x: -65, y: -88}
+        - {x: -38, y: -112}
+        - {x: 12, y: -112}
+        - {x: 31, y: -108}
+        - {x: 48, y: -68}
+        - {x: 48, y: 88}
+        - {x: 42, y: 110}
+    - name: StarPillar_22
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -11, y: 112}
+        - {x: -47, y: 105}
+        - {x: -48, y: 102}
+        - {x: -65, y: 67}
+        - {x: -65, y: -96}
+        - {x: -52, y: -113}
+        - {x: 22, y: -113}
+        - {x: 48, y: -94}
+        - {x: 48, y: 90}
+        - {x: 11, y: 112}
+    - name: StarPillar_23
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -64, y: 112}
+        - {x: -65, y: 100}
+        - {x: -65, y: -100}
+        - {x: -34, y: -113}
+        - {x: -15, y: -113}
+        - {x: 30, y: -108}
+        - {x: 48, y: -79}
+        - {x: 48, y: 88}
+        - {x: 16, y: 112}
+    - name: StarPillar_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 42, y: -40}
+        - {x: 44, y: -40}
+        - {x: 48, y: -36}
+        - {x: 48, y: 84}
+        - {x: 20, y: 112}
+        - {x: -15, y: 112}
+        - {x: -52, y: 103}
+        - {x: -65, y: 67}
+        - {x: -65, y: -86}
+        - {x: -38, y: -113}
+        - {x: 24, y: -113}
+        - {x: 48, y: -94}
+        - {x: 48, y: -43}
+        - {x: 45, y: -40}
+    - name: StarPillar_25
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -59, y: 112}
+        - {x: -65, y: 70}
+        - {x: -65, y: -100}
+        - {x: -49, y: -108}
+        - {x: 5, y: -108}
+        - {x: 33, y: -100}
+        - {x: 48, y: -77}
+        - {x: 48, y: 89}
+        - {x: 16, y: 112}
+    - name: StarPillar_26
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -9, y: 112}
+        - {x: -48, y: 107}
+        - {x: -65, y: 73}
+        - {x: -65, y: -95}
+        - {x: -53, y: -108}
+        - {x: 20, y: -108}
+        - {x: 48, y: -90}
+        - {x: 48, y: 86}
+        - {x: 16, y: 112}
+    - name: StarPillar_27
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -65, y: 112}
+        - {x: -65, y: -92}
+        - {x: -37, y: -108}
+        - {x: -5, y: -108}
+        - {x: 35, y: -100}
+        - {x: 48, y: -64}
+        - {x: 48, y: 112}
+    - name: StarPillar_28
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 16, y: 112}
+        - {x: -65, y: 112}
+        - {x: -65, y: -104}
+        - {x: -47, y: -108}
+        - {x: 9, y: -108}
+        - {x: 30, y: -104}
+        - {x: 48, y: -69}
+        - {x: 48, y: 86}
     outline: []
   spritePackingTag: 
   userData: 

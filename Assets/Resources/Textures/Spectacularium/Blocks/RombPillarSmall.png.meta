@@ -1,9 +1,39 @@
 fileFormatVersion: 2
 guid: d04cec479f04602428f151a4f97b2055
-timeCreated: 1456259814
+timeCreated: 1456869867
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: RombPillarSmall_0
+    21300002: RombPillarSmall_1
+    21300004: RombPillarSmall_2
+    21300006: RombPillarSmall_3
+    21300008: RombPillarSmall_4
+    21300010: RombPillarSmall_5
+    21300012: RombPillarSmall_6
+    21300014: RombPillarSmall_7
+    21300016: RombPillarSmall_8
+    21300018: RombPillarSmall_9
+    21300020: RombPillarSmall_10
+    21300022: RombPillarSmall_11
+    21300024: RombPillarSmall_12
+    21300026: RombPillarSmall_13
+    21300028: RombPillarSmall_14
+    21300030: RombPillarSmall_15
+    21300032: RombPillarSmall_16
+    21300034: RombPillarSmall_17
+    21300036: RombPillarSmall_18
+    21300038: RombPillarSmall_19
+    21300040: RombPillarSmall_20
+    21300042: RombPillarSmall_21
+    21300044: RombPillarSmall_22
+    21300046: RombPillarSmall_23
+    21300048: RombPillarSmall_24
+    21300050: RombPillarSmall_25
+    21300052: RombPillarSmall_26
+    21300054: RombPillarSmall_27
+    21300056: RombPillarSmall_28
+    21300058: RombPillarSmall_29
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -30,7 +60,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     filterMode: -1
-    aniso: -1
+    aniso: 16
     mipBias: -1
     wrapMode: 1
   nPOTScale: 0
@@ -38,7 +68,7 @@ TextureImporter:
   rGBM: 0
   compressionQuality: 50
   allowsAlphaSplitting: 0
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -49,7 +79,591 @@ TextureImporter:
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    sprites: []
+    sprites:
+    - name: RombPillarSmall_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 896
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -7, y: 62}
+        - {x: -30, y: 40}
+        - {x: -30, y: -40}
+        - {x: -4, y: -62}
+        - {x: 7, y: -62}
+        - {x: 36, y: -42}
+        - {x: 36, y: 45}
+        - {x: 8, y: 62}
+    - name: RombPillarSmall_1
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 896
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -9, y: 62}
+        - {x: -30, y: 39}
+        - {x: -30, y: -40}
+        - {x: -1, y: -62}
+        - {x: 4, y: -62}
+        - {x: 13, y: -58}
+        - {x: 36, y: -41}
+        - {x: 36, y: 44}
+        - {x: 10, y: 62}
+    - name: RombPillarSmall_2
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 896
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -8, y: 62}
+        - {x: -30, y: 43}
+        - {x: -30, y: -42}
+        - {x: -4, y: -62}
+        - {x: 7, y: -62}
+        - {x: 36, y: -42}
+        - {x: 36, y: 45}
+        - {x: 8, y: 62}
+    - name: RombPillarSmall_3
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 896
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -7, y: 62}
+        - {x: -30, y: 39}
+        - {x: -30, y: -40}
+        - {x: -3, y: -62}
+        - {x: 5, y: -62}
+        - {x: 36, y: -43}
+        - {x: 36, y: 46}
+        - {x: 8, y: 62}
+    - name: RombPillarSmall_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 768
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -4, y: 62}
+        - {x: -30, y: 40}
+        - {x: -30, y: -40}
+        - {x: -3, y: -62}
+        - {x: 5, y: -62}
+        - {x: 36, y: -43}
+        - {x: 36, y: 42}
+        - {x: 8, y: 62}
+    - name: RombPillarSmall_5
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 768
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -1, y: 62}
+        - {x: -30, y: 40}
+        - {x: -30, y: -44}
+        - {x: -2, y: -62}
+        - {x: 13, y: -62}
+        - {x: 36, y: -46}
+        - {x: 36, y: 55}
+        - {x: 9, y: 62}
+    - name: RombPillarSmall_6
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 768
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -4, y: 62}
+        - {x: -30, y: 40}
+        - {x: -30, y: -42}
+        - {x: -2, y: -62}
+        - {x: 11, y: -62}
+        - {x: 36, y: -41}
+        - {x: 36, y: 42}
+        - {x: 7, y: 62}
+    - name: RombPillarSmall_7
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 768
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -2, y: 62}
+        - {x: -30, y: 40}
+        - {x: -30, y: -41}
+        - {x: 0, y: -62}
+        - {x: 5, y: -62}
+        - {x: 36, y: -40}
+        - {x: 36, y: 43}
+        - {x: 6, y: 62}
+    - name: RombPillarSmall_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 640
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 7, y: 62}
+        - {x: -3, y: 62}
+        - {x: -30, y: 42}
+        - {x: -30, y: -42}
+        - {x: 2, y: -62}
+        - {x: 8, y: -62}
+        - {x: 36, y: -42}
+        - {x: 36, y: 40}
+        - {x: 31, y: 45}
+    - name: RombPillarSmall_9
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 640
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -24, y: 62}
+        - {x: -30, y: 58}
+        - {x: -30, y: -42}
+        - {x: -28, y: -55}
+        - {x: -8, y: -62}
+        - {x: 6, y: -62}
+        - {x: 33, y: -46}
+        - {x: 36, y: -42}
+        - {x: 36, y: 45}
+        - {x: 28, y: 62}
+    - name: RombPillarSmall_10
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 640
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -4, y: 62}
+        - {x: -30, y: 40}
+        - {x: -30, y: -40}
+        - {x: -5, y: -62}
+        - {x: 6, y: -62}
+        - {x: 36, y: -43}
+        - {x: 36, y: 41}
+        - {x: 8, y: 62}
+    - name: RombPillarSmall_11
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 640
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 8, y: 62}
+        - {x: -4, y: 62}
+        - {x: -30, y: 40}
+        - {x: -30, y: -45}
+        - {x: -1, y: -62}
+        - {x: 13, y: -62}
+        - {x: 36, y: -39}
+        - {x: 36, y: 42}
+    - name: RombPillarSmall_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 512
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 0, y: 62}
+        - {x: -30, y: 45}
+        - {x: -30, y: -43}
+        - {x: 1, y: -63}
+        - {x: 8, y: -63}
+        - {x: 36, y: -40}
+        - {x: 36, y: 40}
+        - {x: 15, y: 62}
+    - name: RombPillarSmall_13
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 512
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -5, y: 62}
+        - {x: -30, y: 40}
+        - {x: -30, y: -41}
+        - {x: -5, y: -63}
+        - {x: 8, y: -63}
+        - {x: 36, y: -42}
+        - {x: 36, y: 44}
+        - {x: 8, y: 62}
+    - name: RombPillarSmall_14
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 512
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -3, y: 62}
+        - {x: -30, y: 40}
+        - {x: -30, y: -41}
+        - {x: -3, y: -63}
+        - {x: 5, y: -63}
+        - {x: 36, y: -45}
+        - {x: 36, y: 42}
+        - {x: 7, y: 62}
+    - name: RombPillarSmall_15
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 512
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -4, y: 62}
+        - {x: -30, y: 40}
+        - {x: -30, y: -41}
+        - {x: -4, y: -63}
+        - {x: 7, y: -63}
+        - {x: 36, y: -43}
+        - {x: 36, y: 43}
+        - {x: 7, y: 62}
+    - name: RombPillarSmall_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 384
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 5, y: 62}
+        - {x: -1, y: 62}
+        - {x: -30, y: 40}
+        - {x: -30, y: -43}
+        - {x: -4, y: -63}
+        - {x: 7, y: -63}
+        - {x: 36, y: -44}
+        - {x: 36, y: 38}
+        - {x: 24, y: 50}
+    - name: RombPillarSmall_17
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 384
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -5, y: 62}
+        - {x: -30, y: 40}
+        - {x: -30, y: -42}
+        - {x: -5, y: -63}
+        - {x: 6, y: -63}
+        - {x: 36, y: -45}
+        - {x: 36, y: 42}
+        - {x: 8, y: 62}
+    - name: RombPillarSmall_18
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 384
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 0, y: 62}
+        - {x: -30, y: 48}
+        - {x: -30, y: -47}
+        - {x: 0, y: -63}
+        - {x: 8, y: -63}
+        - {x: 36, y: -44}
+        - {x: 36, y: 43}
+        - {x: 15, y: 62}
+    - name: RombPillarSmall_19
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 384
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -2, y: 62}
+        - {x: -30, y: 39}
+        - {x: -30, y: -42}
+        - {x: -15, y: -64}
+        - {x: 20, y: -64}
+        - {x: 36, y: -46}
+        - {x: 36, y: 43}
+        - {x: 6, y: 62}
+    - name: RombPillarSmall_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 256
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 24, y: 50}
+        - {x: 7, y: 61}
+        - {x: 4, y: 62}
+        - {x: 0, y: 62}
+        - {x: -30, y: 41}
+        - {x: -30, y: -44}
+        - {x: 1, y: -64}
+        - {x: 3, y: -64}
+        - {x: 9, y: -61}
+        - {x: 27, y: -51}
+        - {x: 36, y: -40}
+        - {x: 36, y: 39}
+    - name: RombPillarSmall_21
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 256
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 5, y: 62}
+        - {x: -2, y: 62}
+        - {x: -30, y: 43}
+        - {x: -30, y: -45}
+        - {x: 1, y: -64}
+        - {x: 8, y: -64}
+        - {x: 36, y: -45}
+        - {x: 36, y: 43}
+        - {x: 32, y: 46}
+    - name: RombPillarSmall_22
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 256
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -2, y: 62}
+        - {x: -29, y: 56}
+        - {x: -30, y: 49}
+        - {x: -30, y: -55}
+        - {x: -17, y: -64}
+        - {x: 19, y: -64}
+        - {x: 36, y: -43}
+        - {x: 36, y: 40}
+        - {x: 11, y: 62}
+    - name: RombPillarSmall_23
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 256
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 0, y: 62}
+        - {x: -30, y: 41}
+        - {x: -30, y: -43}
+        - {x: -7, y: -64}
+        - {x: 11, y: -64}
+        - {x: 36, y: -44}
+        - {x: 36, y: 41}
+        - {x: 8, y: 62}
+    - name: RombPillarSmall_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -4, y: 62}
+        - {x: -30, y: 39}
+        - {x: -30, y: -41}
+        - {x: -4, y: -64}
+        - {x: 6, y: -64}
+        - {x: 36, y: -46}
+        - {x: 36, y: 42}
+        - {x: 8, y: 62}
+    - name: RombPillarSmall_25
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 128
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 5, y: 62}
+        - {x: -2, y: 62}
+        - {x: -30, y: 41}
+        - {x: -30, y: -45}
+        - {x: -1, y: -64}
+        - {x: 12, y: -64}
+        - {x: 36, y: -46}
+        - {x: 36, y: 41}
+        - {x: 32, y: 45}
+    - name: RombPillarSmall_26
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 128
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 0, y: 62}
+        - {x: -30, y: 45}
+        - {x: -30, y: -41}
+        - {x: -2, y: -62}
+        - {x: 7, y: -62}
+        - {x: 36, y: -44}
+        - {x: 36, y: 41}
+        - {x: 15, y: 62}
+    - name: RombPillarSmall_27
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 128
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 0, y: 62}
+        - {x: -30, y: 46}
+        - {x: -30, y: -43}
+        - {x: -2, y: -62}
+        - {x: 11, y: -62}
+        - {x: 36, y: -42}
+        - {x: 36, y: 41}
+        - {x: 15, y: 62}
+    - name: RombPillarSmall_28
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -4, y: 62}
+        - {x: -30, y: 40}
+        - {x: -30, y: -41}
+        - {x: -3, y: -62}
+        - {x: 5, y: -62}
+        - {x: 36, y: -41}
+        - {x: 36, y: 43}
+        - {x: 8, y: 62}
+    - name: RombPillarSmall_29
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 36, y: 44}
+        - {x: 8, y: 62}
+        - {x: -5, y: 62}
+        - {x: -30, y: 41}
+        - {x: -30, y: -41}
+        - {x: 2, y: -62}
+        - {x: 8, y: -62}
+        - {x: 28, y: -46}
+        - {x: 35, y: -39}
+        - {x: 36, y: -36}
     outline: []
   spritePackingTag: 
   userData: 

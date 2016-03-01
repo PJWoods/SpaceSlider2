@@ -123,7 +123,7 @@ public class Grid : MonoBehaviour
 			tile.GetComponent<BlockBase>().SetParentCell(cell);
 			tile.GetComponent<BlockBase>().SetGridIndex(new Vector2(x, y));
 			tile.GetComponent<BlockBase>().SetGrid(this);
-			cell.GetComponent<GridCell>().SetBlock(tile, true);
+			cell.GetComponent<GridCell>().SetBlock(tile, m_cellCount.X);
 			cell.GetComponent<GridCell>().SetDimensions(m_cellDimensions.x, m_cellDimensions.y);
 		}
 		cell.SetActive(true);

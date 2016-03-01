@@ -1,9 +1,39 @@
 fileFormatVersion: 2
 guid: 2ba817b1833a2174dbd3c2d6247e9420
-timeCreated: 1456259419
+timeCreated: 1456869525
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: Broken_Hex_Pillar_0
+    21300002: Broken_Hex_Pillar_1
+    21300004: Broken_Hex_Pillar_2
+    21300006: Broken_Hex_Pillar_3
+    21300008: Broken_Hex_Pillar_4
+    21300010: Broken_Hex_Pillar_5
+    21300012: Broken_Hex_Pillar_6
+    21300014: Broken_Hex_Pillar_7
+    21300016: Broken_Hex_Pillar_8
+    21300018: Broken_Hex_Pillar_9
+    21300020: Broken_Hex_Pillar_10
+    21300022: Broken_Hex_Pillar_11
+    21300024: Broken_Hex_Pillar_12
+    21300026: Broken_Hex_Pillar_13
+    21300028: Broken_Hex_Pillar_14
+    21300030: Broken_Hex_Pillar_15
+    21300032: Broken_Hex_Pillar_16
+    21300034: Broken_Hex_Pillar_17
+    21300036: Broken_Hex_Pillar_18
+    21300038: Broken_Hex_Pillar_19
+    21300040: Broken_Hex_Pillar_20
+    21300042: Broken_Hex_Pillar_21
+    21300044: Broken_Hex_Pillar_22
+    21300046: Broken_Hex_Pillar_23
+    21300048: Broken_Hex_Pillar_24
+    21300050: Broken_Hex_Pillar_25
+    21300052: Broken_Hex_Pillar_26
+    21300054: Broken_Hex_Pillar_27
+    21300056: Broken_Hex_Pillar_28
+    21300058: Broken_Hex_Pillar_29
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -30,7 +60,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     filterMode: -1
-    aniso: -1
+    aniso: 16
     mipBias: -1
     wrapMode: 1
   nPOTScale: 0
@@ -38,7 +68,7 @@ TextureImporter:
   rGBM: 0
   compressionQuality: 50
   allowsAlphaSplitting: 0
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -49,7 +79,601 @@ TextureImporter:
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    sprites: []
+    sprites:
+    - name: Broken_Hex_Pillar_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1792
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -26, y: 110}
+        - {x: -44, y: 82}
+        - {x: -44, y: -65}
+        - {x: -33, y: -90}
+        - {x: 62, y: -90}
+        - {x: 62, y: 79}
+        - {x: 22, y: 110}
+    - name: Broken_Hex_Pillar_1
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 1792
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 62, y: -49}
+        - {x: 62, y: 96}
+        - {x: 61, y: 110}
+        - {x: -43, y: 110}
+        - {x: -44, y: 82}
+        - {x: -44, y: -81}
+        - {x: -39, y: -90}
+        - {x: 62, y: -90}
+        - {x: 62, y: -49}
+        - {x: 60, y: -49}
+    - name: Broken_Hex_Pillar_2
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1792
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -44, y: 63}
+        - {x: -44, y: -90}
+        - {x: 62, y: -90}
+        - {x: 62, y: 90}
+        - {x: 59, y: 101}
+        - {x: 23, y: 110}
+        - {x: -14, y: 110}
+        - {x: -41, y: 99}
+    - name: Broken_Hex_Pillar_3
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 1792
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 52, y: -85}
+        - {x: 54, y: -86}
+        - {x: 62, y: -81}
+        - {x: 62, y: 75}
+        - {x: 59, y: 98}
+        - {x: 33, y: 110}
+        - {x: -22, y: 110}
+        - {x: -44, y: 82}
+        - {x: -44, y: -77}
+        - {x: -29, y: -93}
+        - {x: 49, y: -93}
+        - {x: 55, y: -92}
+        - {x: 49, y: -83}
+        - {x: 47, y: -81}
+    - name: Broken_Hex_Pillar_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1536
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 110}
+        - {x: -44, y: 80}
+        - {x: -44, y: -68}
+        - {x: -29, y: -82}
+        - {x: -7, y: -90}
+        - {x: 62, y: -90}
+        - {x: 62, y: 102}
+        - {x: 41, y: 110}
+    - name: Broken_Hex_Pillar_5
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 1536
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -40, y: 110}
+        - {x: -44, y: 101}
+        - {x: -44, y: -83}
+        - {x: -26, y: -91}
+        - {x: 62, y: -91}
+        - {x: 62, y: 102}
+        - {x: 61, y: 110}
+      - - {x: 6, y: -45}
+        - {x: 9, y: -48}
+        - {x: 12, y: -47}
+        - {x: 12, y: -45}
+        - {x: 9, y: -42}
+        - {x: 7, y: -42}
+    - name: Broken_Hex_Pillar_6
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1536
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 1, y: 110}
+        - {x: -13, y: 110}
+        - {x: -44, y: 103}
+        - {x: -44, y: -81}
+        - {x: -28, y: -84}
+        - {x: 9, y: -91}
+        - {x: 33, y: -91}
+        - {x: 55, y: -88}
+        - {x: 62, y: -71}
+        - {x: 62, y: 74}
+        - {x: 43, y: 99}
+    - name: Broken_Hex_Pillar_7
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 1536
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -44, y: 110}
+        - {x: -44, y: -91}
+        - {x: 62, y: -91}
+        - {x: 62, y: 91}
+        - {x: 49, y: 110}
+    - name: Broken_Hex_Pillar_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1280
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -31, y: 110}
+        - {x: -44, y: 101}
+        - {x: -44, y: -84}
+        - {x: -29, y: -91}
+        - {x: 52, y: -91}
+        - {x: 62, y: -85}
+        - {x: 62, y: 77}
+        - {x: 23, y: 110}
+    - name: Broken_Hex_Pillar_9
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 1280
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 3, y: 110}
+        - {x: -11, y: 110}
+        - {x: -29, y: 101}
+        - {x: -44, y: 70}
+        - {x: -44, y: -84}
+        - {x: -27, y: -92}
+        - {x: 62, y: -92}
+        - {x: 62, y: 88}
+        - {x: 44, y: 99}
+    - name: Broken_Hex_Pillar_10
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1280
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 38, y: 110}
+        - {x: -43, y: 110}
+        - {x: -44, y: 109}
+        - {x: -44, y: -76}
+        - {x: -41, y: -92}
+        - {x: 62, y: -92}
+        - {x: 62, y: 81}
+        - {x: 50, y: 109}
+    - name: Broken_Hex_Pillar_11
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 1280
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -29, y: 110}
+        - {x: -43, y: 98}
+        - {x: -44, y: 90}
+        - {x: -44, y: -80}
+        - {x: -17, y: -92}
+        - {x: 49, y: -92}
+        - {x: 62, y: -84}
+        - {x: 62, y: 79}
+        - {x: 28, y: 110}
+    - name: Broken_Hex_Pillar_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1024
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -44, y: 110}
+        - {x: -44, y: -86}
+        - {x: -34, y: -92}
+        - {x: 52, y: -92}
+        - {x: 62, y: -83}
+        - {x: 62, y: 74}
+        - {x: 52, y: 110}
+    - name: Broken_Hex_Pillar_13
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 1024
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 22, y: 110}
+        - {x: -18, y: 110}
+        - {x: -41, y: 96}
+        - {x: -44, y: 81}
+        - {x: -44, y: -71}
+        - {x: -38, y: -92}
+        - {x: 62, y: -92}
+        - {x: 62, y: 76}
+        - {x: 45, y: 100}
+    - name: Broken_Hex_Pillar_14
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1024
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -44, y: -83}
+        - {x: -22, y: -93}
+        - {x: 53, y: -93}
+        - {x: 62, y: -88}
+        - {x: 62, y: 82}
+        - {x: 57, y: 110}
+        - {x: -19, y: 110}
+        - {x: -44, y: 75}
+    - name: Broken_Hex_Pillar_15
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 1024
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -44, y: 57}
+        - {x: -44, y: -91}
+        - {x: -39, y: -93}
+        - {x: 62, y: -93}
+        - {x: 62, y: 69}
+        - {x: 59, y: 99}
+        - {x: 24, y: 110}
+        - {x: -24, y: 110}
+        - {x: -35, y: 107}
+    - name: Broken_Hex_Pillar_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -24, y: 110}
+        - {x: -33, y: 105}
+        - {x: -44, y: 57}
+        - {x: -44, y: -78}
+        - {x: -36, y: -93}
+        - {x: 62, y: -93}
+        - {x: 62, y: 81}
+        - {x: 21, y: 110}
+    - name: Broken_Hex_Pillar_17
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 110}
+        - {x: -44, y: 79}
+        - {x: -44, y: -71}
+        - {x: -27, y: -86}
+        - {x: -14, y: -85}
+        - {x: 9, y: -93}
+        - {x: 35, y: -93}
+        - {x: 54, y: -89}
+        - {x: 62, y: -85}
+        - {x: 62, y: 101}
+        - {x: 37, y: 110}
+    - name: Broken_Hex_Pillar_18
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 110}
+        - {x: -44, y: 80}
+        - {x: -44, y: -77}
+        - {x: -19, y: -94}
+        - {x: 13, y: -91}
+        - {x: 13, y: -84}
+        - {x: 13, y: -86}
+        - {x: 20, y: -94}
+        - {x: 26, y: -94}
+        - {x: 54, y: -90}
+        - {x: 62, y: -86}
+        - {x: 62, y: 98}
+        - {x: 60, y: 110}
+    - name: Broken_Hex_Pillar_19
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -25, y: 110}
+        - {x: -44, y: 82}
+        - {x: -44, y: -73}
+        - {x: -33, y: -94}
+        - {x: 62, y: -94}
+        - {x: 62, y: 80}
+        - {x: 21, y: 110}
+    - name: Broken_Hex_Pillar_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 23, y: 110}
+        - {x: -28, y: 110}
+        - {x: -44, y: 84}
+        - {x: -44, y: -75}
+        - {x: -28, y: -93}
+        - {x: -12, y: -94}
+        - {x: 34, y: -94}
+        - {x: 58, y: -87}
+        - {x: 62, y: -74}
+        - {x: 62, y: 78}
+    - name: Broken_Hex_Pillar_21
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -25, y: 110}
+        - {x: -32, y: 104}
+        - {x: -44, y: 57}
+        - {x: -44, y: -82}
+        - {x: -36, y: -94}
+        - {x: 27, y: -94}
+        - {x: 54, y: -90}
+        - {x: 62, y: -72}
+        - {x: 62, y: 79}
+        - {x: 27, y: 110}
+    - name: Broken_Hex_Pillar_22
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -41, y: 110}
+        - {x: -44, y: 105}
+        - {x: -44, y: -84}
+        - {x: -42, y: -94}
+        - {x: 62, y: -94}
+        - {x: 62, y: 110}
+    - name: Broken_Hex_Pillar_23
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -44, y: 110}
+        - {x: -44, y: -86}
+        - {x: -10, y: -87}
+        - {x: 13, y: -94}
+        - {x: 62, y: -94}
+        - {x: 62, y: 99}
+        - {x: 54, y: 110}
+    - name: Broken_Hex_Pillar_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 22, y: 110}
+        - {x: -25, y: 110}
+        - {x: -44, y: 92}
+        - {x: -44, y: -77}
+        - {x: -40, y: -95}
+        - {x: 62, y: -95}
+        - {x: 62, y: 84}
+        - {x: 43, y: 99}
+    - name: Broken_Hex_Pillar_25
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 60, y: 98}
+        - {x: 37, y: 110}
+        - {x: -19, y: 110}
+        - {x: -44, y: 80}
+        - {x: -44, y: -74}
+        - {x: -27, y: -86}
+        - {x: -18, y: -83}
+        - {x: -6, y: -78}
+        - {x: 20, y: -95}
+        - {x: 26, y: -95}
+        - {x: 54, y: -90}
+        - {x: 62, y: -84}
+        - {x: 62, y: 72}
+    - name: Broken_Hex_Pillar_26
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -27, y: 110}
+        - {x: -44, y: 83}
+        - {x: -44, y: -81}
+        - {x: -15, y: -95}
+        - {x: 51, y: -95}
+        - {x: 62, y: -89}
+        - {x: 62, y: 78}
+        - {x: 23, y: 110}
+    - name: Broken_Hex_Pillar_27
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -44, y: 110}
+        - {x: -44, y: -94}
+        - {x: -41, y: -95}
+        - {x: 51, y: -95}
+        - {x: 62, y: -84}
+        - {x: 62, y: 77}
+        - {x: 52, y: 110}
+    - name: Broken_Hex_Pillar_28
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -24, y: 110}
+        - {x: -44, y: 81}
+        - {x: -44, y: -72}
+        - {x: -29, y: -94}
+        - {x: -20, y: -95}
+        - {x: 62, y: -95}
+        - {x: 62, y: 81}
+        - {x: 21, y: 110}
+    - name: Broken_Hex_Pillar_29
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -44, y: 110}
+        - {x: -44, y: -85}
+        - {x: 62, y: -85}
+        - {x: 62, y: 77}
+        - {x: 52, y: 110}
     outline: []
   spritePackingTag: 
   userData: 

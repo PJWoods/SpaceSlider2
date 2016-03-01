@@ -13,13 +13,22 @@ public class GridCell : MonoBehaviour
 		m_currentBlock = null;
 	}
 		
-	public void SetBlock(GameObject block, bool setBlockPosAndScale = false) 
+	public void SetBlock(GameObject block, int xCountCells = 0) 
 	{ 
 		m_currentBlock = block;
-		if(setBlockPosAndScale)
+		if(xCountCells > 0)
 		{
 			m_currentBlock.transform.position = transform.position;	
-			m_currentBlock.transform.localScale = transform.localScale;
+
+			Sprite s = m_currentBlock.GetComponent<SpriteRenderer>().sprite;
+			float windowHeight = Camera.main.orthographicSize * 2f;
+			float windowWidth = windowHeight / Screen.height * Screen.width;
+
+			float spriteHeight = s.bounds.size.y;
+			float spriteWidth = s.bounds.size.x;
+
+			float scale = (windowWidth / spriteWidth) / xCountCells;
+			m_currentBlock.transform.localScale = new Vector2(scale, scale);
 		}
 	}
 

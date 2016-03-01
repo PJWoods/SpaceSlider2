@@ -1,9 +1,59 @@
 fileFormatVersion: 2
 guid: bee9a43cd18bab243afc7528b945a165
-timeCreated: 1456259772
+timeCreated: 1456869968
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: teleport_yellow_0
+    21300002: teleport_yellow_1
+    21300004: teleport_yellow_2
+    21300006: teleport_yellow_3
+    21300008: teleport_yellow_4
+    21300010: teleport_yellow_5
+    21300012: teleport_yellow_6
+    21300014: teleport_yellow_7
+    21300016: teleport_yellow_8
+    21300018: teleport_yellow_9
+    21300020: teleport_yellow_10
+    21300022: teleport_yellow_11
+    21300024: teleport_yellow_12
+    21300026: teleport_yellow_13
+    21300028: teleport_yellow_14
+    21300030: teleport_yellow_15
+    21300032: teleport_yellow_16
+    21300034: teleport_yellow_17
+    21300036: teleport_yellow_18
+    21300038: teleport_yellow_19
+    21300040: teleport_yellow_20
+    21300042: teleport_yellow_21
+    21300044: teleport_yellow_22
+    21300046: teleport_yellow_23
+    21300048: teleport_yellow_24
+    21300050: teleport_yellow_25
+    21300052: teleport_yellow_26
+    21300054: teleport_yellow_27
+    21300056: teleport_yellow_28
+    21300058: teleport_yellow_29
+    21300060: teleport_yellow_30
+    21300062: teleport_yellow_31
+    21300064: teleport_yellow_32
+    21300066: teleport_yellow_33
+    21300068: teleport_yellow_34
+    21300070: teleport_yellow_35
+    21300072: teleport_yellow_36
+    21300074: teleport_yellow_37
+    21300076: teleport_yellow_38
+    21300078: teleport_yellow_39
+    21300080: teleport_yellow_40
+    21300082: teleport_yellow_41
+    21300084: teleport_yellow_42
+    21300086: teleport_yellow_43
+    21300088: teleport_yellow_44
+    21300090: teleport_yellow_45
+    21300092: teleport_yellow_46
+    21300094: teleport_yellow_47
+    21300096: teleport_yellow_48
+    21300098: teleport_yellow_49
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -30,7 +80,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     filterMode: -1
-    aniso: -1
+    aniso: 16
     mipBias: -1
     wrapMode: 1
   nPOTScale: 0
@@ -38,7 +88,7 @@ TextureImporter:
   rGBM: 0
   compressionQuality: 50
   allowsAlphaSplitting: 0
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -49,7 +99,1538 @@ TextureImporter:
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    sprites: []
+    sprites:
+    - name: teleport_yellow_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1792
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 128, y: 15}
+        - {x: 113, y: 47}
+        - {x: 98, y: 85}
+        - {x: 93, y: 94}
+        - {x: 20, y: 125}
+        - {x: 12, y: 128}
+        - {x: -15, y: 128}
+        - {x: -95, y: 93}
+        - {x: -128, y: 24}
+        - {x: -128, y: -12}
+        - {x: -125, y: -19}
+        - {x: -101, y: -82}
+        - {x: -92, y: -94}
+        - {x: -47, y: -113}
+        - {x: -18, y: -128}
+        - {x: 20, y: -128}
+        - {x: 48, y: -113}
+        - {x: 96, y: -94}
+        - {x: 128, y: -9}
+    - name: teleport_yellow_1
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 1792
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 128, y: 10}
+        - {x: 96, y: 98}
+        - {x: 17, y: 128}
+        - {x: -10, y: 128}
+        - {x: -47, y: 114}
+        - {x: -95, y: 93}
+        - {x: -115, y: 47}
+        - {x: -128, y: 17}
+        - {x: -128, y: -6}
+        - {x: -125, y: -19}
+        - {x: -101, y: -82}
+        - {x: -92, y: -94}
+        - {x: -47, y: -113}
+        - {x: -18, y: -128}
+        - {x: 20, y: -128}
+        - {x: 48, y: -113}
+        - {x: 96, y: -94}
+        - {x: 128, y: -20}
+    - name: teleport_yellow_2
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1792
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 128, y: -23}
+        - {x: 128, y: 12}
+        - {x: 96, y: 98}
+        - {x: 18, y: 128}
+        - {x: -10, y: 128}
+        - {x: -47, y: 114}
+        - {x: -95, y: 93}
+        - {x: -115, y: 47}
+        - {x: -128, y: 17}
+        - {x: -128, y: -6}
+        - {x: -125, y: -19}
+        - {x: -101, y: -82}
+        - {x: -94, y: -98}
+        - {x: -35, y: -119}
+        - {x: -10, y: -128}
+        - {x: 13, y: -128}
+        - {x: 38, y: -117}
+        - {x: 98, y: -95}
+        - {x: 117, y: -47}
+    - name: teleport_yellow_3
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 1792
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 128, y: -17}
+        - {x: 128, y: 6}
+        - {x: 96, y: 100}
+        - {x: 41, y: 118}
+        - {x: 16, y: 128}
+        - {x: -21, y: 128}
+        - {x: -96, y: 94}
+        - {x: -128, y: 16}
+        - {x: -128, y: -8}
+        - {x: -125, y: -19}
+        - {x: -101, y: -82}
+        - {x: -92, y: -93}
+        - {x: -47, y: -113}
+        - {x: -36, y: -112}
+        - {x: -13, y: -127}
+        - {x: -8, y: -128}
+        - {x: 8, y: -128}
+        - {x: 15, y: -125}
+        - {x: 38, y: -117}
+        - {x: 100, y: -98}
+    - name: teleport_yellow_4
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1792
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 128, y: -16}
+        - {x: 128, y: 21}
+        - {x: 96, y: 99}
+        - {x: 50, y: 115}
+        - {x: 13, y: 128}
+        - {x: -16, y: 128}
+        - {x: -95, y: 93}
+        - {x: -128, y: 17}
+        - {x: -128, y: -6}
+        - {x: -125, y: -19}
+        - {x: -101, y: -82}
+        - {x: -92, y: -93}
+        - {x: -47, y: -113}
+        - {x: -36, y: -112}
+        - {x: -13, y: -127}
+        - {x: -8, y: -128}
+        - {x: 11, y: -128}
+        - {x: 17, y: -126}
+        - {x: 100, y: -97}
+        - {x: 118, y: -47}
+    - name: teleport_yellow_5
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 1792
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 128, y: 8}
+        - {x: 95, y: 98}
+        - {x: 48, y: 111}
+        - {x: 15, y: 128}
+        - {x: -10, y: 128}
+        - {x: -47, y: 114}
+        - {x: -95, y: 93}
+        - {x: -115, y: 47}
+        - {x: -128, y: 17}
+        - {x: -128, y: -13}
+        - {x: -127, y: -21}
+        - {x: -95, y: -98}
+        - {x: -36, y: -118}
+        - {x: -13, y: -128}
+        - {x: 20, y: -128}
+        - {x: 100, y: -97}
+        - {x: 115, y: -46}
+        - {x: 128, y: -11}
+    - name: teleport_yellow_6
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1792
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 128, y: 8}
+        - {x: 126, y: 19}
+        - {x: 96, y: 100}
+        - {x: 21, y: 128}
+        - {x: -14, y: 128}
+        - {x: -96, y: 94}
+        - {x: -128, y: 17}
+        - {x: -128, y: -6}
+        - {x: -125, y: -19}
+        - {x: -101, y: -82}
+        - {x: -92, y: -93}
+        - {x: -47, y: -113}
+        - {x: -36, y: -112}
+        - {x: -13, y: -127}
+        - {x: -9, y: -128}
+        - {x: 11, y: -128}
+        - {x: 100, y: -98}
+        - {x: 117, y: -52}
+        - {x: 128, y: -15}
+    - name: teleport_yellow_7
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 1792
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 128, y: 18}
+        - {x: 116, y: 48}
+        - {x: 94, y: 97}
+        - {x: 48, y: 111}
+        - {x: 16, y: 128}
+        - {x: -13, y: 128}
+        - {x: -97, y: 95}
+        - {x: -128, y: 17}
+        - {x: -128, y: -8}
+        - {x: -125, y: -19}
+        - {x: -101, y: -82}
+        - {x: -92, y: -93}
+        - {x: -47, y: -113}
+        - {x: -36, y: -112}
+        - {x: -13, y: -127}
+        - {x: -8, y: -128}
+        - {x: 10, y: -128}
+        - {x: 17, y: -126}
+        - {x: 95, y: -98}
+        - {x: 128, y: -10}
+    - name: teleport_yellow_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1536
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 128, y: -17}
+        - {x: 128, y: 8}
+        - {x: 124, y: 22}
+        - {x: 98, y: 85}
+        - {x: 93, y: 95}
+        - {x: 17, y: 128}
+        - {x: -13, y: 128}
+        - {x: -97, y: 95}
+        - {x: -128, y: 17}
+        - {x: -128, y: -8}
+        - {x: -125, y: -19}
+        - {x: -101, y: -82}
+        - {x: -92, y: -94}
+        - {x: -47, y: -113}
+        - {x: -18, y: -128}
+        - {x: 20, y: -128}
+        - {x: 48, y: -113}
+        - {x: 93, y: -95}
+        - {x: 100, y: -81}
+    - name: teleport_yellow_9
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 1536
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 128, y: 7}
+        - {x: 123, y: 21}
+        - {x: 114, y: 47}
+        - {x: 94, y: 96}
+        - {x: 51, y: 116}
+        - {x: 18, y: 128}
+        - {x: -20, y: 128}
+        - {x: -48, y: 115}
+        - {x: -96, y: 99}
+        - {x: -128, y: 14}
+        - {x: -128, y: -7}
+        - {x: -125, y: -19}
+        - {x: -101, y: -82}
+        - {x: -92, y: -94}
+        - {x: -51, y: -112}
+        - {x: -18, y: -128}
+        - {x: 21, y: -128}
+        - {x: 54, y: -110}
+        - {x: 95, y: -98}
+        - {x: 128, y: -19}
+    - name: teleport_yellow_10
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1536
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 115, y: -46}
+        - {x: 128, y: -11}
+        - {x: 128, y: 18}
+        - {x: 94, y: 96}
+        - {x: 58, y: 111}
+        - {x: 16, y: 128}
+        - {x: -22, y: 128}
+        - {x: -49, y: 116}
+        - {x: -95, y: 93}
+        - {x: -112, y: 47}
+        - {x: -128, y: 15}
+        - {x: -128, y: -10}
+        - {x: -117, y: -49}
+        - {x: -94, y: -97}
+        - {x: -51, y: -112}
+        - {x: -18, y: -128}
+        - {x: 20, y: -128}
+        - {x: 48, y: -112}
+        - {x: 97, y: -99}
+        - {x: 102, y: -63}
+    - name: teleport_yellow_11
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 1536
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 128, y: -13}
+        - {x: 128, y: 15}
+        - {x: 112, y: 47}
+        - {x: 102, y: 57}
+        - {x: 98, y: 85}
+        - {x: 93, y: 94}
+        - {x: 41, y: 116}
+        - {x: 12, y: 128}
+        - {x: -19, y: 128}
+        - {x: -98, y: 96}
+        - {x: -128, y: 26}
+        - {x: -128, y: -18}
+        - {x: -117, y: -49}
+        - {x: -94, y: -97}
+        - {x: -51, y: -112}
+        - {x: -17, y: -128}
+        - {x: 20, y: -128}
+        - {x: 48, y: -112}
+        - {x: 97, y: -99}
+        - {x: 118, y: -47}
+    - name: teleport_yellow_12
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1536
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 128, y: -8}
+        - {x: 128, y: 17}
+        - {x: 117, y: 48}
+        - {x: 94, y: 97}
+        - {x: 13, y: 128}
+        - {x: -17, y: 128}
+        - {x: -95, y: 93}
+        - {x: -112, y: 47}
+        - {x: -128, y: 15}
+        - {x: -128, y: -6}
+        - {x: -114, y: -48}
+        - {x: -101, y: -82}
+        - {x: -92, y: -94}
+        - {x: -47, y: -112}
+        - {x: -13, y: -127}
+        - {x: -11, y: -128}
+        - {x: 11, y: -128}
+        - {x: 48, y: -112}
+        - {x: 95, y: -93}
+        - {x: 114, y: -46}
+    - name: teleport_yellow_13
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 1536
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 128, y: 7}
+        - {x: 117, y: 25}
+        - {x: 119, y: 49}
+        - {x: 95, y: 98}
+        - {x: 13, y: 128}
+        - {x: -17, y: 128}
+        - {x: -95, y: 93}
+        - {x: -127, y: 19}
+        - {x: -128, y: 18}
+        - {x: -128, y: -17}
+        - {x: -112, y: -47}
+        - {x: -101, y: -82}
+        - {x: -92, y: -94}
+        - {x: -50, y: -112}
+        - {x: -13, y: -128}
+        - {x: 10, y: -128}
+        - {x: 13, y: -127}
+        - {x: 90, y: -100}
+        - {x: 106, y: -77}
+        - {x: 128, y: -26}
+    - name: teleport_yellow_14
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1536
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 128, y: 15}
+        - {x: 98, y: 85}
+        - {x: 93, y: 95}
+        - {x: 50, y: 114}
+        - {x: 14, y: 128}
+        - {x: -20, y: 128}
+        - {x: -49, y: 116}
+        - {x: -95, y: 93}
+        - {x: -127, y: 19}
+        - {x: -128, y: 18}
+        - {x: -128, y: -17}
+        - {x: -112, y: -47}
+        - {x: -101, y: -82}
+        - {x: -92, y: -94}
+        - {x: -51, y: -113}
+        - {x: -14, y: -128}
+        - {x: 9, y: -128}
+        - {x: 71, y: -106}
+        - {x: 96, y: -94}
+        - {x: 128, y: -8}
+    - name: teleport_yellow_15
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 1536
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 128, y: -18}
+        - {x: 128, y: 5}
+        - {x: 125, y: 11}
+        - {x: 116, y: 47}
+        - {x: 94, y: 97}
+        - {x: 50, y: 114}
+        - {x: 18, y: 128}
+        - {x: -23, y: 128}
+        - {x: -97, y: 95}
+        - {x: -127, y: 19}
+        - {x: -128, y: 18}
+        - {x: -128, y: -20}
+        - {x: -101, y: -82}
+        - {x: -92, y: -94}
+        - {x: -18, y: -128}
+        - {x: 22, y: -128}
+        - {x: 71, y: -106}
+        - {x: 96, y: -94}
+        - {x: 103, y: -75}
+    - name: teleport_yellow_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1280
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 128, y: 18}
+        - {x: 116, y: 48}
+        - {x: 93, y: 95}
+        - {x: 12, y: 128}
+        - {x: -9, y: 128}
+        - {x: -22, y: 115}
+        - {x: -48, y: 114}
+        - {x: -95, y: 93}
+        - {x: -127, y: 19}
+        - {x: -128, y: 18}
+        - {x: -128, y: -17}
+        - {x: -112, y: -47}
+        - {x: -101, y: -82}
+        - {x: -92, y: -95}
+        - {x: -51, y: -113}
+        - {x: -18, y: -128}
+        - {x: 20, y: -128}
+        - {x: 38, y: -116}
+        - {x: 99, y: -96}
+        - {x: 128, y: -29}
+    - name: teleport_yellow_17
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 1280
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 128, y: -14}
+        - {x: 128, y: 12}
+        - {x: 94, y: 96}
+        - {x: 12, y: 128}
+        - {x: -17, y: 128}
+        - {x: -48, y: 114}
+        - {x: -95, y: 93}
+        - {x: -127, y: 19}
+        - {x: -128, y: 18}
+        - {x: -128, y: -17}
+        - {x: -112, y: -47}
+        - {x: -101, y: -82}
+        - {x: -92, y: -94}
+        - {x: -47, y: -113}
+        - {x: -9, y: -128}
+        - {x: 14, y: -128}
+        - {x: 48, y: -112}
+        - {x: 98, y: -95}
+        - {x: 117, y: -46}
+    - name: teleport_yellow_18
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1280
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 116, y: 48}
+        - {x: 93, y: 95}
+        - {x: 12, y: 128}
+        - {x: -9, y: 128}
+        - {x: -22, y: 115}
+        - {x: -48, y: 114}
+        - {x: -95, y: 93}
+        - {x: -127, y: 19}
+        - {x: -128, y: 18}
+        - {x: -128, y: -12}
+        - {x: -114, y: -29}
+        - {x: -112, y: -47}
+        - {x: -101, y: -82}
+        - {x: -92, y: -94}
+        - {x: -47, y: -113}
+        - {x: -9, y: -128}
+        - {x: 14, y: -128}
+        - {x: 98, y: -95}
+        - {x: 128, y: -28}
+        - {x: 128, y: 17}
+    - name: teleport_yellow_19
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 1280
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 128, y: -14}
+        - {x: 128, y: 7}
+        - {x: 127, y: 12}
+        - {x: 114, y: 47}
+        - {x: 93, y: 95}
+        - {x: 12, y: 128}
+        - {x: -17, y: 128}
+        - {x: -48, y: 114}
+        - {x: -95, y: 93}
+        - {x: -127, y: 19}
+        - {x: -128, y: 18}
+        - {x: -128, y: -17}
+        - {x: -112, y: -47}
+        - {x: -101, y: -82}
+        - {x: -91, y: -93}
+        - {x: -19, y: -128}
+        - {x: 14, y: -128}
+        - {x: 94, y: -96}
+        - {x: 114, y: -46}
+    - name: teleport_yellow_20
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1280
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 112, y: -50}
+        - {x: 128, y: -16}
+        - {x: 128, y: 8}
+        - {x: 115, y: 48}
+        - {x: 94, y: 96}
+        - {x: 12, y: 128}
+        - {x: -17, y: 128}
+        - {x: -95, y: 93}
+        - {x: -97, y: 82}
+        - {x: -128, y: 14}
+        - {x: -128, y: -8}
+        - {x: -125, y: -19}
+        - {x: -114, y: -47}
+        - {x: -100, y: -81}
+        - {x: -92, y: -94}
+        - {x: -9, y: -128}
+        - {x: 14, y: -128}
+        - {x: 48, y: -112}
+        - {x: 93, y: -95}
+        - {x: 100, y: -81}
+    - name: teleport_yellow_21
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 1280
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 128, y: -17}
+        - {x: 128, y: 8}
+        - {x: 113, y: 47}
+        - {x: 96, y: 98}
+        - {x: 42, y: 120}
+        - {x: 20, y: 128}
+        - {x: -23, y: 128}
+        - {x: -97, y: 94}
+        - {x: -113, y: 47}
+        - {x: -128, y: 25}
+        - {x: -128, y: -31}
+        - {x: -120, y: -53}
+        - {x: -101, y: -82}
+        - {x: -86, y: -98}
+        - {x: -9, y: -128}
+        - {x: 14, y: -128}
+        - {x: 48, y: -112}
+        - {x: 97, y: -100}
+        - {x: 115, y: -46}
+    - name: teleport_yellow_22
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1280
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 128, y: -17}
+        - {x: 128, y: 8}
+        - {x: 113, y: 47}
+        - {x: 95, y: 98}
+        - {x: 14, y: 128}
+        - {x: -17, y: 128}
+        - {x: -95, y: 93}
+        - {x: -96, y: 82}
+        - {x: -113, y: 47}
+        - {x: -128, y: 13}
+        - {x: -128, y: -7}
+        - {x: -125, y: -19}
+        - {x: -115, y: -48}
+        - {x: -93, y: -95}
+        - {x: -16, y: -128}
+        - {x: 30, y: -128}
+        - {x: 96, y: -99}
+        - {x: 100, y: -81}
+        - {x: 112, y: -51}
+    - name: teleport_yellow_23
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 1280
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 128, y: -21}
+        - {x: 128, y: 8}
+        - {x: 113, y: 47}
+        - {x: 95, y: 98}
+        - {x: 14, y: 128}
+        - {x: -17, y: 128}
+        - {x: -59, y: 109}
+        - {x: -97, y: 94}
+        - {x: -113, y: 47}
+        - {x: -128, y: 25}
+        - {x: -128, y: -30}
+        - {x: -121, y: -51}
+        - {x: -95, y: -97}
+        - {x: -17, y: -128}
+        - {x: 14, y: -128}
+        - {x: 48, y: -112}
+        - {x: 98, y: -100}
+        - {x: 118, y: -52}
+    - name: teleport_yellow_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1024
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 128, y: 8}
+        - {x: 125, y: 19}
+        - {x: 93, y: 95}
+        - {x: 42, y: 118}
+        - {x: 15, y: 128}
+        - {x: -20, y: 128}
+        - {x: -96, y: 94}
+        - {x: -112, y: 47}
+        - {x: -128, y: 17}
+        - {x: -128, y: -8}
+        - {x: -123, y: -21}
+        - {x: -111, y: -52}
+        - {x: -101, y: -81}
+        - {x: -86, y: -98}
+        - {x: -17, y: -128}
+        - {x: 14, y: -128}
+        - {x: 93, y: -95}
+        - {x: 111, y: -58}
+        - {x: 128, y: -16}
+    - name: teleport_yellow_25
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 1024
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 115, y: -46}
+        - {x: 128, y: -8}
+        - {x: 128, y: 15}
+        - {x: 93, y: 95}
+        - {x: 49, y: 113}
+        - {x: 12, y: 128}
+        - {x: -17, y: 128}
+        - {x: -59, y: 109}
+        - {x: -97, y: 94}
+        - {x: -128, y: 14}
+        - {x: -128, y: -7}
+        - {x: -125, y: -19}
+        - {x: -114, y: -53}
+        - {x: -95, y: -98}
+        - {x: -48, y: -116}
+        - {x: -10, y: -128}
+        - {x: 10, y: -128}
+        - {x: 13, y: -127}
+        - {x: 48, y: -113}
+        - {x: 95, y: -97}
+        - {x: 100, y: -81}
+    - name: teleport_yellow_26
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1024
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 128, y: 20}
+        - {x: 113, y: 47}
+        - {x: 102, y: 87}
+        - {x: 84, y: 100}
+        - {x: 49, y: 113}
+        - {x: 15, y: 128}
+        - {x: -22, y: 128}
+        - {x: -98, y: 95}
+        - {x: -96, y: 82}
+        - {x: -128, y: 27}
+        - {x: -128, y: -28}
+        - {x: -120, y: -51}
+        - {x: -101, y: -81}
+        - {x: -86, y: -98}
+        - {x: -54, y: -111}
+        - {x: -22, y: -128}
+        - {x: 20, y: -128}
+        - {x: 52, y: -117}
+        - {x: 97, y: -100}
+        - {x: 115, y: -46}
+        - {x: 128, y: -15}
+    - name: teleport_yellow_27
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 1024
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 128, y: 20}
+        - {x: 113, y: 47}
+        - {x: 102, y: 87}
+        - {x: 84, y: 100}
+        - {x: 49, y: 113}
+        - {x: 15, y: 128}
+        - {x: -16, y: 128}
+        - {x: -48, y: 115}
+        - {x: -95, y: 98}
+        - {x: -128, y: 13}
+        - {x: -128, y: -17}
+        - {x: -101, y: -81}
+        - {x: -86, y: -98}
+        - {x: -53, y: -111}
+        - {x: -16, y: -128}
+        - {x: 8, y: -128}
+        - {x: 15, y: -125}
+        - {x: 98, y: -100}
+        - {x: 128, y: -18}
+    - name: teleport_yellow_28
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1024
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 123, y: 17}
+        - {x: 113, y: 47}
+        - {x: 98, y: 85}
+        - {x: 93, y: 95}
+        - {x: 20, y: 128}
+        - {x: -23, y: 128}
+        - {x: -98, y: 95}
+        - {x: -115, y: 43}
+        - {x: -128, y: 11}
+        - {x: -128, y: -17}
+        - {x: -116, y: -49}
+        - {x: -100, y: -81}
+        - {x: -92, y: -94}
+        - {x: -47, y: -112}
+        - {x: -16, y: -128}
+        - {x: 8, y: -128}
+        - {x: 15, y: -125}
+        - {x: 98, y: -100}
+        - {x: 128, y: -12}
+        - {x: 128, y: 11}
+    - name: teleport_yellow_29
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 1024
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 128, y: 12}
+        - {x: 124, y: 18}
+        - {x: 96, y: 99}
+        - {x: 57, y: 106}
+        - {x: 25, y: 128}
+        - {x: -24, y: 128}
+        - {x: -52, y: 121}
+        - {x: -95, y: 97}
+        - {x: -110, y: 57}
+        - {x: -128, y: 18}
+        - {x: -128, y: -13}
+        - {x: -126, y: -19}
+        - {x: -101, y: -82}
+        - {x: -92, y: -94}
+        - {x: -46, y: -112}
+        - {x: -20, y: -128}
+        - {x: 20, y: -128}
+        - {x: 98, y: -100}
+        - {x: 102, y: -64}
+        - {x: 115, y: -46}
+        - {x: 128, y: -11}
+    - name: teleport_yellow_30
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1024
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 128, y: -14}
+        - {x: 128, y: 19}
+        - {x: 113, y: 47}
+        - {x: 95, y: 98}
+        - {x: 32, y: 128}
+        - {x: -25, y: 128}
+        - {x: -52, y: 121}
+        - {x: -63, y: 101}
+        - {x: -96, y: 98}
+        - {x: -113, y: 43}
+        - {x: -128, y: 22}
+        - {x: -128, y: -27}
+        - {x: -119, y: -52}
+        - {x: -92, y: -94}
+        - {x: -51, y: -113}
+        - {x: -18, y: -128}
+        - {x: 20, y: -128}
+        - {x: 48, y: -111}
+        - {x: 97, y: -100}
+        - {x: 115, y: -46}
+    - name: teleport_yellow_31
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 1024
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 115, y: -46}
+        - {x: 128, y: -14}
+        - {x: 128, y: 19}
+        - {x: 113, y: 47}
+        - {x: 96, y: 99}
+        - {x: 12, y: 128}
+        - {x: -13, y: 128}
+        - {x: -56, y: 107}
+        - {x: -98, y: 95}
+        - {x: -113, y: 48}
+        - {x: -128, y: 24}
+        - {x: -128, y: -27}
+        - {x: -119, y: -52}
+        - {x: -92, y: -94}
+        - {x: -51, y: -113}
+        - {x: -18, y: -128}
+        - {x: 20, y: -128}
+        - {x: 48, y: -111}
+        - {x: 97, y: -100}
+        - {x: 102, y: -63}
+    - name: teleport_yellow_32
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 128, y: -21}
+        - {x: 128, y: 19}
+        - {x: 113, y: 47}
+        - {x: 95, y: 98}
+        - {x: 32, y: 128}
+        - {x: -25, y: 128}
+        - {x: -52, y: 121}
+        - {x: -63, y: 101}
+        - {x: -97, y: 99}
+        - {x: -111, y: 55}
+        - {x: -128, y: 26}
+        - {x: -128, y: -28}
+        - {x: -120, y: -52}
+        - {x: -92, y: -94}
+        - {x: -38, y: -119}
+        - {x: -18, y: -128}
+        - {x: 20, y: -128}
+        - {x: 48, y: -111}
+        - {x: 97, y: -99}
+        - {x: 127, y: -25}
+    - name: teleport_yellow_33
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 128, y: 20}
+        - {x: 117, y: 48}
+        - {x: 95, y: 98}
+        - {x: 32, y: 128}
+        - {x: -14, y: 128}
+        - {x: -96, y: 98}
+        - {x: -116, y: 44}
+        - {x: -128, y: 14}
+        - {x: -128, y: -7}
+        - {x: -125, y: -19}
+        - {x: -113, y: -47}
+        - {x: -102, y: -82}
+        - {x: -86, y: -97}
+        - {x: -51, y: -113}
+        - {x: -15, y: -128}
+        - {x: 14, y: -128}
+        - {x: 97, y: -99}
+        - {x: 118, y: -47}
+        - {x: 128, y: -14}
+    - name: teleport_yellow_34
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 115, y: -47}
+        - {x: 128, y: -13}
+        - {x: 128, y: 20}
+        - {x: 117, y: 48}
+        - {x: 95, y: 98}
+        - {x: 28, y: 128}
+        - {x: -11, y: 128}
+        - {x: -32, y: 121}
+        - {x: -96, y: 98}
+        - {x: -128, y: 32}
+        - {x: -128, y: -26}
+        - {x: -116, y: -58}
+        - {x: -102, y: -82}
+        - {x: -87, y: -99}
+        - {x: -13, y: -128}
+        - {x: 14, y: -128}
+        - {x: 48, y: -111}
+        - {x: 97, y: -100}
+        - {x: 102, y: -63}
+    - name: teleport_yellow_35
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 128, y: 17}
+        - {x: 112, y: 47}
+        - {x: 103, y: 86}
+        - {x: 84, y: 100}
+        - {x: 12, y: 128}
+        - {x: -10, y: 128}
+        - {x: -47, y: 113}
+        - {x: -95, y: 97}
+        - {x: -97, y: 82}
+        - {x: -128, y: 28}
+        - {x: -128, y: -28}
+        - {x: -119, y: -52}
+        - {x: -100, y: -81}
+        - {x: -92, y: -94}
+        - {x: -18, y: -128}
+        - {x: 17, y: -128}
+        - {x: 48, y: -111}
+        - {x: 97, y: -100}
+        - {x: 128, y: -14}
+    - name: teleport_yellow_36
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 116, y: -47}
+        - {x: 128, y: -12}
+        - {x: 128, y: 17}
+        - {x: 113, y: 47}
+        - {x: 94, y: 96}
+        - {x: 18, y: 128}
+        - {x: -10, y: 128}
+        - {x: -47, y: 112}
+        - {x: -97, y: 99}
+        - {x: -128, y: 33}
+        - {x: -128, y: -28}
+        - {x: -119, y: -52}
+        - {x: -100, y: -81}
+        - {x: -92, y: -94}
+        - {x: -18, y: -128}
+        - {x: 17, y: -128}
+        - {x: 48, y: -111}
+        - {x: 97, y: -100}
+        - {x: 102, y: -63}
+    - name: teleport_yellow_37
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 128, y: -23}
+        - {x: 128, y: 17}
+        - {x: 95, y: 98}
+        - {x: 41, y: 116}
+        - {x: 17, y: 128}
+        - {x: -17, y: 128}
+        - {x: -95, y: 93}
+        - {x: -115, y: 44}
+        - {x: -128, y: 25}
+        - {x: -128, y: -27}
+        - {x: -117, y: -56}
+        - {x: -102, y: -82}
+        - {x: -86, y: -97}
+        - {x: -17, y: -128}
+        - {x: 14, y: -128}
+        - {x: 93, y: -95}
+        - {x: 100, y: -81}
+        - {x: 108, y: -57}
+    - name: teleport_yellow_38
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 128, y: -20}
+        - {x: 128, y: 7}
+        - {x: 123, y: 21}
+        - {x: 114, y: 47}
+        - {x: 94, y: 96}
+        - {x: 42, y: 118}
+        - {x: 14, y: 128}
+        - {x: -17, y: 128}
+        - {x: -95, y: 93}
+        - {x: -115, y: 43}
+        - {x: -128, y: 23}
+        - {x: -128, y: -26}
+        - {x: -119, y: -52}
+        - {x: -92, y: -94}
+        - {x: -55, y: -113}
+        - {x: -17, y: -128}
+        - {x: 14, y: -128}
+        - {x: 48, y: -113}
+        - {x: 99, y: -96}
+        - {x: 118, y: -48}
+    - name: teleport_yellow_39
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 128, y: -9}
+        - {x: 128, y: 10}
+        - {x: 121, y: 19}
+        - {x: 114, y: 47}
+        - {x: 94, y: 96}
+        - {x: 50, y: 115}
+        - {x: 17, y: 128}
+        - {x: -10, y: 128}
+        - {x: -47, y: 114}
+        - {x: -95, y: 93}
+        - {x: -128, y: 13}
+        - {x: -128, y: -5}
+        - {x: -124, y: -18}
+        - {x: -115, y: -48}
+        - {x: -95, y: -97}
+        - {x: -10, y: -128}
+        - {x: 10, y: -128}
+        - {x: 15, y: -125}
+        - {x: 48, y: -113}
+        - {x: 96, y: -94}
+    - name: teleport_yellow_40
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 114, y: 47}
+        - {x: 98, y: 84}
+        - {x: 93, y: 94}
+        - {x: 83, y: 95}
+        - {x: 49, y: 113}
+        - {x: 27, y: 128}
+        - {x: -28, y: 128}
+        - {x: -51, y: 122}
+        - {x: -95, y: 93}
+        - {x: -115, y: 44}
+        - {x: -128, y: 25}
+        - {x: -128, y: -26}
+        - {x: -118, y: -51}
+        - {x: -100, y: -81}
+        - {x: -92, y: -94}
+        - {x: -13, y: -127}
+        - {x: -9, y: -128}
+        - {x: 13, y: -128}
+        - {x: 101, y: -98}
+        - {x: 128, y: -9}
+        - {x: 128, y: 13}
+    - name: teleport_yellow_41
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 96, y: -94}
+        - {x: 118, y: -46}
+        - {x: 128, y: -16}
+        - {x: 128, y: 7}
+        - {x: 125, y: 19}
+        - {x: 95, y: 97}
+        - {x: 41, y: 116}
+        - {x: 26, y: 128}
+        - {x: -20, y: 128}
+        - {x: -50, y: 119}
+        - {x: -98, y: 95}
+        - {x: -128, y: 33}
+        - {x: -128, y: -31}
+        - {x: -121, y: -53}
+        - {x: -92, y: -94}
+        - {x: -13, y: -127}
+        - {x: -8, y: -128}
+        - {x: 8, y: -128}
+        - {x: 15, y: -125}
+        - {x: 38, y: -115}
+        - {x: 58, y: -107}
+    - name: teleport_yellow_42
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 96, y: -94}
+        - {x: 128, y: -16}
+        - {x: 128, y: 10}
+        - {x: 118, y: 49}
+        - {x: 94, y: 97}
+        - {x: 49, y: 113}
+        - {x: 27, y: 128}
+        - {x: -24, y: 128}
+        - {x: -51, y: 121}
+        - {x: -97, y: 99}
+        - {x: -128, y: 33}
+        - {x: -128, y: -31}
+        - {x: -121, y: -53}
+        - {x: -92, y: -94}
+        - {x: -47, y: -113}
+        - {x: -13, y: -127}
+        - {x: -8, y: -128}
+        - {x: 8, y: -128}
+        - {x: 15, y: -125}
+        - {x: 38, y: -115}
+        - {x: 58, y: -107}
+    - name: teleport_yellow_43
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 128, y: 38}
+        - {x: 124, y: 51}
+        - {x: 93, y: 94}
+        - {x: 83, y: 95}
+        - {x: 30, y: 128}
+        - {x: -24, y: 128}
+        - {x: -52, y: 120}
+        - {x: -95, y: 93}
+        - {x: -112, y: 47}
+        - {x: -113, y: 43}
+        - {x: -127, y: 13}
+        - {x: -128, y: 9}
+        - {x: -128, y: -11}
+        - {x: -116, y: -56}
+        - {x: -94, y: -97}
+        - {x: -50, y: -121}
+        - {x: -15, y: -128}
+        - {x: 27, y: -128}
+        - {x: 48, y: -113}
+        - {x: 100, y: -97}
+        - {x: 128, y: -38}
+    - name: teleport_yellow_44
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 128, y: 8}
+        - {x: 123, y: 23}
+        - {x: 114, y: 47}
+        - {x: 104, y: 86}
+        - {x: 84, y: 100}
+        - {x: 49, y: 113}
+        - {x: 27, y: 128}
+        - {x: -25, y: 128}
+        - {x: -50, y: 121}
+        - {x: -95, y: 93}
+        - {x: -115, y: 43}
+        - {x: -128, y: 16}
+        - {x: -128, y: -9}
+        - {x: -104, y: -83}
+        - {x: -92, y: -94}
+        - {x: -50, y: -121}
+        - {x: -15, y: -128}
+        - {x: 27, y: -128}
+        - {x: 48, y: -113}
+        - {x: 99, y: -96}
+        - {x: 128, y: -19}
+    - name: teleport_yellow_45
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 128, y: -18}
+        - {x: 128, y: 9}
+        - {x: 124, y: 23}
+        - {x: 95, y: 98}
+        - {x: 42, y: 118}
+        - {x: 15, y: 128}
+        - {x: -20, y: 128}
+        - {x: -96, y: 94}
+        - {x: -115, y: 43}
+        - {x: -128, y: 13}
+        - {x: -128, y: -6}
+        - {x: -125, y: -19}
+        - {x: -101, y: -82}
+        - {x: -92, y: -94}
+        - {x: -47, y: -113}
+        - {x: -9, y: -128}
+        - {x: 14, y: -128}
+        - {x: 48, y: -113}
+        - {x: 99, y: -96}
+        - {x: 116, y: -47}
+    - name: teleport_yellow_46
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 128, y: -10}
+        - {x: 128, y: 13}
+        - {x: 94, y: 96}
+        - {x: 41, y: 118}
+        - {x: 17, y: 128}
+        - {x: -10, y: 128}
+        - {x: -47, y: 114}
+        - {x: -97, y: 94}
+        - {x: -112, y: 48}
+        - {x: -128, y: 14}
+        - {x: -128, y: -20}
+        - {x: -101, y: -82}
+        - {x: -92, y: -94}
+        - {x: -47, y: -113}
+        - {x: -18, y: -128}
+        - {x: 20, y: -128}
+        - {x: 48, y: -113}
+        - {x: 99, y: -96}
+        - {x: 118, y: -48}
+    - name: teleport_yellow_47
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 128, y: -12}
+        - {x: 128, y: 14}
+        - {x: 112, y: 46}
+        - {x: 105, y: 55}
+        - {x: 98, y: 84}
+        - {x: 93, y: 94}
+        - {x: 83, y: 95}
+        - {x: 31, y: 128}
+        - {x: -28, y: 128}
+        - {x: -52, y: 121}
+        - {x: -97, y: 99}
+        - {x: -128, y: 17}
+        - {x: -128, y: -19}
+        - {x: -101, y: -82}
+        - {x: -92, y: -94}
+        - {x: -18, y: -128}
+        - {x: 20, y: -128}
+        - {x: 48, y: -113}
+        - {x: 99, y: -96}
+        - {x: 116, y: -52}
+    - name: teleport_yellow_48
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 128, y: 12}
+        - {x: 96, y: 98}
+        - {x: 41, y: 116}
+        - {x: 17, y: 128}
+        - {x: -10, y: 128}
+        - {x: -47, y: 114}
+        - {x: -81, y: 100}
+        - {x: -95, y: 93}
+        - {x: -128, y: 24}
+        - {x: -128, y: -12}
+        - {x: -125, y: -19}
+        - {x: -101, y: -82}
+        - {x: -92, y: -94}
+        - {x: -18, y: -128}
+        - {x: 20, y: -128}
+        - {x: 48, y: -113}
+        - {x: 96, y: -94}
+        - {x: 128, y: -13}
+    - name: teleport_yellow_49
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 128, y: 15}
+        - {x: 113, y: 47}
+        - {x: 98, y: 85}
+        - {x: 93, y: 94}
+        - {x: 20, y: 125}
+        - {x: 12, y: 128}
+        - {x: -15, y: 128}
+        - {x: -95, y: 93}
+        - {x: -128, y: 24}
+        - {x: -128, y: -12}
+        - {x: -125, y: -19}
+        - {x: -101, y: -82}
+        - {x: -92, y: -94}
+        - {x: -47, y: -113}
+        - {x: -18, y: -128}
+        - {x: 20, y: -128}
+        - {x: 48, y: -113}
+        - {x: 96, y: -94}
+        - {x: 128, y: -9}
     outline: []
   spritePackingTag: 
   userData: 
