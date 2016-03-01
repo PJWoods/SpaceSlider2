@@ -40,9 +40,9 @@ public class LaneChangerBlock : BlockBase
 				m_swiped = false;
 				if(m_parentCell.GetComponent<GridCell>().Inside(m_target.transform.position.x, m_target.transform.position.y))
 				{
-					if(Input.mousePosition.x < m_initialSelectionX)
+					if(Input.mousePosition.x < m_initialSelectionX - 32f)
 						m_target.GetComponent<PlayerMovement>().ChangeLane(-1); //Left
-					else
+					else if(Input.mousePosition.x > m_initialSelectionX + 32f)
 						m_target.GetComponent<PlayerMovement>().ChangeLane(1); //Right
 
 					enabled = false;
