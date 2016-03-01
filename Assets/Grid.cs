@@ -29,6 +29,10 @@ public class Grid : MonoBehaviour
 	private BlockBase m_selectedBlock;
 	private bool m_isSaved = true;
 
+	private GameObject m_paralaxFarPrefab;
+	private GameObject m_paralaxNearPrefab;
+	private List<GameObject>[] m_paralaxes;
+
 	void Awake()
 	{
 		m_cellCount = Cells;
@@ -46,6 +50,8 @@ public class Grid : MonoBehaviour
 			GameObject.Instantiate(Resources.Load("Prefabs/Blocks/SlowPowerUp"), Vector3.zero, Quaternion.identity) as GameObject,
 			GameObject.Instantiate(Resources.Load("Prefabs/Blocks/BombPowerUp"), Vector3.zero, Quaternion.identity) as GameObject,
 		};
+		m_paralaxFarPrefab = GameObject.Instantiate(Resources.Load("Prefabs/Levels/ParalaxFar"), Vector3.zero, Quaternion.identity) as GameObject;
+		m_paralaxNearPrefab = GameObject.Instantiate(Resources.Load("Prefabs/Levels/ParalaxNear"), Vector3.zero, Quaternion.identity) as GameObject;
 	}
 
 	void Start () 
@@ -86,7 +92,9 @@ public class Grid : MonoBehaviour
 				newColumn.Add(cell);
 			}
 			m_cells.Add(newColumn);
-		}		
+		}	
+
+		InitParalax();
 	}
 	private void InitCell(GameObject cell, GameObject tile, int x, int y)
 	{
@@ -120,6 +128,48 @@ public class Grid : MonoBehaviour
 		}
 		cell.SetActive(true);
 	}
+
+	private void InitParalax()
+	{
+		m_paralaxes = new List<GameObject>[2];
+
+		Sprite s = m_paralaxFarPrefab.GetComponent<SpriteRenderer>().sprite;
+		float windowHeight = Camera.main.orthographicSize * 2f;
+		float windowWidth = windowHeight / Screen.height * Screen.width;
+
+		float spriteHeight = s.bounds.size.y;
+		float spriteWidth = s.bounds.size.x;
+
+		float scale = (windowWidth / spriteWidth);
+
+		Vector3 centerPosition = Vector3.zero;
+		float centerX = (Cells.X * CellDimensions.x) * 0.5f;
+		float startX = centerPosition.x - centerX;
+		float startY = centerPosition.y;
+		int cellsPerLayer = (int)((scale * spriteWidth) / m_cellDimensions.y);
+
+		for (int y = 0; y < m_cellCount.Y; y += cellsPerLayer) 
+		{
+			Vector3 virtualPosition = new Vector3(0f, (startY + CellDimensions.y * 0.5f + (y * CellDimensions.y)), 0.3f);
+
+			GameObject far = GameObject.Instantiate(m_paralaxFarPrefab);
+			far.transform.position = virtualPosition;
+			far.transform.localScale = new Vector2(scale, scale);
+			far.SetActive(true);
+			if(m_paralaxes[0] == null)
+				m_paralaxes[0] = new List<GameObject>();
+			m_paralaxes[0].Add(far);
+
+			GameObject near = GameObject.Instantiate(m_paralaxNearPrefab);
+			near.transform.position = virtualPosition;
+			near.transform.localScale = new Vector2(scale, scale);
+			near.SetActive(true);
+			if(m_paralaxes[1] == null)
+				m_paralaxes[1] = new List<GameObject>();
+			m_paralaxes[1].Add(near);
+		}
+	}
+
 	//Builds the grid from a list of gameobject, this is made post Init()!
 	public void BuildFromData(List<List<GameObject>> list)
 	{
@@ -147,6 +197,7 @@ public class Grid : MonoBehaviour
 	void Update ()
 	{
 		if(m_cells == null) return;
+		UpdateParalax();
 
 		if(m_selectedBlock != null)
 		{
@@ -155,7 +206,17 @@ public class Grid : MonoBehaviour
 				m_selectedBlock = null;
 		}
 	}
-
+	private void UpdateParalax()
+	{
+		CameraMovement movement = Camera.main.gameObject.GetComponent<CameraMovement>();
+		for (int i = 0; i < m_paralaxes[0].Count; ++i) 
+		{
+			Vector3 stepAmountFar = m_paralaxes[0][i].transform.position + (-Vector3.up * (movement.CurrentVelocity.sqrMagnitude * 0.5f));
+			Vector3 stepAmountNear = m_paralaxes[1][i].transform.position + (-Vector3.up * (movement.CurrentVelocity.sqrMagnitude * 5f));
+			m_paralaxes[0][i].transform.position = stepAmountFar;
+			m_paralaxes[1][i].transform.position = stepAmountNear;
+		}
+	}
 	public void SetSelectedBlock(BlockBase block)
 	{
 		m_selectedBlock = block;
