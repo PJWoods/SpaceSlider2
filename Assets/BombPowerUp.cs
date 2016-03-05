@@ -10,12 +10,15 @@ public class BombPowerUp : PowerUpBlock
 	public override void Start()
 	{
 		base.Start();
+
 		m_scaleMultiplier = 1;
 		m_type = PowerUpType.Bomb;
+		m_overrideTriggerEffect = true;
 	}
 
 	protected override void Update()
 	{
+		base.Update();
 		if(m_setToExplode)
 		{
 			m_currentDuration += Time.deltaTime;

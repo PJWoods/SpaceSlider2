@@ -16,21 +16,28 @@ public class PowerUpBlock : BlockBase
 
 	protected Vector3		m_scalingSteps;
 	protected Vector3		m_targetScale;
+	protected bool			m_overrideTriggerEffect;
 
 	public virtual void Start()
 	{
+		base.Start();
+
 		m_scaleMultiplier = -1;
 		m_currentDuration = Duration;
 	}
 
 	protected new virtual void Update()
 	{
-		m_currentDuration += Time.deltaTime;
-		transform.localScale += m_scalingSteps * Time.deltaTime * m_scaleMultiplier;
-		if((m_targetScale - transform.localScale).sqrMagnitude < 0.01f)
+		base.Update();
+		if(!m_overrideTriggerEffect)
 		{
-			m_parentCell.GetComponent<GridCell>().SetBlock(null);
-			gameObject.SetActive(false);
+			m_currentDuration += Time.deltaTime;
+			transform.localScale += m_scalingSteps * Time.deltaTime * m_scaleMultiplier;
+			if((m_targetScale - transform.localScale).sqrMagnitude < 0.01f)
+			{
+				m_parentCell.GetComponent<GridCell>().SetBlock(null);
+				gameObject.SetActive(false);
+			}			
 		}
 	}
 

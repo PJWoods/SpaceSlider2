@@ -11,14 +11,15 @@ public class LaneChangerBlock : BlockBase
 	private bool m_swiped;
 	private float m_initialSelectionX;
 
-	void Start()
+	public void Start()
 	{
+		base.Start();
 		m_target =  GameObject.FindGameObjectWithTag("Player");
 
 		if(!m_target)
-			Debug.LogError("Couldnt find the object with tag Player");
+			Debug.Log("Couldnt find the object with tag Player");
 		else if(m_target.GetComponent<PlayerMovement>() == null)
-			Debug.LogError("The target need a PlayerMovement component for this script to take effect!");
+			Debug.Log("The target need a PlayerMovement component for this script to take effect!");
 	}
 
 
@@ -54,6 +55,7 @@ public class LaneChangerBlock : BlockBase
 
 	protected override void Update () 
 	{
+		base.Update();
 	}
 
 	protected override void OnMouseDown()
