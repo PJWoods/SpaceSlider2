@@ -24,13 +24,20 @@ public class BlockBase : MonoBehaviour
 	protected Vector2 		m_gridIndex;
 	protected Grid 			m_grid;
 
+	private Material 		m_material;
+	private float			m_shineLocation;
+	private float			m_shineSpeed;
+
 	void Awake ()
 	{
+		
 	}
 
 	// Use this for initialization
 	void Start () 
 	{
+		m_material = GetComponent<SpriteRenderer>().material;
+		m_shineSpeed = 0.5f;
 	}
 
 	public void SetGrid(Grid grid)
@@ -59,6 +66,15 @@ public class BlockBase : MonoBehaviour
 	// Update is called once per frame
 	protected virtual void Update () 
 	{
+		if(!m_material)
+			return;
+		
+		m_shineLocation += Time.deltaTime * m_shineSpeed;
+		if(m_shineLocation >= 2f)
+		{
+			m_shineLocation = -1f;
+		}
+		m_material.SetFloat("_ShineLocation", m_shineLocation);
 	}
 
 	protected virtual void OnMouseDown()
