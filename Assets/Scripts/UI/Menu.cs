@@ -40,7 +40,8 @@ public class Menu : MonoBehaviour
     IEnumerator YieldAnimationThenContinue(float yieldTime)
     {
         yield return new WaitForSeconds(yieldTime);
-        Game.Instance.GameState.ChangeState(new InGameState());
+
+        LevelSelectMenu menu = Game.Instance.UICore.Create<LevelSelectMenu>(Resources.Load("Prefabs/UI/LevelSelectMenu") as GameObject);
     }
 
     IEnumerator YieldAnimationThenContinueToEditor(float yieldTime)

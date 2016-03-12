@@ -22,7 +22,7 @@ public class InGameState : GameState
 
     public override void OnSceneDoneLoading()
     {
-		if(m_entryAction == ContextBase.EntryAction.EditorEntry)
+		if(m_entryAction == ContextBase.EntryAction.EditorEntry || m_entryAction == ContextBase.EntryAction.GameEntry)
 		{
 			GameObject.DestroyImmediate(Camera.main.gameObject);
 			GameObject cam = GameObject.Instantiate(Resources.Load("Prefabs/MainCameraPrefab"), Vector3.zero, Quaternion.identity) as GameObject;

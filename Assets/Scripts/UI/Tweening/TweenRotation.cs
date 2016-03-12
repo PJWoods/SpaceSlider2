@@ -15,10 +15,10 @@ public class TweenRotation : UITweener
 	public Vector3 from;
 	public Vector3 to;
 
-	Transform mTrans;
+    Transform mTrans;
 
 	public Transform cachedTransform { get { if (mTrans == null) mTrans = transform; return mTrans; } }
-	public Quaternion rotation { get { return cachedTransform.localRotation; } set { cachedTransform.localRotation = value; } }
+	public Quaternion rotation { get { return cachedTransform.rotation; } set { cachedTransform.rotation = value; } }
 
 	protected override void OnUpdate (float factor, bool isFinished)
 	{
