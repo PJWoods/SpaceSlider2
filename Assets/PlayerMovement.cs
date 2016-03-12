@@ -12,7 +12,11 @@ public class PlayerMovement : MonoBehaviour
 	private bool m_isColliding = false;
 
 	private Vector3 m_laneChangeTarget;
+	private float m_targetLaneChangeDistant;
+	private float m_currentLaneChangeDistant;
 	private bool m_changingLane = false;
+
+	private Vector3 m_velocityBeforeLaneChange;
 
 	public Grid GridRef { set { m_grid = GridRef; } get { return m_grid; } }
 	private Grid m_grid;
@@ -29,54 +33,65 @@ public class PlayerMovement : MonoBehaviour
 	{
 		if(!m_isColliding)
 		{
-			CalculatedCameraDragAndMovement();
 			if(m_changingLane)
 			{
-				Vector3 laneChangeDir = (m_laneChangeTarget - transform.position);
-				if(laneChangeDir.sqrMagnitude > 0.01f && Mathf.Abs(Mathf.Abs(m_laneChangeTarget.x) - Mathf.Abs(transform.position.x)) > 0.01f)
+				if(m_currentLaneChangeDistant <= m_targetLaneChangeDistant - 0.01f)
 				{
-					float direction = (laneChangeDir.normalized.x > 0 ? 1f : -1f);
-					m_currentVelocity.x = direction * m_currentVelocity.y * LaneChangeSpeed * Time.deltaTime;
+					m_currentLaneChangeDistant += Mathf.Abs(m_currentVelocity.x);
 				}
 				else
 				{
-					Vector3 pos = transform.position;
-					pos.x = m_laneChangeTarget.x;
-					transform.position = pos;
+					m_currentLaneChangeDistant = 0f;
+					m_currentVelocity = m_velocityBeforeLaneChange;
 					m_currentVelocity.x = 0;
 					m_changingLane = false;
 				}			
 			}
+			else
+				CalculatedCameraDragAndMovement();
 			transform.position += m_currentVelocity;			
 		}
 	}
 
 	void CalculatedCameraDragAndMovement()
 	{
+		if(!m_changingLane)
+			m_currentVelocity.x = 0f;
+
 		Vector3 camPos = m_camera.transform.position;
+		float distance = camPos.y - transform.position.y;
+		if(Mathf.Abs(distance) < MaximumDistance)
+		{
+			//float vel_diff = m_camera.GetComponent<CameraMovement>().CurrentVelocity.y - m_currentVelocity.y;
+			m_currentVelocity.y += Time.deltaTime * (distance - MaximumDistance) * Acceleration;
+			return;
+		}
 		camPos.x = transform.position.x;
 		camPos.z = transform.position.z;
 
-		float distance = Mathf.Abs(camPos.y - transform.position.y);
-		if(distance < MaximumDistance)
-		{
-			Vector3 vel_diff = m_camera.GetComponent<CameraMovement>().CurrentVelocity - m_currentVelocity;
-			m_currentVelocity += vel_diff * Time.deltaTime;
-			return;
-		}
-
 		float drag = distance / MaximumDistance;
 		Vector3 direction = (camPos - transform.position).normalized;
+		direction.x = 0f;
 		m_currentVelocity += (direction * Acceleration * Time.deltaTime) * drag * DragFactor;
 	}
 
-	public void ChangeLane(int count)
+	public void ChangeLane(Vector2 originIndex, int count)
 	{
-		Vector3 pos = transform.position;
-		pos.y += m_grid.CellDimensions.y * 0.5f;
+		if(!m_changingLane)
+			m_velocityBeforeLaneChange = m_currentVelocity;
 		
-		Vector3 cellPos = m_grid.GetWorldPositionFromIndex(m_grid.GetCellIndexFromWorldPosition(pos));
-		m_laneChangeTarget = cellPos + new Vector3(m_grid.CellDimensions.x * count, m_grid.CellDimensions.y * Mathf.Abs(count), cellPos.z);
+		Vector2 currentCellIndex = originIndex;
+		currentCellIndex.x += count; 
+
+		m_laneChangeTarget = m_grid.GetWorldPositionFromIndex(currentCellIndex);
+		m_laneChangeTarget.z = 0.3f;
+
+		m_currentLaneChangeDistant = 0f;
+		m_targetLaneChangeDistant = Mathf.Abs(m_laneChangeTarget.x - transform.position.x);
+
+		Vector3 direction = (m_laneChangeTarget - transform.position).normalized;
+		m_currentVelocity = (direction * LaneChangeSpeed) * m_grid.CellDimensions.x;
+		m_currentVelocity.y = (m_velocityBeforeLaneChange.y + Mathf.Abs(m_currentVelocity.x)) * 0.5f;
 		m_changingLane = true;
 	}
 

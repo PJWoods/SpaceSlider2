@@ -26,7 +26,7 @@ public class LaneChangerBlock : BlockBase
 	public override void OnCollision ()
 	{
 		if(m_target != null && BlockType != BlockProperty.LaneChangerSwipe)
-			m_target.GetComponent<PlayerMovement>().ChangeLane(ChangeCount);
+			m_target.GetComponent<PlayerMovement>().ChangeLane(m_gridIndex, ChangeCount);
 	}
 
 	public override void UpdateMovement()
@@ -42,9 +42,9 @@ public class LaneChangerBlock : BlockBase
 				if(m_parentCell.GetComponent<GridCell>().Inside(m_target.transform.position.x, m_target.transform.position.y))
 				{
 					if(Input.mousePosition.x < m_initialSelectionX - 32f)
-						m_target.GetComponent<PlayerMovement>().ChangeLane(-1); //Left
+						m_target.GetComponent<PlayerMovement>().ChangeLane(m_gridIndex, -1); //Left
 					else if(Input.mousePosition.x > m_initialSelectionX + 32f)
-						m_target.GetComponent<PlayerMovement>().ChangeLane(1); //Right
+						m_target.GetComponent<PlayerMovement>().ChangeLane(m_gridIndex, 1); //Right
 
 					enabled = false;
 				}			

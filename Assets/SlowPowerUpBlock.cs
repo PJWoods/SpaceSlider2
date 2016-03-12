@@ -18,6 +18,12 @@ public class SlowPowerUpBlock : PowerUpBlock
 		base.Start();
 		m_type = PowerUpType.Slow;
 
+		float windowHeight = Camera.main.orthographicSize * 2f;
+		float windowWidth = (windowHeight / Screen.height * Screen.width);
+		float targetAspect = 3f / 2f;
+		float aspect = (windowHeight / windowWidth) / targetAspect;
+		SlowAmount /= aspect;
+
 		m_targets = new List<GameObject>(2);
 		GameObject obj = GameObject.FindGameObjectWithTag("Player");
 
@@ -38,19 +44,23 @@ public class SlowPowerUpBlock : PowerUpBlock
 	protected override void Update()
 	{
 		base.Update();
-		for(int i = 0; i < m_targets.Count; ++i)
-		{
-			if(m_targets[i] != null)
+		if(m_currentDuration < FadeInTime)
+			m_currentSlowAmount += (SlowAmount / FadeInTime) * Time.deltaTime;
+		else if(m_currentDuration > FadeOutTime && m_currentDuration < Duration)
+			m_currentSlowAmount -= (SlowAmount / FadeOutTime) * Time.deltaTime;
+
+		if(m_currentSlowAmount >= 0f)
+		{	
+			for(int i = 0; i < m_targets.Count; ++i)
 			{
-				base.Update();
-
-				if(m_currentDuration < FadeInTime)
-					m_currentSlowAmount += (SlowAmount / FadeInTime) * Time.deltaTime;
-				else if(m_currentDuration < FadeOutTime)
-					m_currentSlowAmount -= (SlowAmount / FadeOutTime) * Time.deltaTime;
-
-				m_targets[i].transform.position -= ((m_targets[i].transform.position - m_lastTargetPositions[i]).normalized * m_currentSlowAmount) * Time.deltaTime;
-			}			
+				if(m_targets[i] != null)
+				{
+					Vector3 relPosition = (m_targets[i].transform.position - m_lastTargetPositions[i]);
+					Vector3 pos = (relPosition.normalized * m_currentSlowAmount) * Time.deltaTime;
+					pos.x = 0f;
+					m_targets[i].transform.position -= pos;							
+				}			
+			}
 		}
 	}
 

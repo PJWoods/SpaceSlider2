@@ -11,6 +11,12 @@ public class CameraMovement : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
+		float windowHeight = Camera.main.orthographicSize * 2f;
+		float windowWidth = (windowHeight / Screen.height * Screen.width);
+
+		float targetAspect = 3f / 2f;
+		float aspect = (windowHeight / windowWidth) / targetAspect;
+		Velocity /= aspect;
 	}
 
 	public Vector3 GetCurrentVelocity()
@@ -26,7 +32,7 @@ public class CameraMovement : MonoBehaviour {
 
 		float currentSpeed = CurrentVelocity.sqrMagnitude;
 		float targetSpeed = Velocity.sqrMagnitude;
-		if(targetSpeed - currentSpeed < 0.0001f)
+		if(targetSpeed - currentSpeed < 0.0001f || currentSpeed > targetSpeed)
 		{
 			CurrentVelocity = Velocity;
 		}
