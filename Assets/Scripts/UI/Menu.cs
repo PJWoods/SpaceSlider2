@@ -19,6 +19,11 @@ public class Menu : MonoBehaviour
     void Start ()
     {
         AnimateAnchors(true);
+
+        float height = (Screen.height / 2f) / Game.Instance.UICore.transform.localScale.y;
+        m_playButtonClicked.gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(0, height);
+        m_editorButtonClicked.gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(0, height);
+
         m_playButtonClicked.onClick.AddListener(delegate { PlayButtonClicked(); });
         m_editorButtonClicked.onClick.AddListener(delegate { EditorButtonClicked(); });
     }
